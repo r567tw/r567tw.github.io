@@ -1,3 +1,0 @@
-# Blog
-
-powered by hugo

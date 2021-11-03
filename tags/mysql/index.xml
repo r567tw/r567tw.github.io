@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mysql on Jimmy 's Code</title><link>/tags/mysql/</link><description>Recent content in mysql on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022-{year} Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sat, 29 May 2021 04:45:00 +0000</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>原來可以這麼寫(13): 其實我會一點點Ruby</title><link>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB13-%E5%85%B6%E5%AF%A6%E6%88%91%E6%9C%83%E4%B8%80%E9%BB%9E%E9%BB%9Eruby/</link><pubDate>Sat, 29 May 2021 04:45:00 +0000</pubDate><guid>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB13-%E5%85%B6%E5%AF%A6%E6%88%91%E6%9C%83%E4%B8%80%E9%BB%9E%E9%BB%9Eruby/</guid><description>都在 SQL啦，哪次不SQL 最近工作主要的部分是幫忙營運單位做資料匯出相關需求，沒有同事在說我還以為去年我應徵的是「資料工程師」呢！
+不過說真的，其實我很喜歡「資料庫」，喜歡SQL語言，所以其實我覺得做這些東西是在挑戰自己、很好玩&amp;hellip;. 更期望之後可以碰碰其他的SQL 像是PostgreSQL 啊、Oracle 之類的。
+總之我覺得藉此經驗能挑戰自己寫SQL 也很不錯，雖然有夥伴說其實你就匯出Row data 給他們就好啊，叫他們自己拉Excel 做就好&amp;hellip;. 但我就是想要幫忙他們解決問題麻😅
+真不知道如果要應徵DBA ，我這種粗粗淺淺的菜鳥經驗能不能試試？
+沒梗了，來講Ruby 簡單交代一下最近工作狀況，也紀錄自己的歷程。本來這個系列就是要來記錄的啊～
+每個月我們都有小組例會，每個月大概一個人會有這麼一回吧&amp;hellip;. 總之，我發現我有點沒梗了，所以來分享一下自己以前自學的語言：Ruby
+然後沒有想到，AWS Lambda 竟然有支援Ruby , cool ! so fun !
+雖然我有在這裏寫一篇文章Ruby 筆記，不過那都沒什麼排版，我也懶得改ＸＤ
+以下就是我之後將在例會報告的ＰＰＴ啦
+https://www.slideshare.net/ssusereb2ee2/ruby-248463972
+小君曰：其實我會一點點的Ruby啦，不知道這樣能不能應徵Ruby Engineer ? 哈</description></item><item><title>原來可以這麼寫(8): SAM 真的好好玩～</title><link>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</link><pubDate>Sun, 18 Oct 2020 13:57:59 +0000</pubDate><guid>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</guid><description>這篇文章有點廢，沒什麼技術點&amp;hellip; 純粹是拿部落格當筆記的概念。
+玩 AWS SAM 最近在玩AWS SAM CLI 部署 lambda ，真的好好玩喔，最近拿來部署好關於一些資料庫、SQS、KMS 等等的東西&amp;hellip; 以下是我花了一點時間研究好怎麼寫template.yaml &amp;hellip; 都要變成yaml 工程師拉！
+更多的Mysql 研究 另外因為某個原因，讓我最近一直在研究database lock 的問題&amp;hellip; 原來，加一個[for update]就可以達成了，真的好好玩～
+1selectpointsfromcustomersforupdate資料來源：https://oldmo860617.medium.com/transaction-%E4%BD%B5%E7%99%BC%E9%8C%AF%E8%AA%A4%E8%88%87%E9%9A%94%E9%9B%A2%E5%B1%A4%E7%B4%9A-51b8af6178ae
+https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPDATE+%E9%81%BF%E5%85%8D+Race+condition 徹底解決Composer 記憶體不夠的問題 再裝某些Composer package 時常常遇到記憶體不足的問題，後來查到一個超棒的指令
+1COMPOSER_MEMORY_LIMIT=-1 composer update 資料來源：https://medium.com/@kycd.dark/%E5%9F%B7%E8%A1%8C-composer-update-%E6%99%82%E9%81%87%E5%88%B0-composer-memory-limit-aee4f2df56ee
+小君曰：「真廢」</description></item><item><title>原來可以這麼寫(5): 原來MySQL 博大精深</title><link>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB5-%E5%8E%9F%E4%BE%86mysql-%E5%8D%9A%E5%A4%A7%E7%B2%BE%E6%B7%B1/</link><pubDate>Sun, 26 Jul 2020 06:34:37 +0000</pubDate><guid>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB5-%E5%8E%9F%E4%BE%86mysql-%E5%8D%9A%E5%A4%A7%E7%B2%BE%E6%B7%B1/</guid><description>最近工作接下交易與金流的部分，開始將自己最近火燙燙學習的 Nodejs 來拿去試試水溫。不過，被callback 弄的昏頭轉向的&amp;hellip;. 所幸，最後藉著文件與冷靜，慢慢的下斷點、看結果，參考之前前人寫的code , 才慢慢走出來，甚至處理到進度似乎發展還不錯。
+MySQL 的 insert 新寫法 因為專案需求，我雖然接下這個舊專案，但是要開發新功能，於是，我覺得可以趁此改善專案架構與程式碼品質，原本程式碼的SQL 是用那種字串方式連結的，但我知道這樣會有SQL injection 的問題，所以在新功能＆參考舊程式碼的過程當中，也慢慢的將字串方式改成可以防止SQL injection 的方式。同時也意外發現Mysql insert 有新的寫法：
+1INSERTINTOtableSETa=1,b=2,c=3比起原本冗長INSERT INTO table (a, b, c) VALUES (1,2,3), 我覺得這種set 的方法真的很不錯，這樣在對照上及程式碼易讀性也更勝一籌，所以覺得可以評估是否要引入的可能性&amp;hellip;..
+參考資料：https://stackoverflow.com/questions/861722/mysql-insert-into-table-values-vs-insert-into-table-set
+參加LaravelConf 2020 其實本週還真的沒啥事情，除了就是討論、開發、維護、就是這些不斷的循環&amp;hellip;. 工程師的人生就是這麼平凡無奇，但週末參加了 LaravelConf 2020 , 這次我買的是線上回放票，整體下來感覺很不錯，聽Ant 大大的對PHP＆Laravel 之未來的一席話，真的有所感受與領悟啊！然後我覺得比起之前參與過的2017、2019，我發現我又更加聽懂了很多內容，覺得感受到自己的成長真的蠻棒的，不過整體的心得文與筆記我想之後會再好好整理起來。現在還有安可場，可以再去買票去聽啊
+小君曰：工程師的生活就是這麼平凡無奇，且有趣</description></item><item><title>原來可以這麼寫(4) : 終於接新專案</title><link>/posts/%E7%B5%82%E6%96%BC%E6%8E%A5%E6%96%B0%E5%B0%88%E6%A1%88/</link><pubDate>Sat, 18 Jul 2020 16:06:34 +0000</pubDate><guid>/posts/%E7%B5%82%E6%96%BC%E6%8E%A5%E6%96%B0%E5%B0%88%E6%A1%88/</guid><description>近況 最近工作終於接到新的任務，雖然還是在同一個專案&amp;hellip;..
+事情是這樣的，我們那個專案的後台分成兩個部分的人負責，一個是後台、另外一個則是交易&amp;hellip;..而我進來公司後，一直都是處理後台，對於交易都是一知半解，只知道要打Lambda 而已。而這次，在專案時程終於沒這麼趕的情況下，以統一後端接口(俗語說：天下大勢，合久必分、分久必合)，我被授命要接下這交易功能的後續維護＆開發新功能&amp;hellip;. 這對我是一種挑戰，因為我終於可以有段時間不用繼續和PHP掛勾拉XD (交易lambda 是使用NodeJS)
+況且，最近也剛學習了一點 NodeJS, 前陣子上完六角學院的 NodeJS 課程，很期待可以將自己新學習到語言運用到實務專案，不過之後還是要多多進修將nodeJS 補齊基礎拉，而且這個又是金流與交易，其實我自己說實在有點抖抖的＆很興奮能接到此挑戰！
+總之，為自己加油拉！而且其實也沒用到太高的技巧,那些 nodejs 其實還算好懂的
+Mysql: COALESCE 因為在 trace 與理解交易商業邏輯的 code 當中，我看到我們用到COALESCE 在SQL語法中&amp;hellip;原來，他是一個好方便的參數啊，可以回傳在列表裡的第一個非null的值。
+例如
+1SELECTCOALESCE(NULL,NULL,NULL,&amp;#39;W3Schools.com&amp;#39;,NULL,&amp;#39;Example.com&amp;#39;);這行sql 語法就會回傳W3Schools.com
+相關可以參考的資料：https://www.w3schools.com/sql/func_mysql_coalesce.asp
+沒用過還真的不知道可以這樣用啊！
+強化與習得Docker技能 在今年初，看到Hahow 上面有個關於Docker 的新課程，在最近終於把那門課程上完了，雖然，自己本身工作就已經在使用Docker了，而且為了讓自己可以弄個舒服的開發環境，以符合自己早期的開發習慣，還自己簡單刻了 docker-compose.yml , 好讓自己資料庫可以用自己本機。（我們專案資料庫是用AWS RDS），所以早在上課之前對Docker 就有略知一二。不過，經過有系統的整理後確實能對Docker有更多的理解。像是中間會多了一個虛擬Linux container層,而每一個命令都是新的Container層而互不干擾，他的教學其實還蠻淺顯易懂的，我這裡可以推薦一下：Docker 部署入門完全指南-圖片速學攻略(https://hahow.in/courses/5df27f1fa5ee510022a08500/main) 不過之後還是會想研究一下，會有點想要像我們公司專案一樣，把 Laravel 部署到 Fargate 的部分&amp;hellip;&amp;hellip;
+小君曰：接到新專案囉，雖然還是在一刻(我們公司產品簡稱) XD</description></item><item><title>原來可以這麼寫(2):好久沒寫文章了</title><link>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB2%E5%A5%BD%E4%B9%85%E6%B2%92%E5%AF%AB%E6%96%87%E7%AB%A0%E4%BA%86/</link><pubDate>Sat, 04 Jul 2020 13:40:51 +0000</pubDate><guid>/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB2%E5%A5%BD%E4%B9%85%E6%B2%92%E5%AF%AB%E6%96%87%E7%AB%A0%E4%BA%86/</guid><description>哈哈, 原本想說可以一個禮拜寫一篇技術文章的
+但就是「懶」，所以到現在才出所謂的第二篇&amp;hellip;.
+距離通過工作試用期也已經超過一個月了，我覺得工作上還算是得心應手，進度都在掌握中，也很喜歡目前的工作狀態，只是&amp;hellip;.我好想接新專案啊&amp;hellip;..
+在家工作心得 之前，因為疫情關係，我們公司試行了在家工作。老實說，這是我人生第一次在家工作。第一次的時候，還沒有待滿一個月&amp;hellip;第一次，好慌、好亂&amp;hellip;.完全不知道在做什麼
+但是，等我慢慢熟悉專案與產品、進度也漸漸掌握起來了，第二次試行、第三次試行，搞清楚自己目前的戰鬥位置、狀況，**突然覺得，在家工作好棒啊，甚至有點享受、開心！**只要我進度在掌握中就好拉，也確實，我也漸漸掌握好專案的進度ＸＤ
+可惜，台灣疫情控制實在太好了，之前公司試行在家工作的制度就這樣無疾而終。
+我好想要繼續在家上班啊&amp;hellip;
+結論：在家上班的前置工作與預備真的要做好
+Ｍysql function/trigger 在做搜尋API這個功能時，因為原有資料庫欄位的設計限制與需要，欄位存了HTML標籤，但這反而造成我們在搜尋類似‘p’這種關鍵字時，會變成所有的資料都被回傳，形同沒有搜尋&amp;hellip;. 那時還算菜&amp;hellip; 同事後來找到一個解法，就是新增新的欄位，利用Mysql function 的功能，再加上trigger , 可以在每次資料庫有異動時，新的欄位可以放入沒有html標籤的原資料，從而在API開發上,搜尋這個新的欄位，就可以克服這個問題
+我以為只有oracle 資料庫有這種trigger 功能，因為我以前有在學校上課有修過這個oracle資料庫的課，所以對這個略知一二，但沒想到Mysql 也有這樣的功能，於是花了一點時間重新複習，把以前上課的回憶都找回來了啊&amp;hellip; 而網路上,也有幫忙去除html 標籤的現成function, 配合trigger 的onupdate &amp;amp; oninsert , 再配合sql 語法將現在線上資料的html標籤去除, 真的是一個不錯的方案&amp;hellip;.不過如果你知道有更好的方式解決，歡迎告訴我＆交流～
+windows docker 問題 因為公司產品有使用到docker, 另外我在公司配備的是 windows電腦 （好想要被配備mac啊～～），於是在某次午休回來時，發現為什麼我的API 會出現問題？明明token , 程式都沒什麼問題啊&amp;hellip; 後來我發現好像原來是docker 在windows休眠之後醒來後, docker內部container的時間會和外部window 不是一樣的，因為我的專案有調用到aws的api , 在時間不sync的情況下當然api就出錯了&amp;hellip;. 我記得有搜尋到某篇文章說怎麼解決那個問題,好像到window設定什麼東西的&amp;hellip;. 總之,那是之前遇到的,我也不知道我那時的紀錄丟到哪了,現在我寫文章的時候一直找不到ＸＤ 但我說一下我的解法：因為文章裡面交代得實在太麻煩了,於是我決定：重開docker 大法哈哈哈
+Laravel env 問題 我在開發時候,有時候調用一些env的資料, 後來發現, 為什麼都調用不到&amp;hellip; 經查詢後發現，原來是因為執行了php artisan config:cache的指令關係&amp;hellip;. 詳細可以看看這篇文章：https://learnku.com/laravel/t/3362/laravel-use-env-to-read-the-environment-variable-null
+結論：媽的，坑&amp;hellip;.好拉, 對不起，我沒好好認真看文件所以犯蠢&amp;hellip;.
+Laravel 的queue 和玩玩 graphQL 剛好專案有用到, laravel 的queue 功能, 我預計之後為這個寫一篇專屬文章筆記一下這個, 以後面試可以大膽說用到queue了哈哈</description></item></channel></rss>

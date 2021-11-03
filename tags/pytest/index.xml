@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pytest on Jimmy 's Code</title><link>/tags/pytest/</link><description>Recent content in pytest on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022-{year} Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sun, 08 Sep 2019 08:03:52 +0000</lastBuildDate><atom:link href="/tags/pytest/index.xml" rel="self" type="application/rss+xml"/><item><title>Pytest 簡單教學</title><link>/posts/pytest-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 08 Sep 2019 08:03:52 +0000</pubDate><guid>/posts/pytest-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</guid><description>最近在整理自己的履歷和side projects&amp;hellip;&amp;hellip;，順便也買了一些線上課程學習，其中有一門課是教你演算法，舉Leetcode 裡面的題目為例，如果再工程師界久了都知道，Leetcode 是一個刷題網站，而我身為想要變強的工程師當然不可以忽略這個網站啊&amp;hellip;&amp;hellip; 因此在bitbucket 開了一個專案，放置一些藉由上課所學習的解題檔案（線上課程用的是JAVA），但我想要轉成Python ，藉此提升自己的Python實力~~
+如果有興趣可以來看看，但因為目前上課進度緩慢，其實也才幾題而已XD https://bitbucket.org/r567tw/leetcode/src/master/
+不過在本機跑的時候也想要自己就先在本機測試一下不要用leetcode 在那邊幫我測試&amp;hellip;但之前都是用類似以下的語法
+1test = Solution(); #先new 一個Solution 的class 2print(Solution.method(...)) #然後呼叫方法一個一個用肉眼檢查 這種方法超級土法煉鋼的&amp;hellip; 完全就不是工程師的style ~~
+而我是一個php工程師，之前花了一點時間了解phpunit , 然後也有在一些專案寫一些UnitTest&amp;hellip; 心想&amp;hellip;. 難道Python 沒有嗎？
+叮咚！ 原來就是Pytest 啊！ 我現在leetcode 刷題要在本機測試都會使用這個來玩玩看的！接下來我要介紹怎麼使用Pytest，以及我如何將這個導入到我這個leetcode 的練習專案。
+安裝Pytest 首先你要使用pytest 之前就一定要確認pytest 有沒有在你的電腦當中（廢話！），所以你可以參考[這個文件][1]來幫助你安裝pytest ,其實也就這麼簡單
+1$ pip install pytest 然後其實很簡單，就是使用pytest 這個指令或者pip freeze 確認pytest 在不在就好了啊
+使用Pytest 其實和phpunit 很像，其實也是用所謂“assert”的方式確認答案是否正確，以底下程式碼為例說明：
+1from solutions.atoi import Solution 2 3 4def test_myAtoi(): 5 test = Solution() 6 assert(test.myAtoi(&amp;#34;42&amp;#34;) == 42) 7 assert(test.myAtoi(&amp;#34; -42&amp;#34;) == -42) 8 assert(test.</description></item></channel></rss>

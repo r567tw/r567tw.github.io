@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>composer on Jimmy 's Code</title><link>https://jimmycode.tw/tags/composer/</link><description>Recent content in composer on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022-{year} Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sun, 18 Oct 2020 13:57:59 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/tags/composer/index.xml" rel="self" type="application/rss+xml"/><item><title>原來可以這麼寫(8): SAM 真的好好玩～</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</link><pubDate>Sun, 18 Oct 2020 13:57:59 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</guid><description>這篇文章有點廢，沒什麼技術點&amp;hellip; 純粹是拿部落格當筆記的概念。
 玩 AWS SAM 最近在玩AWS SAM CLI 部署 lambda ，真的好好玩喔，最近拿來部署好關於一些資料庫、SQS、KMS 等等的東西&amp;hellip; 以下是我花了一點時間研究好怎麼寫template.yaml &amp;hellip; 都要變成yaml 工程師拉！
 更多的Mysql 研究 另外因為某個原因，讓我最近一直在研究database lock 的問題&amp;hellip; 原來，加一個[for update]就可以達成了，真的好好玩～
-1selectpointsfromcustomersforupdate資料來源：https://oldmo860617.medium.com/transaction-%E4%BD%B5%E7%99%BC%E9%8C%AF%E8%AA%A4%E8%88%87%E9%9A%94%E9%9B%A2%E5%B1%A4%E7%B4%9A-51b8af6178ae
-https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPDATE+%E9%81%BF%E5%85%8D+Race+condition 徹底解決Composer 記憶體不夠的問題 再裝某些Composer package 時常常遇到記憶體不足的問題，後來查到一個超棒的指令
-1COMPOSER_MEMORY_LIMIT=-1 composer update 資料來源：https://medium.com/@kycd.dark/%E5%9F%B7%E8%A1%8C-composer-update-%E6%99%82%E9%81%87%E5%88%B0-composer-memory-limit-aee4f2df56ee
-小君曰：「真廢」</description></item><item><title>原來可以這麼寫(3) : 關於我的工作流程</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link><pubDate>Sun, 12 Jul 2020 08:42:58 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid><description>來開始交代一周一次的功課了XD
+1select points from customers for update 資料來源：https://oldmo860617.medium.com/transaction-%E4%BD%B5%E7%99%BC%E9%8C%AF%E8%AA%A4%E8%88%87%E9%9A%94%E9%9B%A2%E5%B1%A4%E7%B4%9A-51b8af6178ae https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPDATE+%E9%81%BF%E5%85%8D+Race+condition 徹底解決Composer 記憶體不夠的問題 再裝某些Composer package 時常常遇到記憶體不足的問題，後來查到一個超棒的指令
+1COMPOSER_MEMORY_LIMIT=-1 composer update 資料來源：https://medium.com/@kycd.dark/%E5%9F%B7%E8%A1%8C-composer-update-%E6%99%82%E9%81%87%E5%88%B0-composer-memory-limit-aee4f2df56ee 小君曰：「真廢」</description></item><item><title>原來可以這麼寫(3) : 關於我的工作流程</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link><pubDate>Sun, 12 Jul 2020 08:42:58 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid><description>來開始交代一周一次的功課了XD
 希望技術部落格可以一周一篇文章, 提升更多的技術含量
 記錄自己一天比一天更佳進步的軌跡
 關於trello trello 是很多Team會用到的一個工具,可以用來管理專案與任務安排
@@ -15,12 +13,10 @@ https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPD
 不過我個人也對這樣的部分做了一個調整: 加入了一個研究中的list
 畢竟做為小小工程師而言, 作side project 的目標除了是興趣與證明自己的實力以外
 也是還要將一些新的東西應用與練習的麻~ 好幫助自己真的可以越來越進步
-於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template
-歡迎用我的template去管理你們的專案～
+於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template 歡迎用我的template去管理你們的專案～
 如果有甚麼改進的建議或管理好方法歡迎來告訴我喔
 Composer scripts 本周也學到composer 可以在composer.json 裡面寫一些指令, 可以在安裝後,更新後或者安裝前,更新前可以寫command 執行
-至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html
-我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
+至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html 我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
 我是一個很懶的工程師,也很不喜歡背來背去那些指令, 況且每次都要google 一下把指令們copy &amp;amp; paste , 真的很麻煩
 有了這個東西,方便多了, 不用跑 cp .env.example .env 和php artisan key:generage
 不過也發覺, 原來我還不懂composer XDDDD</description></item></channel></rss>

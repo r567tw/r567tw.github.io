@@ -9,12 +9,10 @@
 不過我個人也對這樣的部分做了一個調整: 加入了一個研究中的list
 畢竟做為小小工程師而言, 作side project 的目標除了是興趣與證明自己的實力以外
 也是還要將一些新的東西應用與練習的麻~ 好幫助自己真的可以越來越進步
-於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template
-歡迎用我的template去管理你們的專案～
+於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template 歡迎用我的template去管理你們的專案～
 如果有甚麼改進的建議或管理好方法歡迎來告訴我喔
 Composer scripts 本周也學到composer 可以在composer.json 裡面寫一些指令, 可以在安裝後,更新後或者安裝前,更新前可以寫command 執行
-至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html
-我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
+至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html 我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
 我是一個很懶的工程師,也很不喜歡背來背去那些指令, 況且每次都要google 一下把指令們copy &amp;amp; paste , 真的很麻煩
 有了這個東西,方便多了, 不用跑 cp .env.example .env 和php artisan key:generage
 不過也發覺, 原來我還不懂composer XDDDD</description></item></channel></rss>

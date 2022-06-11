@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>工作筆記 on Jimmy 's Code</title><link>https://jimmycode.tw/categories/%E5%B7%A5%E4%BD%9C%E7%AD%86%E8%A8%98/</link><description>Recent content in 工作筆記 on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022-{year} Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Fri, 10 Jun 2022 08:21:32 +0800</lastBuildDate><atom:link href="https://jimmycode.tw/categories/%E5%B7%A5%E4%BD%9C%E7%AD%86%E8%A8%98/index.xml" rel="self" type="application/rss+xml"/><item><title>原來可以這麼寫(17): 其實我又想離職</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB17-%E5%85%B6%E5%AF%A6%E6%88%91%E5%8F%88%E6%83%B3%E9%9B%A2%E8%81%B7/</link><pubDate>Fri, 10 Jun 2022 08:21:32 +0800</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB17-%E5%85%B6%E5%AF%A6%E6%88%91%E5%8F%88%E6%83%B3%E9%9B%A2%E8%81%B7/</guid><description>本篇有點類似一些心情的抒發與隨想， 年初其實有提過離職，但可能剛好那時候專案正值升級的工作，將Laravel從5.5升到9，然後加上自己有時候個性還蠻「優柔寡斷的」，於是那時候答應留任。
 但現在回來看看自己這個決定，是覺得有點小後悔的&amp;hellip;我目前剛好處於感受不到專案目標、對專案失去耐心與熱情的一種狀態，老實講嘢不知道之後換工作是否還有可能遇到這種感覺，說實在也是蠻迷茫的&amp;hellip;由此，我衷心佩服那種做10~20年的大齡工程師，我這短短幾年的經驗、在他們面前簡直小巫見大巫哈哈哈
 Laravel 5.5 升級到 Laravel 9 老實說在這升級過程中我是沒有遇到什麼太大狀況，有一個是登入的問題，我後來發現是調用的某個套件新版本還沒有支援，於是就在composer.json 對該套件先進行一個版本的鎖定，除此以外我是都按照文件的指引去操作、有些已經有的套件或沒有在支援的套件就趁這個機會給他換掉了，像是原本我們有用一個cors套件、但 laravel 8 之後其實已經有自己的cors了，所以就換成laravel 原生的這樣。以下算是我升級的小筆記，有點亂、反正是給自己看的 哈哈XD
-https://hackmd.io/@r567tw/Bk_Mo_0aY
-然後感謝自己任內試著導入單元測試，所以可以很輕鬆且感覺被保護的執行 phpunit去一定程度上保障我的api沒有問題。 然後也在此次升級利用lighthoust套件把graphql放上去～不過我是覺得我們之前雖然技術會以及私下和主管討論都認同可以導入graphql，但我大概也知道，如果前端團隊沒有相對應或有意識得想導入想改，似乎這就是我個人的一廂情願。在這段時間，我思考了蠻多的，總覺得我這樣是不是做錯了?!
+https://hackmd.io/@r567tw/Bk_Mo_0aY 然後感謝自己任內試著導入單元測試，所以可以很輕鬆且感覺被保護的執行 phpunit去一定程度上保障我的api沒有問題。 然後也在此次升級利用lighthoust套件把graphql放上去～不過我是覺得我們之前雖然技術會以及私下和主管討論都認同可以導入graphql，但我大概也知道，如果前端團隊沒有相對應或有意識得想導入想改，似乎這就是我個人的一廂情願。在這段時間，我思考了蠻多的，總覺得我這樣是不是做錯了?!
 從今以後，我要好好確定團隊的共識或確認有團隊的支持才真的下去做才對&amp;hellip; 我想我這個算是留給後人一個可以發展的機會吧?!
 1000元的職涯諮商 我覺得104真的事業越做越大了，我在104發現他們有個服務：104高年級 。然後在裡面找到一位Joan老師 ，和他預約了一場職涯諮詢，和他請教一下所謂的「人生四階段職涯規劃指南：給20/30/40/50的你」。實不相瞞，不愧是只有一千元的諮商，我覺得有些其實我自己都知道XD個人感覺助益感覺沒有很大。
 算了，一千元我又不是花不起，就當做捐給104當業績拉。
@@ -12,12 +11,11 @@ https://hackmd.io/@r567tw/Bk_Mo_0aY
 希望自己40歲回來看看現在的自己，會連續數聲笑笑自己、笑自己怎麼那時那麼好笑、然後坦然處之。
 「Don&amp;rsquo;t prove yourself, improve yourself.」
 分享一首歌吧 以前我寫文章的風格通常都會後面分享一首歌的說，但現在建立這種技術部落格之後都是一堆理科專有名詞與筆記，實在不太適合我之前寫文章分享音樂的tone調。但這篇可以破例一下吧。讓我點一首「天淵之別」給今晚的自己吧！
-https://www.youtube.com/watch?v=47Nq2lIqW_I
-「走每一步 我也不服輸」
+https://www.youtube.com/watch?v=47Nq2lIqW_I 「走每一步 我也不服輸」
 小君曰：Change Company, or change company</description></item><item><title>原來可以這麼寫(16): sonarqube好好玩</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB16-sonarqube%E5%A5%BD%E5%A5%BD%E7%8E%A9/</link><pubDate>Sun, 27 Mar 2022 08:21:32 +0800</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB16-sonarqube%E5%A5%BD%E5%A5%BD%E7%8E%A9/</guid><description>最近在職涯上發生了一些事情，總覺得不太適合在這裡公開分享&amp;hellip; 就算了吧&amp;hellip;還是專注於現在的工作、找出自己持續成長的路線這樣
 最近來玩一個名為SonarQube的東西 最近工作期間發現一個名為SonarQube的東西, 發現還蠻好玩的 想說可以放在工作中分享一下，投影片做得很簡單，意思意思就好
 投影片 然後也快速用docker-compose快速架了起來
-1#### sonarqube container #########2sonarqube:3image:sonarqube4ports:5- 9000:9000有夠給他簡單的拉, 不過我想後續的維運及導入日常才是關鍵吧！
+1#### sonarqube container ######### 2 sonarqube: 3 image: sonarqube 4 ports: 5 - 9000:9000 有夠給他簡單的拉, 不過我想後續的維運及導入日常才是關鍵吧！
 GraphQL or 403 覺得經手專案兩年多&amp;hellip;不得不說自己最近感受到成長小小停滯，當然自己還是對專案有熱情、熱愛各種技術解決方案、最近學習WebSocket&amp;amp;GraphQL都頗有心得。for example, 想我最近就在社群上問了一個題目：``
 然後有個神人大大回覆如以下：
 於是就對GraphQL更深的認識拉，開心撒花～
@@ -38,8 +36,7 @@ DevOps Day Taipei 2021 一日遊 終於在疫情緩和的時候，11/24在台北
 然後沒有想到，AWS Lambda 竟然有支援Ruby , cool ! so fun !
 雖然我有在這裏寫一篇文章Ruby 筆記，不過那都沒什麼排版，我也懶得改ＸＤ
 以下就是我之後將在例會報告的ＰＰＴ啦
-https://www.slideshare.net/ssusereb2ee2/ruby-248463972
-小君曰：其實我會一點點的Ruby啦，不知道這樣能不能應徵Ruby Engineer ? 哈</description></item><item><title>原來可以這麼寫(12): 我❤️Golang</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB12-%E6%88%91%E2%9D%A4%EF%B8%8Fgolang/</link><pubDate>Sat, 24 Apr 2021 11:47:00 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB12-%E6%88%91%E2%9D%A4%EF%B8%8Fgolang/</guid><description>最近處理兩個大功能，一個是要建立websocket server 讓交易流程去串(開發官網購買)(但說真的交易流程用websocket 真的有點怪怪的？就我的認知 websocket 的部分應該是在一個很即時的情境，但用在這種只是為了獲得通知的目的確實有點怪怪的&amp;hellip; 但說真的我也沒有辦法提出更好更優的方案，作為一位只能聽命行事的超基層也只能照做QAQ)
+https://www.slideshare.net/ssusereb2ee2/ruby-248463972 小君曰：其實我會一點點的Ruby啦，不知道這樣能不能應徵Ruby Engineer ? 哈</description></item><item><title>原來可以這麼寫(12): 我❤️Golang</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB12-%E6%88%91%E2%9D%A4%EF%B8%8Fgolang/</link><pubDate>Sat, 24 Apr 2021 11:47:00 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB12-%E6%88%91%E2%9D%A4%EF%B8%8Fgolang/</guid><description>最近處理兩個大功能，一個是要建立websocket server 讓交易流程去串(開發官網購買)(但說真的交易流程用websocket 真的有點怪怪的？就我的認知 websocket 的部分應該是在一個很即時的情境，但用在這種只是為了獲得通知的目的確實有點怪怪的&amp;hellip; 但說真的我也沒有辦法提出更好更優的方案，作為一位只能聽命行事的超基層也只能照做QAQ)
 另外是要做有關於批次匯入的功能&amp;hellip;. 呵呵以前就有做過類似Excel 匯入的功能，我深知道那是一個巨大無比的坑，坑是在一開始的規劃，你既然開放前面使用者可以用Excel 檔匯入，那你就得面對使用者的Excel檔可能有千起百怪的樣式、無法驗證或無法預期的輸入&amp;hellip;套句我之前有位主管說的話：你要防使用者想防賊一樣啊！
 總之，這個功能其實去年有做一下下，但後來被靠北中止了&amp;hellip;.現在又復活，當然給他們凹一下，仔細把流程討論清楚先，然後再做&amp;hellip;. （其實正確的流程及我想表達的意思是：PM/SA 你們給我生出流程圖和規格書啊！）
 然而，在這兩大功能夾擊下，我算是很平安的度過及學習、開發，並沒有像之前趣聽小說匯入被搞得人仰馬翻、混亂不已&amp;hellip;.在這個過程中，修修幾個bug、調整幾段程式碼&amp;hellip;. 其中一項是調整拆帳報表的功能
@@ -52,8 +49,7 @@ https://www.slideshare.net/ssusereb2ee2/ruby-248463972
 然後再寫的過程當中也越來越喜歡Go這門語言。不過我知道我要學習的還太多，這在我使用Go上面只是剛開始而已。
 謝謝後端團隊的大家讓我可以任性的使用看看這門語言，並且在我有問題的時候願意幫助我＾＾
 於是乎，這個月的技術分享會就分享我使用Golang的心得了&amp;hellip;&amp;hellip;
-https://www.slideshare.net/ssusereb2ee2/golang-246642054
-額外加碼： 最近docker 使用上常常有那個build 失敗的image 和container bla bla 的，最近看到一個很好用的清除指令紀錄一下：
+https://www.slideshare.net/ssusereb2ee2/golang-246642054 額外加碼： 最近docker 使用上常常有那個build 失敗的image 和container bla bla 的，最近看到一個很好用的清除指令紀錄一下：
 1docker system prune 小君曰：想要轉職成Golang 工程師。。。</description></item><item><title>原來可以這麼寫(11): 每個人的心中都要有DevOps</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB11-%E6%AF%8F%E5%80%8B%E4%BA%BA%E7%9A%84%E5%BF%83%E4%B8%AD%E9%83%BD%E8%A6%81%E6%9C%89devops/</link><pubDate>Sat, 20 Mar 2021 04:29:00 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB11-%E6%AF%8F%E5%80%8B%E4%BA%BA%E7%9A%84%E5%BF%83%E4%B8%AD%E9%83%BD%E8%A6%81%E6%9C%89devops/</guid><description>最近工作比較沒有什麼新鮮事，所以開始在將手上專案有比較完整的文件化之後，開始逐步導入TDD ,寫一些Unit Test 以確保程式碼的品質。
 但老實說：我還是不是太懂Laravel Feature 和 Unit 這兩個資料夾的區別？我知道Unit 是要做單元測試，是測試那個類別的行為，但我目前大多都在寫Feature Test&amp;hellip; 如果有大大知道Unit 該在何時寫、什麼情境下要寫，歡迎不吝賜教！
 研究Socket/API Gateway 因為要導入官網購物車購買，討論一連串的流程與討論，最後希望我Laravel 要開一個socket server，但研究的結果其實發現 因為我們專案的版本比較低，所以沒辦法使用Laravel-Websocket 套件，也就是在Laravel 裡面自己開socket server 那種，變成我們要另外用Node 的套件去建立&amp;hellip; 然後&amp;hellip; 又衍伸第二種方案，在AWS Api-gateway 架起websocket api ，然後他可以指定動作去call API&amp;hellip;
@@ -73,45 +69,38 @@ https://www.slideshare.net/ssusereb2ee2/golang-246642054
 1import aiohttp 2import aiofiles 3import asyncio 4import time 5import os 6 7 8#定義協程(coroutine) 9async def main(links): 10 11 async with aiohttp.ClientSession() as session: 12 tasks = [ 13 asyncio.</description></item><item><title>原來可以這麼寫(9):結果我變成Python 工程師？</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB9%E7%B5%90%E6%9E%9C%E6%88%91%E8%AE%8A%E6%88%90Python-%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%9F/</link><pubDate>Mon, 18 Jan 2021 13:06:00 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB9%E7%B5%90%E6%9E%9C%E6%88%91%E8%AE%8A%E6%88%90Python-%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%9F/</guid><description>祝大家新年快樂。原來可以這麼寫這個系列終於來到第九篇！
 說聲好消息，最近工作獲得肯定(撒花～)。只是不知道年終到底有多少&amp;hellip;搞不好&amp;hellip;其實很少&amp;hellip;. 這個就題外話啦，在這個公開網路場合還是不宜多說XD
 從資料庫匯出資料 最近接到一個需求，是要從資料庫匯出資料。其實這個東西並不是很難，寫寫SQL 語法就能搞定&amp;hellip;但因為安全的因素我們的資料庫通常要透過SSH 跳板才能進去。可是他們匯出資料的需求是要by 一個顧客（客戶），你媽咧我難道一個一個SQL 撈出來然後再丟進Excel 嗎？
-不！這絕對不是工程師的思維&amp;hellip; 後來想想我在我第一份工作的時候開啟了一個side project : office: https://github.com/r567tw/office
-那時候為什麼我要開啟這個專案呢？原因是，我當時負責重構一個網站系統，是用Laravel 重構原本native php 改寫的報名網站&amp;hellip;. (這大概可以說是我工程師生涯其中一個直得常常拿出來說嘴的一個成就&amp;hellip;但當然啦我之後在想覺得那時候我初出茅廬才維護一年多就改寫實在有點冒險&amp;hellip;只怪我當時太年輕太衝動太不懂事了&amp;hellip;. 裡面還是有一些遺珠之憾等級的小後悔～)
+不！這絕對不是工程師的思維&amp;hellip; 後來想想我在我第一份工作的時候開啟了一個side project : office: https://github.com/r567tw/office 那時候為什麼我要開啟這個專案呢？原因是，我當時負責重構一個網站系統，是用Laravel 重構原本native php 改寫的報名網站&amp;hellip;. (這大概可以說是我工程師生涯其中一個直得常常拿出來說嘴的一個成就&amp;hellip;但當然啦我之後在想覺得那時候我初出茅廬才維護一年多就改寫實在有點冒險&amp;hellip;只怪我當時太年輕太衝動太不懂事了&amp;hellip;. 裡面還是有一些遺珠之憾等級的小後悔～)
 啊話說開了，總之那時候有要驗證台灣的身分證字號，還有生成台灣的身分證字號&amp;hellip;這當然網路上可以有工具可以用啦，但你不覺得開瀏覽器-&amp;gt;搜尋-&amp;gt; 點進網址 -&amp;gt; 可能還有點一些按鈕bla 的才能搞定自己的需求很麻煩嗎？
 於是你看到office 裡面就有一個資料夾應運而生：id_card_number 隨著時間推移，裡面的工具也越來越多XD
 這次我就用到使用ssh 連接到database 來幫我完成需求的工具：connectDBthoughSSH
 1import pymysql 2import sshtunnel 3import dotenv 4import os 5 6dotenv.load_dotenv() 7 8server = sshtunnel.SSHTunnelForwarder( 9 ssh_address_or_host=(os.getenv(&amp;#39;SSH_HOST&amp;#39;), 22), # 指定ssh登入的跳轉機的address 10 ssh_username=os.getenv(&amp;#39;SSH_USER&amp;#39;), # 跳轉機的使用者 11 ssh_pkey=os.getenv(&amp;#39;SSH_PEM_PATH&amp;#39;), # 跳轉機的密碼 12 remote_bind_address=(os.getenv(&amp;#39;DB_HOST&amp;#39;), 3306) 13) 14 15server.start() 16 17db = pymysql.connect( 18 host=&amp;#39;127.</description></item><item><title>原來可以這麼寫(8): SAM 真的好好玩～</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</link><pubDate>Sun, 18 Oct 2020 13:57:59 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9%EF%BD%9E/</guid><description>這篇文章有點廢，沒什麼技術點&amp;hellip; 純粹是拿部落格當筆記的概念。
 玩 AWS SAM 最近在玩AWS SAM CLI 部署 lambda ，真的好好玩喔，最近拿來部署好關於一些資料庫、SQS、KMS 等等的東西&amp;hellip; 以下是我花了一點時間研究好怎麼寫template.yaml &amp;hellip; 都要變成yaml 工程師拉！
 更多的Mysql 研究 另外因為某個原因，讓我最近一直在研究database lock 的問題&amp;hellip; 原來，加一個[for update]就可以達成了，真的好好玩～
-1selectpointsfromcustomersforupdate資料來源：https://oldmo860617.medium.com/transaction-%E4%BD%B5%E7%99%BC%E9%8C%AF%E8%AA%A4%E8%88%87%E9%9A%94%E9%9B%A2%E5%B1%A4%E7%B4%9A-51b8af6178ae
-https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPDATE+%E9%81%BF%E5%85%8D+Race+condition 徹底解決Composer 記憶體不夠的問題 再裝某些Composer package 時常常遇到記憶體不足的問題，後來查到一個超棒的指令
-1COMPOSER_MEMORY_LIMIT=-1 composer update 資料來源：https://medium.com/@kycd.dark/%E5%9F%B7%E8%A1%8C-composer-update-%E6%99%82%E9%81%87%E5%88%B0-composer-memory-limit-aee4f2df56ee
-小君曰：「真廢」</description></item><item><title>原來可以這麼寫(7): 資料庫筆記第一彈</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB7-%E8%B3%87%E6%96%99%E5%BA%AB%E7%AD%86%E8%A8%98%E7%AC%AC%E4%B8%80%E5%BD%88/</link><pubDate>Tue, 06 Oct 2020 11:39:45 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB7-%E8%B3%87%E6%96%99%E5%BA%AB%E7%AD%86%E8%A8%98%E7%AC%AC%E4%B8%80%E5%BD%88/</guid><description>在工作上被賦予資料庫Schema的設計責任
+1select points from customers for update 資料來源：https://oldmo860617.medium.com/transaction-%E4%BD%B5%E7%99%BC%E9%8C%AF%E8%AA%A4%E8%88%87%E9%9A%94%E9%9B%A2%E5%B1%A4%E7%B4%9A-51b8af6178ae https://blog.xuite.net/vexed/tech/22289223-%E7%94%A8+SELECT+&amp;hellip;+FOR+UPDATE+%E9%81%BF%E5%85%8D+Race+condition 徹底解決Composer 記憶體不夠的問題 再裝某些Composer package 時常常遇到記憶體不足的問題，後來查到一個超棒的指令
+1COMPOSER_MEMORY_LIMIT=-1 composer update 資料來源：https://medium.com/@kycd.dark/%E5%9F%B7%E8%A1%8C-composer-update-%E6%99%82%E9%81%87%E5%88%B0-composer-memory-limit-aee4f2df56ee 小君曰：「真廢」</description></item><item><title>原來可以這麼寫(7): 資料庫筆記第一彈</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB7-%E8%B3%87%E6%96%99%E5%BA%AB%E7%AD%86%E8%A8%98%E7%AC%AC%E4%B8%80%E5%BD%88/</link><pubDate>Tue, 06 Oct 2020 11:39:45 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB7-%E8%B3%87%E6%96%99%E5%BA%AB%E7%AD%86%E8%A8%98%E7%AC%AC%E4%B8%80%E5%BD%88/</guid><description>在工作上被賦予資料庫Schema的設計責任
 像是因應贈課功能、訂閱功能、關鍵字功能等等。也因此發現資料庫的學問真的博大精深
 看來我還需要多多的磨練。
-1. unsigned &amp;amp; zerofill 在資料庫常常看到unsigned這個字，最近想一想覺得要好好研究他，查了一下資料，就我個人的理解是：
+1. unsigned &amp; zerofill 在資料庫常常看到unsigned這個字，最近想一想覺得要好好研究他，查了一下資料，就我個人的理解是：
 unsigned: 將數字「無符號化」，意表這個欄位就是0 和正整數
 zerofill: 在查資料也發現zerofill , 原來它是資料庫中，拿來前面補零的語法與功能。
-文章來源：https://twgreatdaily.com/RbGjcW4BMH2_cNUgvI0q.html
-2. 資料庫怎麼設計 在查資料發現一個很棒的github repo , 告訴我們怎麼設計schema 或怎麼最佳化實踐，目前有空會再看看，好好消化一下。分享一下：https://github.com/alextanhongpin/database-design</description></item><item><title>原來可以這麼寫(6): 換了一個佈景主題</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB6-%E6%8F%9B%E4%BA%86%E4%B8%80%E5%80%8B%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</link><pubDate>Sat, 22 Aug 2020 08:56:10 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB6-%E6%8F%9B%E4%BA%86%E4%B8%80%E5%80%8B%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</guid><description>我換了一個佈景主題，你知道的，後端工程師美感幾乎都不怎麼樣。我覺得我開發的佈景主題好像還是不是很好用、很美&amp;hellip; 所以找了一個新的佈景主題，好看多了&amp;hellip;&amp;hellip;
-參加 AWS 工作坊 最近有機會上課，課程名稱是：PHP 開發者工作坊 -深入淺出 AWS 無伺服器 LAMP 架構(https://awsphpday.splashthat.com/)，引用了外國人寫的一系列文章：https://aws.amazon.com/tw/blogs/compute/introducing-the-new-serverless-lamp-stack/
-從這一系列文章，這個人定義出新的LAMP定義： L- Lambda , A- API gateway , M-Mysql , Ｐ-PHP。並且介紹如何實作以及實現。
+文章來源：https://twgreatdaily.com/RbGjcW4BMH2_cNUgvI0q.html 2. 資料庫怎麼設計 在查資料發現一個很棒的github repo , 告訴我們怎麼設計schema 或怎麼最佳化實踐，目前有空會再看看，好好消化一下。分享一下：https://github.com/alextanhongpin/database-design</description></item><item><title>原來可以這麼寫(6): 換了一個佈景主題</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB6-%E6%8F%9B%E4%BA%86%E4%B8%80%E5%80%8B%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</link><pubDate>Sat, 22 Aug 2020 08:56:10 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB6-%E6%8F%9B%E4%BA%86%E4%B8%80%E5%80%8B%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/</guid><description>我換了一個佈景主題，你知道的，後端工程師美感幾乎都不怎麼樣。我覺得我開發的佈景主題好像還是不是很好用、很美&amp;hellip; 所以找了一個新的佈景主題，好看多了&amp;hellip;&amp;hellip;
+參加 AWS 工作坊 最近有機會上課，課程名稱是：PHP 開發者工作坊 -深入淺出 AWS 無伺服器 LAMP 架構(https://awsphpday.splashthat.com/ )，引用了外國人寫的一系列文章：https://aws.amazon.com/tw/blogs/compute/introducing-the-new-serverless-lamp-stack/ 從這一系列文章，這個人定義出新的LAMP定義： L- Lambda , A- API gateway , M-Mysql , Ｐ-PHP。並且介紹如何實作以及實現。
 之後滿心期待報名，甚至還報名了三次，兩次用私人信箱、一次用公司信箱。AWS真的有夠現實的，只有公司信箱報名的那個有成功XD 另外也發現原來我們公司的公假這麼好請XD 只要主管有同意就好 哈哈
 有機會認識到Pahud 大大，他真的是一個很熱情的人，在會後請教他問題都很熱情地回答哈哈，同時也深入到Bref 這個套件、以及 Pahud 大大開發的套件可以如何方便的部署serverless laravel 在 AWS 上，我真的很期待這門課程也很開心得到很多不錯的收穫，同時也認識到AWS CDK，目前也正以緩慢的速度慢慢理解學習他（畢竟我又不是DevOps 哈哈）&amp;hellip;&amp;hellip;
-啊主要這門課程他就是在介紹他開發的這個套件：https://github.com/aws-samples/cdk-serverless-lamp
-這個套件主要是依據AWS CDK為基底，做出符合serverless laravel 的contruct lib ，可以很方便的讓開發者使用開箱
+啊主要這門課程他就是在介紹他開發的這個套件：https://github.com/aws-samples/cdk-serverless-lamp 這個套件主要是依據AWS CDK為基底，做出符合serverless laravel 的contruct lib ，可以很方便的讓開發者使用開箱
 AWS SAM CLI ＆ Lambda 同時我的第一個 Lambda 專案終於開發到一個階段了，甚至也經過前輩的Code Review 完！真的很期待他上架的時候，除了是我第一個Nodejs 架上專案也是第一個 Lambda 專案，而且很認真的畫流程圖、一步一步開發規劃。就是可惜目前開發順序＆上架就是有點混亂、這也是讓我有點不爽的地方，一直被「中間插件」&amp;hellip; 然後等到上架可能又有更多東西要調&amp;hellip;那開發者到底為什麼當初要規劃那麼多？幫使用者想那麼多？（不過軟體工程不就是需求常常會改來改去嗎？ 真的很好奇更標準更專業的IT他們怎麼處理這一塊？）
 同時，這個專案也要慢慢學習與習慣用SAM CLI ，之前我們公司的Lambda 管理與開發比較亂、現在有了SAM之後會比較好整理及有次序，能夠成為公司內導入這部分的其中一份子真的蠻令人興奮的！也希望我的 第一個 Lambda 專案可以趕快上去！ 這樣我就又有一個成績可以炫耀（誤
 小君曰：最近都在搞AWS呢</description></item><item><title>原來可以這麼寫(5): 原來MySQL 博大精深</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB5-%E5%8E%9F%E4%BE%86mysql-%E5%8D%9A%E5%A4%A7%E7%B2%BE%E6%B7%B1/</link><pubDate>Sun, 26 Jul 2020 06:34:37 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB5-%E5%8E%9F%E4%BE%86mysql-%E5%8D%9A%E5%A4%A7%E7%B2%BE%E6%B7%B1/</guid><description>最近工作接下交易與金流的部分，開始將自己最近火燙燙學習的 Nodejs 來拿去試試水溫。不過，被callback 弄的昏頭轉向的&amp;hellip;. 所幸，最後藉著文件與冷靜，慢慢的下斷點、看結果，參考之前前人寫的code , 才慢慢走出來，甚至處理到進度似乎發展還不錯。
 MySQL 的 insert 新寫法 因為專案需求，我雖然接下這個舊專案，但是要開發新功能，於是，我覺得可以趁此改善專案架構與程式碼品質，原本程式碼的SQL 是用那種字串方式連結的，但我知道這樣會有SQL injection 的問題，所以在新功能＆參考舊程式碼的過程當中，也慢慢的將字串方式改成可以防止SQL injection 的方式。同時也意外發現Mysql insert 有新的寫法：
-1INSERTINTOtableSETa=1,b=2,c=3比起原本冗長INSERT INTO table (a, b, c) VALUES (1,2,3), 我覺得這種set 的方法真的很不錯，這樣在對照上及程式碼易讀性也更勝一籌，所以覺得可以評估是否要引入的可能性&amp;hellip;..
-參考資料：https://stackoverflow.com/questions/861722/mysql-insert-into-table-values-vs-insert-into-table-set
-參加LaravelConf 2020 其實本週還真的沒啥事情，除了就是討論、開發、維護、就是這些不斷的循環&amp;hellip;. 工程師的人生就是這麼平凡無奇，但週末參加了 LaravelConf 2020 , 這次我買的是線上回放票，整體下來感覺很不錯，聽Ant 大大的對PHP＆Laravel 之未來的一席話，真的有所感受與領悟啊！然後我覺得比起之前參與過的2017、2019，我發現我又更加聽懂了很多內容，覺得感受到自己的成長真的蠻棒的，不過整體的心得文與筆記我想之後會再好好整理起來。現在還有安可場，可以再去買票去聽啊
+1INSERT INTO table SET a=1, b=2, c=3 比起原本冗長INSERT INTO table (a, b, c) VALUES (1,2,3), 我覺得這種set 的方法真的很不錯，這樣在對照上及程式碼易讀性也更勝一籌，所以覺得可以評估是否要引入的可能性&amp;hellip;..
+參考資料：https://stackoverflow.com/questions/861722/mysql-insert-into-table-values-vs-insert-into-table-set 參加LaravelConf 2020 其實本週還真的沒啥事情，除了就是討論、開發、維護、就是這些不斷的循環&amp;hellip;. 工程師的人生就是這麼平凡無奇，但週末參加了 LaravelConf 2020 , 這次我買的是線上回放票，整體下來感覺很不錯，聽Ant 大大的對PHP＆Laravel 之未來的一席話，真的有所感受與領悟啊！然後我覺得比起之前參與過的2017、2019，我發現我又更加聽懂了很多內容，覺得感受到自己的成長真的蠻棒的，不過整體的心得文與筆記我想之後會再好好整理起來。現在還有安可場，可以再去買票去聽啊
 小君曰：工程師的生活就是這麼平凡無奇，且有趣</description></item><item><title>原來可以這麼寫(4) : 終於接新專案</title><link>https://jimmycode.tw/posts/%E7%B5%82%E6%96%BC%E6%8E%A5%E6%96%B0%E5%B0%88%E6%A1%88/</link><pubDate>Sat, 18 Jul 2020 16:06:34 +0000</pubDate><guid>https://jimmycode.tw/posts/%E7%B5%82%E6%96%BC%E6%8E%A5%E6%96%B0%E5%B0%88%E6%A1%88/</guid><description>近況 最近工作終於接到新的任務，雖然還是在同一個專案&amp;hellip;..
 事情是這樣的，我們那個專案的後台分成兩個部分的人負責，一個是後台、另外一個則是交易&amp;hellip;..而我進來公司後，一直都是處理後台，對於交易都是一知半解，只知道要打Lambda 而已。而這次，在專案時程終於沒這麼趕的情況下，以統一後端接口(俗語說：天下大勢，合久必分、分久必合)，我被授命要接下這交易功能的後續維護＆開發新功能&amp;hellip;. 這對我是一種挑戰，因為我終於可以有段時間不用繼續和PHP掛勾拉XD (交易lambda 是使用NodeJS)
 況且，最近也剛學習了一點 NodeJS, 前陣子上完六角學院的 NodeJS 課程，很期待可以將自己新學習到語言運用到實務專案，不過之後還是要多多進修將nodeJS 補齊基礎拉，而且這個又是金流與交易，其實我自己說實在有點抖抖的＆很興奮能接到此挑戰！
 總之，為自己加油拉！而且其實也沒用到太高的技巧,那些 nodejs 其實還算好懂的
 Mysql: COALESCE 因為在 trace 與理解交易商業邏輯的 code 當中，我看到我們用到COALESCE 在SQL語法中&amp;hellip;原來，他是一個好方便的參數啊，可以回傳在列表裡的第一個非null的值。
 例如
-1SELECTCOALESCE(NULL,NULL,NULL,&amp;#39;W3Schools.com&amp;#39;,NULL,&amp;#39;Example.com&amp;#39;);這行sql 語法就會回傳W3Schools.com
+1SELECT COALESCE(NULL, NULL, NULL, &amp;#39;W3Schools.com&amp;#39;, NULL, &amp;#39;Example.com&amp;#39;); 這行sql 語法就會回傳W3Schools.com
 相關可以參考的資料：https://www.w3schools.com/sql/func_mysql_coalesce.asp
 沒用過還真的不知道可以這樣用啊！
 強化與習得Docker技能 在今年初，看到Hahow 上面有個關於Docker 的新課程，在最近終於把那門課程上完了，雖然，自己本身工作就已經在使用Docker了，而且為了讓自己可以弄個舒服的開發環境，以符合自己早期的開發習慣，還自己簡單刻了 docker-compose.yml , 好讓自己資料庫可以用自己本機。（我們專案資料庫是用AWS RDS），所以早在上課之前對Docker 就有略知一二。不過，經過有系統的整理後確實能對Docker有更多的理解。像是中間會多了一個虛擬Linux container層,而每一個命令都是新的Container層而互不干擾，他的教學其實還蠻淺顯易懂的，我這裡可以推薦一下：Docker 部署入門完全指南-圖片速學攻略(https://hahow.in/courses/5df27f1fa5ee510022a08500/main) 不過之後還是會想研究一下，會有點想要像我們公司專案一樣，把 Laravel 部署到 Fargate 的部分&amp;hellip;&amp;hellip;
@@ -126,12 +115,10 @@ Mysql: COALESCE 因為在 trace 與理解交易商業邏輯的 code 當中，我
 不過我個人也對這樣的部分做了一個調整: 加入了一個研究中的list
 畢竟做為小小工程師而言, 作side project 的目標除了是興趣與證明自己的實力以外
 也是還要將一些新的東西應用與練習的麻~ 好幫助自己真的可以越來越進步
-於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template
-歡迎用我的template去管理你們的專案～
+於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template 歡迎用我的template去管理你們的專案～
 如果有甚麼改進的建議或管理好方法歡迎來告訴我喔
 Composer scripts 本周也學到composer 可以在composer.json 裡面寫一些指令, 可以在安裝後,更新後或者安裝前,更新前可以寫command 執行
-至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html
-我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
+至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html 我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
 我是一個很懶的工程師,也很不喜歡背來背去那些指令, 況且每次都要google 一下把指令們copy &amp;amp; paste , 真的很麻煩
 有了這個東西,方便多了, 不用跑 cp .env.example .env 和php artisan key:generage
 不過也發覺, 原來我還不懂composer XDDDD</description></item><item><title>原來可以這麼寫(2):好久沒寫文章了</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB2%E5%A5%BD%E4%B9%85%E6%B2%92%E5%AF%AB%E6%96%87%E7%AB%A0%E4%BA%86/</link><pubDate>Sat, 04 Jul 2020 13:40:51 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB2%E5%A5%BD%E4%B9%85%E6%B2%92%E5%AF%AB%E6%96%87%E7%AB%A0%E4%BA%86/</guid><description>哈哈, 原本想說可以一個禮拜寫一篇技術文章的
@@ -144,19 +131,15 @@ Composer scripts 本周也學到composer 可以在composer.json 裡面寫一些�
 結論：在家上班的前置工作與預備真的要做好
 Ｍysql function/trigger 在做搜尋API這個功能時，因為原有資料庫欄位的設計限制與需要，欄位存了HTML標籤，但這反而造成我們在搜尋類似‘p’這種關鍵字時，會變成所有的資料都被回傳，形同沒有搜尋&amp;hellip;. 那時還算菜&amp;hellip; 同事後來找到一個解法，就是新增新的欄位，利用Mysql function 的功能，再加上trigger , 可以在每次資料庫有異動時，新的欄位可以放入沒有html標籤的原資料，從而在API開發上,搜尋這個新的欄位，就可以克服這個問題
 我以為只有oracle 資料庫有這種trigger 功能，因為我以前有在學校上課有修過這個oracle資料庫的課，所以對這個略知一二，但沒想到Mysql 也有這樣的功能，於是花了一點時間重新複習，把以前上課的回憶都找回來了啊&amp;hellip; 而網路上,也有幫忙去除html 標籤的現成function, 配合trigger 的onupdate &amp;amp; oninsert , 再配合sql 語法將現在線上資料的html標籤去除, 真的是一個不錯的方案&amp;hellip;.不過如果你知道有更好的方式解決，歡迎告訴我＆交流～
-windows docker 問題 因為公司產品有使用到docker, 另外我在公司配備的是 windows電腦 （好想要被配備mac啊～～），於是在某次午休回來時，發現為什麼我的API 會出現問題？明明token , 程式都沒什麼問題啊&amp;hellip; 後來我發現好像原來是docker 在windows休眠之後醒來後, docker內部container的時間會和外部window 不是一樣的，因為我的專案有調用到aws的api , 在時間不sync的情況下當然api就出錯了&amp;hellip;. 我記得有搜尋到某篇文章說怎麼解決那個問題,好像到window設定什麼東西的&amp;hellip;. 總之,那是之前遇到的,我也不知道我那時的紀錄丟到哪了,現在我寫文章的時候一直找不到ＸＤ 但我說一下我的解法：因為文章裡面交代得實在太麻煩了,於是我決定：重開docker 大法哈哈哈
-Laravel env 問題 我在開發時候,有時候調用一些env的資料, 後來發現, 為什麼都調用不到&amp;hellip; 經查詢後發現，原來是因為執行了php artisan config:cache的指令關係&amp;hellip;. 詳細可以看看這篇文章：https://learnku.com/laravel/t/3362/laravel-use-env-to-read-the-environment-variable-null
-結論：媽的，坑&amp;hellip;.好拉, 對不起，我沒好好認真看文件所以犯蠢&amp;hellip;.
-Laravel 的queue 和玩玩 graphQL 剛好專案有用到, laravel 的queue 功能, 我預計之後為這個寫一篇專屬文章筆記一下這個, 以後面試可以大膽說用到queue了哈哈</description></item><item><title>原來可以這麼寫(1):新工作第一週</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB1%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%AC%AC%E4%B8%80%E9%80%B1/</link><pubDate>Sun, 08 Mar 2020 04:53:23 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB1%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%AC%AC%E4%B8%80%E9%80%B1/</guid><description>去年的12月，我從上一間公司離職。其實，一月是打算好好去玩～ 突然覺得自己韓國去得真是很好的時候，不然可能回來就要自行隔離幾天了ＸＤ 想知道韓國旅遊心得的可以到我的樂在信仰中喔：https://r567tw.tw/2020韓國之旅/
-然後二月就是各種找工作、思考要做那些工作&amp;hellip;..然後各種的無聲卡、拒絕、邀請進去&amp;hellip;。
+windows docker 問題 因為公司產品有使用到docker, 另外我在公司配備的是 windows電腦 （好想要被配備mac啊～～），於是在某次午休回來時，發現為什麼我的API 會出現問題？明明token , 程式都沒什麼問題啊&amp;hellip; 後來我發現好像原來是docker 在windows休眠之後醒來後, docker內部container的時間會和外部window 不是一樣的，因為我的專案有調用到aws的api , 在時間不sync的情況下當然api就出錯了&amp;hellip;. 我記得有搜尋到某篇文章說怎麼解決那個問題,好像到window設定什麼東西的&amp;hellip;. 總之,那是之前遇到的,我也不知道我那時的紀錄丟到哪了,現在我寫文章的時候一直找不到ＸＤ 但我說一下我的解法：因為文章裡面交代得實在太麻煩了,於是我決定：重開docker 大法 哈哈哈
+Laravel env 問題 我在開發時候,有時候調用一些env的資料, 後來發現, 為什麼都調用不到&amp;hellip; 經查詢後發現，原來是因為執行了php artisan config:cache的指令關係&amp;hellip;. 詳細可以看看這篇文章：https://learnku.com/laravel/t/3362/laravel-use-env-to-read-the-environment-variable-null 結論：媽的，坑&amp;hellip;.好拉, 對不起，我沒好好認真看文件所以犯蠢&amp;hellip;.
+Laravel 的queue 和玩玩 graphQL 剛好專案有用到, laravel 的queue 功能, 我預計之後為這個寫一篇專屬文章筆記一下這個, 以後面試可以大膽說用到queue了哈哈</description></item><item><title>原來可以這麼寫(1):新工作第一週</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB1%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%AC%AC%E4%B8%80%E9%80%B1/</link><pubDate>Sun, 08 Mar 2020 04:53:23 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB1%E6%96%B0%E5%B7%A5%E4%BD%9C%E7%AC%AC%E4%B8%80%E9%80%B1/</guid><description>去年的12月，我從上一間公司離職。其實，一月是打算好好去玩～ 突然覺得自己韓國去得真是很好的時候，不然可能回來就要自行隔離幾天了ＸＤ 想知道韓國旅遊心得的可以到我的樂在信仰中喔：https://r567tw.tw/2020韓國之旅/ 然後二月就是各種找工作、思考要做那些工作&amp;hellip;..然後各種的無聲卡、拒絕、邀請進去&amp;hellip;。
 有一家做博弈的接案公司最誇張，其實我本來就沒打算做博弈了，去面試也只是想說「以戰養戰」的態度、寫寫題目，看看有沒有需要再精進的&amp;hellip;（是說這間在話術上也很厲害，在頁面其實沒有看到博弈，他們也說他們不標榜自己是博弈，只是接案剛好有大部分都是接博弈的&amp;hellip;&amp;hellip;），然後我就隨意地寫寫，甚至幾題我是空白沒寫，想說記起來回家研究怎麼寫會更好&amp;hellip;結果超好笑的是下禮拜居然還發給我錄取通知&amp;hellip;.（到底有多缺人Xd）
 還有一間是說我們「氣不合」，這個理由真的很靠杯，雖然我也知道面試這種事其實與技術能力沒有太大關聯，技術能力只是代表你能帶多少籌碼，最重要的還是面試官喜不喜歡你麻～ 但直接用「談論起來氣不合」這種直白的理由真的會覺得很不尊重面試者，這間公司的名稱就不公佈了，想知道可以私訊～
 總之三月之後正式工作，進入了一間大型傳統機構，薪水上蠻滿意的。不過我想先等三個月培訓期度過了在公開自己在哪裡好了，不然培訓期沒過真的會很好笑很尷尬ＸＤ
 不過我覺得是時候應該要好好記錄工作上的筆記與東西了，畢竟有紀錄有籌碼，這樣下次在跳、再找也更有話可以嘴，同時也是一種回顧自己進步的軌跡的概念～
 有一句話我很喜歡：「Don&amp;rsquo;t Prove; Improve」（連結 ）
 話不多說，這個系列的文章就叫做「原來可以這麼寫」，紀錄我看前輩、同事的code的筆記、以及一些工作上學到的新概念、新技術～然後後面的標題可以自行發揮創意，像這週就比較沒創意：新工作第一週！
-原來可以直接創造一個class&amp;hellip; 1trait TraitA { 2 public function HelloWorld(){ 3 echo&amp;#39;Hello World&amp;#39;; 4 } 5} 6trait TraitB { 7 public function HELLOTWO(){ 8 echo&amp;#39;hELLO tWO &amp;#39;; 9 } 10} 11$helper = new class { 12 useTraitA,TraitB; 13}; 14$helper-&amp;gt;HelloWorld(); &amp;lt;=&amp;gt; 運算子 這個很少遇到，沒寫道真的不會記得～
+原來可以直接創造一個class&amp;hellip; 1trait TraitA { 2 public function HelloWorld(){ 3 echo&amp;#39;Hello World&amp;#39;; 4 } 5} 6trait TraitB { 7 public function HELLOTWO(){ 8 echo&amp;#39;hELLO tWO &amp;#39;; 9 } 10} 11$helper = new class { 12 useTraitA,TraitB; 13}; 14$helper-&amp;gt;HelloWorld(); &lt;=> 運算子 這個很少遇到，沒寫道真的不會記得～
 他會比較兩邊的值，然後會回傳0,1,-1
-至於規則可以參考：https://www.php.net/manual/zh/language.operators.comparison.php
-filter_var https://blog.xuite.net/coke750101/networkprogramming/57002113-PHP+filter_var%28%29+%E5%87%BD%E6%95%B8Filter+%E5%87%BD%E6%95%B8
-AWS ECR: 類似aws方提供的docker hub KMS: 加解密服務 Lambda : 微服務的部分 匿名函數 https://www.</description></item></channel></rss>
+至於規則可以參考：https://www.php.net/manual/zh/language.operators.comparison.php filter_var https://blog.xuite.net/coke750101/networkprogramming/57002113-PHP+filter_var%28%29+%E5%87%BD%E6%95%B8Filter+%E5%87%BD%E6%95%B8 AWS ECR: 類似aws方提供的docker hub KMS: 加解密服務 Lambda : 微服務的部分 匿名函數 https://www.php.net/manual/en/functions.anonymous.php 1$gifts-&amp;gt;sort(fn($a, $b) =&amp;gt; $b-&amp;gt;created_at &amp;lt;=&amp;gt; $a-&amp;gt;created_at)-&amp;gt;values()// 越後面的日子就會排越前面～ 小君曰：這能這個系列應該會是週更，但有可能會是月更，阿不管啦，我想寫就寫啦ＸＤ</description></item></channel></rss>

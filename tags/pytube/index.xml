@@ -7,8 +7,7 @@ pytube 是用來可以抓youtube的影片，首先，你必須先安裝它
 1$ pip install pytube 接下來你可以確認一下pytube 是否正常運作？
 1$ pytube --version 2$ pytube 9.4.0 如果你是最新安裝pytube version 應該會是9.5.1 , 不過pytube 9.5.1 有些問題，可以參考此連結 解決問題
 接下來我們就可以開始寫下載youtube影片的程式啦！
-這裡我只是簡單呈現怎麼撰寫，詳細與延伸可以參考文件：https://Python-pytube.readthedocs.io/en/latest/#
-小君曰：不知道為什麼文件的版本似乎落後了我目前寫的版本&amp;hellip;
+這裡我只是簡單呈現怎麼撰寫，詳細與延伸可以參考文件：https://Python-pytube.readthedocs.io/en/latest/# 小君曰：不知道為什麼文件的版本似乎落後了我目前寫的版本&amp;hellip;
 就是這麼簡單！！！！
 1from pytube import YouTube 2 3url =input(&amp;#39;請輸入你要下載的youtube網址： &amp;#39;) 4print(&amp;#39;下載 來自&amp;#39;+url+&amp;#39; 的youtube影片中...&amp;#39;) 5YouTube(url).streams.first().download() 像我自己想要更加炫技一下就會想知道我目前youtube影片的名字的話可以這樣寫&amp;hellip;.. 加入beautifulSoup 這個可以分析網頁的套件。
 1from pytube import YouTube 2import requests 3from bs4 import BeautifulSoup 4 5url =input(&amp;#39;請輸入你要下載的youtube網址： &amp;#39;) 6 7# 先去youtube 上看看這部影片的名字 8request=requests.</description></item></channel></rss>

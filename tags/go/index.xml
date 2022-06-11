@@ -11,6 +11,5 @@
 然後再寫的過程當中也越來越喜歡Go這門語言。不過我知道我要學習的還太多，這在我使用Go上面只是剛開始而已。
 謝謝後端團隊的大家讓我可以任性的使用看看這門語言，並且在我有問題的時候願意幫助我＾＾
 於是乎，這個月的技術分享會就分享我使用Golang的心得了&amp;hellip;&amp;hellip;
-https://www.slideshare.net/ssusereb2ee2/golang-246642054
-額外加碼： 最近docker 使用上常常有那個build 失敗的image 和container bla bla 的，最近看到一個很好用的清除指令紀錄一下：
+https://www.slideshare.net/ssusereb2ee2/golang-246642054 額外加碼： 最近docker 使用上常常有那個build 失敗的image 和container bla bla 的，最近看到一個很好用的清除指令紀錄一下：
 1docker system prune 小君曰：想要轉職成Golang 工程師。。。</description></item></channel></rss>

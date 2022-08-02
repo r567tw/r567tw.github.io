@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jimmy 's Code</title><link>https://jimmycode.tw/posts/</link><description>Recent content in Posts on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022 Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sat, 02 Jul 2022 13:33:11 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>開發個人助理Jarvis</title><link>https://jimmycode.tw/posts/jarvis/</link><pubDate>Sat, 02 Jul 2022 13:33:11 +0000</pubDate><guid>https://jimmycode.tw/posts/jarvis/</guid><description>前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jimmy 's Code</title><link>https://jimmycode.tw/posts/</link><description>Recent content in Posts on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022 Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Tue, 02 Aug 2022 01:33:11 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel Pint 簡易教學</title><link>https://jimmycode.tw/posts/laravel-pint/</link><pubDate>Tue, 02 Aug 2022 01:33:11 +0000</pubDate><guid>https://jimmycode.tw/posts/laravel-pint/</guid><description>前言 好的工程師通常對於自己的 code 會有所在意，並思考著如何能讓程式碼更讓人好懂,好閱讀。 以及通常團隊裡也會有統一的coding-style。
+在 Laravel 9 之後有個套件我覺得很有趣，它就在某個程度上就解決了這個情境 個人認為蠻值得簡介一下，叫做 Laravel Pint。
+安裝 首先, 我們先安裝這個套件。
+composer require laravel/pint &amp;ndash;dev
+安裝完之後，你就可以使用./vendor/bin/pint這個指令了。
+取得版本 1vendor/bin/pint --version 客製化 在文件裡指出，coding-style 可以被客製設定。在root 目錄建立一個叫做pint.json的檔案即可。 裡面的內容則是
+1{ 2 &amp;#34;preset&amp;#34;: &amp;#34;laravel&amp;#34; 3} 這樣它就會設定 laravel 為這個專案的固定 coding-style。 如文件說明，你也可以客製底下的rule 來處理。
+如果想要看的更多可以參考這裡：https://laravel.com/docs/9.x/pint
+小君曰：如何成為一個好的工程師永遠是我人生上的一大哉問。</description></item><item><title>開發個人助理Jarvis</title><link>https://jimmycode.tw/posts/jarvis/</link><pubDate>Sat, 02 Jul 2022 13:33:11 +0000</pubDate><guid>https://jimmycode.tw/posts/jarvis/</guid><description>前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！
 之前有個想法希望可以買黃金，剛好看到github action 有所謂的schedule 的選項，於是我就有個大膽的想法：不如就讓line 來通知到要準備買黃金拉
 專案開發 原本他只是個簡單的黃金買賣通知，結果到最後我把他寫成通知天氣預報、股票等買賣的決策系統通知了XD
 或許之後還可以有更多細緻化的設定，反正他就是個超簡單的side project, 技術基於 line notify, github action 及 python。黃金、天氣與股票各由負責的python script 處理，算是有點為服務的feel 吧？

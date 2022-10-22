@@ -1,0 +1,81 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Laravel 多語系網站 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="接著前一天的Helper主題，我們那時談到了trans()這個helper，底下應該會常常在使用它，我們有時候會需要有國際化的需求，需要征服"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.104.3 with theme even"><link rel=canonical href=http://localhost:1313/laravel-%E5%A4%9A%E8%AA%9E%E7%B3%BB%E7%B6%B2%E7%AB%99/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><meta property="og:title" content="Laravel 多語系網站"><meta property="og:description" content="接著前一天的Helper主題，我們那時談到了trans()這個helper，底下應該會常常在使用它，我們有時候會需要有國際化的需求，需要征服"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/laravel-%E5%A4%9A%E8%AA%9E%E7%B3%BB%E7%B6%B2%E7%AB%99/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-10-10T16:42:58+00:00"><meta property="article:modified_time" content="2019-10-10T16:42:58+00:00"><meta itemprop=name content="Laravel 多語系網站"><meta itemprop=description content="接著前一天的Helper主題，我們那時談到了trans()這個helper，底下應該會常常在使用它，我們有時候會需要有國際化的需求，需要征服"><meta itemprop=datePublished content="2019-10-10T16:42:58+00:00"><meta itemprop=dateModified content="2019-10-10T16:42:58+00:00"><meta itemprop=wordCount content="1083"><meta itemprop=keywords content="laravel,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Laravel 多語系網站"><meta name=twitter:description content="接著前一天的Helper主題，我們那時談到了trans()這個helper，底下應該會常常在使用它，我們有時候會需要有國際化的需求，需要征服"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Laravel 多語系網站</h1><div class=post-meta><span class=post-time>2019-10-10</span><div class=post-category><a href=/categories/ithome/>ithome</a></div></div></header><div class=post-content><p>接著前一天的<code>Helper</code>主題，我們那時談到了<code>trans()</code>這個<code>helper</code>，底下應該會常常在使用它，我們有時候會需要有國際化的需求，需要<del>征服宇宙</del>，所以做一個多語系的網站是有必要的。接下來，讓我們來示範一下Laravel這個全能型框架關於多語系能力的展現吧！</p><p>網頁要實現所謂的多語系有兩種方法</p><ol><li><p>建立多個網站(土法煉鋼型)：例如我需要有英文和中文的網站，就會英文有一個網站，中文又會有另外一個網站。這兩個網站的樣子可能會有很大的不一樣或者很大的一模一樣，好處是：<code>可以就語系別做出更高的客製化</code>，然後壞處就是：<code>費工，重複造的輪子肯定很多</code></p></li><li><p>使用語系檔將檔案內容作出轉換：以上面的例子來說，可能我會有一個<code>中文的語系檔</code>和另外一個<code>英文的語系檔</code>，根據網站的<code>語系選擇</code>呈現以某個語系檔所轉換過來的文字。好處是：<code>重複造的輪子不多，只要學會翻譯文字就好</code>，壞處就是<code>無法提供給各語系特別的客製化</code>。</p></li></ol><p>我大概能想到的優點和缺點就是這樣，如果有大大可以補充歡迎告訴我。
+接下來我們將示範說明的會是第二類。使用所謂的<code>語系檔</code>轉換內容。</p><p>Laravel 語系檔存放在<code>resources/lang</code>資料夾的檔案裡。在此資料夾內，一個蘿蔔一個坑，一個網站支援的語系對應到一個語系子目錄。像是這樣的結構：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>/resources
+</span></span><span class=line><span class=cl>    /lang
+</span></span><span class=line><span class=cl>        /en
+</span></span><span class=line><span class=cl>            messages.php
+</span></span><span class=line><span class=cl>        /zh-Hans-TW
+</span></span><span class=line><span class=cl>            messages.php
+</span></span></code></pre></td></tr></table></div></div><p>語系檔裡面放的到底是什麼，其實就是大概這樣而已拉</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;?php
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>return [
+</span></span><span class=line><span class=cl>    &#39;welcome&#39; =&gt; &#39;Welcome to our application&#39;
+</span></span><span class=line><span class=cl>];
+</span></span></code></pre></td></tr></table></div></div><p>一般來說，網站的預設語系是在<code>config/app.php</code>這個檔案裡面有一個<code>locale</code>的屬性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>   &#39;locale&#39; =&gt; &#39;en&#39;,
+</span></span></code></pre></td></tr></table></div></div><p>然而如果我們想要切換語系的話該怎麼辦？其實很簡單，使用<code>App::setLocale($locale);</code>這個方法就可以了，以下讓我們做個簡單的火力展示。</p><p>首先是增加個Route規則</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Route::get(&#39;welcome/{locale}&#39;, function ($locale) {
+</span></span><span class=line><span class=cl>    app()-&gt;setLocale($locale);
+</span></span><span class=line><span class=cl>    return view(&#39;welcome&#39;);
+</span></span><span class=line><span class=cl>});
+</span></span></code></pre></td></tr></table></div></div><p>然後分別建立兩個檔案，一個是<code>resources/lang/zh-TW/message.php</code>以及<code>resources/lang/en/message.php</code>，分別在裡面寫這些：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>//zh-TW/message.php
+</span></span><span class=line><span class=cl>&lt;?php
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>return [
+</span></span><span class=line><span class=cl>    &#39;welcome&#39; =&gt; &#39;歡迎來到我們的應用程式&#39;
+</span></span><span class=line><span class=cl>];
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>//en/message.php
+</span></span><span class=line><span class=cl>&lt;?php
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>return [
+</span></span><span class=line><span class=cl>    &#39;welcome&#39; =&gt; &#39;Welcome to our application&#39;
+</span></span><span class=line><span class=cl>];
+</span></span></code></pre></td></tr></table></div></div><p>之後到<code>welcome.blade.php</code>修改一下，把原本的Laravel那一行替換成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>{{ trans(&#39;message.welcome&#39;) }}
+</span></span></code></pre></td></tr></table></div></div><p>之後到<code>welcome/zh-tw</code>和<code>welcome/en</code>就會看到我們這些被轉換的文字呢！</p><p>當然拉，這個超級陽春的多語系，其實我們可以利用<code>cookie</code>和<code>session</code>存放語系值，藉由前面我們說到的<code>middleware</code>，加上<code>app()->setLocale($locale)</code>來做我們語系上的設定喔。</p><p>以下是參考的文件：</p><ul><li><a href=https://laravel.tw/docs/5.2/localization>https://laravel.tw/docs/5.2/localization</a></li><li><a href=https://laravel.com/docs/6.x/localization>https://laravel.com/docs/6.x/localization</a></li></ul><p>今天得程式碼不多，要看完整程式碼的可以參考這裡:
+<a href=https://github.com/r567tw/Make-PHP-Great-Again/commit/9957deac8788ee8bd20ccb3a0cd8ce867e352f0e>https://github.com/r567tw/Make-PHP-Great-Again/commit/9957deac8788ee8bd20ccb3a0cd8ce867e352f0e</a></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>r567tw</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2019-10-10</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/laravel/>laravel</a></div><nav class=post-nav><a class=prev href=/laravel-collections/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Laravel Collections</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/laravel-helpers/><span class="next-text nav-default">Laravel Helpers</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

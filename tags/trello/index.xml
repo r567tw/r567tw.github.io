@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>trello on Jimmy 's Code</title><link>https://jimmycode.tw/tags/trello/</link><description>Recent content in trello on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022 Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sun, 12 Jul 2020 08:42:58 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/tags/trello/index.xml" rel="self" type="application/rss+xml"/><item><title>原來可以這麼寫(3) : 關於我的工作流程</title><link>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link><pubDate>Sun, 12 Jul 2020 08:42:58 +0000</pubDate><guid>https://jimmycode.tw/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid><description>來開始交代一周一次的功課了XD
-希望技術部落格可以一周一篇文章, 提升更多的技術含量
-記錄自己一天比一天更佳進步的軌跡
-關於trello trello 是很多Team會用到的一個工具,可以用來管理專案與任務安排
-它真的是一個真的很方便以及很有幫助的工具
-我的前一份工作和現在這一份都有用到這個trello
-一開始進入公司的時候 我發現到他們trello 有 進行中, Todo , 完成後請檢察等等的分類, 然後用tag作專案上的分類, 用了一陣子之後發現他們這樣的管理方式真的很不錯
-所以就應用在我的side project 管理上
-不過我個人也對這樣的部分做了一個調整: 加入了一個研究中的list
-畢竟做為小小工程師而言, 作side project 的目標除了是興趣與證明自己的實力以外
-也是還要將一些新的東西應用與練習的麻~ 好幫助自己真的可以越來越進步
-於是就來分享看看我這個trello 的 template 喔: https://trello.com/b/PFi72D78/r567tws-template 歡迎用我的template去管理你們的專案～
-如果有甚麼改進的建議或管理好方法歡迎來告訴我喔
-Composer scripts 本周也學到composer 可以在composer.json 裡面寫一些指令, 可以在安裝後,更新後或者安裝前,更新前可以寫command 執行
-至於這裡就有豐富關於此的內容，這裡我就不贅述：https://docs.phpcomposer.com/articles/scripts.html 我看到這個的想法是: 哇以後那些php的初始專案就可以不用這麼麻煩了耶, 只要下載後, composer install 或 composer update , 就可以使用了&amp;hellip;&amp;hellip;
-我是一個很懶的工程師,也很不喜歡背來背去那些指令, 況且每次都要google 一下把指令們copy &amp;amp; paste , 真的很麻煩
-有了這個東西,方便多了, 不用跑 cp .env.example .env 和php artisan key:generage
-不過也發覺, 原來我還不懂composer XDDDD</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>trello on Jimmy's Code</title><link>http://localhost:1313/tags/trello/</link><description>Recent content in trello on Jimmy's Code</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 12 Jul 2020 08:42:58 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/trello/index.xml" rel="self" type="application/rss+xml"/><item><title>原來可以這麼寫(3) : 關於我的工作流程</title><link>http://localhost:1313/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link><pubDate>Sun, 12 Jul 2020 08:42:58 +0000</pubDate><guid>http://localhost:1313/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB3-%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid><description>來開始交代一周一次的功課了XD 希望技術部落格可以一周一篇文章, 提升更多的技術含量 記錄自己一天比一天更佳進步的軌跡 關於trello trello 是很多Te</description></item></channel></rss>

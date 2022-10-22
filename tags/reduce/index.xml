@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>reduce on Jimmy 's Code</title><link>https://jimmycode.tw/tags/reduce/</link><description>Recent content in reduce on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022 Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sat, 03 Apr 2021 05:21:00 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/tags/reduce/index.xml" rel="self" type="application/rss+xml"/><item><title>談Python: Lambda, Map , Filter 及 Reduce</title><link>https://jimmycode.tw/posts/%E8%AB%87Python-lambda-map-filter-%E5%8F%8A-reduce/</link><pubDate>Sat, 03 Apr 2021 05:21:00 +0000</pubDate><guid>https://jimmycode.tw/posts/%E8%AB%87Python-lambda-map-filter-%E5%8F%8A-reduce/</guid><description>從大二開始研究怎麼當一名駭客之後，開始接觸Python, 出社會後也常常用Python 開發我個人的工具包，可說是這幾年來個人 Python 的功力大漲！
-最近在邊寫邊查資料的過程當中，認識到Python的 Lambda,Map和Reduce
-於是，就讓我寫一篇文章記錄這一切吧 ＾＾
-Lambda 此 Lambda 不是 AWS的Lambda ,我也不知道為什麼這裡要取和AWS的Lambda一樣的名稱哈哈，總之他是一種Python裡面的表示式，可以更加簡便、更加Function programming 的呈現程式碼，不多贅述，我最喜歡 Show me the code了！
-1# 通常我們定義Function是長這個樣子（順便我也想練習強型別，Python也支援喔） 2def demoX(x:int) -&amp;gt; int: 3 return x + 10; 4 5print(demoX(20)) //output-&amp;gt; 30 其實蠻落落長的，所以Python說，要有Lambda , 就有Lambda
-1demoX = lambda x: x+10 2 3print(demoX(20)) 好了，我附上參考網址結束這一切：
-https://openhome.cc/Gossip/Python/LambdaExpression.html Map和Reduce Map , Filter和 Reduce 我想要放在一起說，如果常寫Function Programming的對這兩個單字一定不陌生，Laravel的Collection也有這些方法。沒錯，他們的用法其實和他們的單字意思很像呢！
-1# map(function_to_apply, list_of_inputs) 2a = list(map(lambda a: a+2,[1,2,3])) 3print(a) # [3,4,5] map 其實就會迭代列表中的每一個項目，最後回傳出來的是一個map的物件，記得之後要用list才能把它印出來喔
-1a = list(filter(lambda a: a&amp;gt;2,[1,2,3,4,5,6])) 2print(a) # [3, 4, 5, 6] filter 其實和map很像，只是它是過濾項目，一樣他是個filter的物件，一樣需要list，所以你的function裡面請回傳出boolean，這我就不多說明啦～</description></item></channel></rss>

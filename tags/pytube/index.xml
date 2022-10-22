@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pytube on Jimmy 's Code</title><link>https://jimmycode.tw/tags/pytube/</link><description>Recent content in pytube on Jimmy 's Code</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Copyright © 2022 Jimmy Fang. All Rights Reserved.</copyright><lastBuildDate>Sun, 03 Mar 2019 09:24:30 +0000</lastBuildDate><atom:link href="https://jimmycode.tw/tags/pytube/index.xml" rel="self" type="application/rss+xml"/><item><title>Pytube 簡單教學</title><link>https://jimmycode.tw/posts/pytube-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 03 Mar 2019 09:24:30 +0000</pubDate><guid>https://jimmycode.tw/posts/pytube-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</guid><description>來寫個簡單的Python 教學好了，對了！ 去年我有挑戰it 幫鐵人賽，參加的是自我挑戰組，並且自己訂的主題就是Python 30天！ 歡迎大家去看看！
-連結於此 對於鐵人賽完賽的心得不必多說，我想已經都寫在最後一天了，總之就是覺得自己還有很大的成長空間，下次參加鐵人賽一定要有更充足的準備和題目。
-不得不說，這次鐵人賽的獎品
-我個人覺得好浮誇&amp;hellip;&amp;hellip;
-好了，簡單交代近況也夠了，進入主題來談談Python 好用的套件pytube 吧！
-pytube 是用來可以抓youtube的影片，首先，你必須先安裝它
-1$ pip install pytube 接下來你可以確認一下pytube 是否正常運作？
-1$ pytube --version 2$ pytube 9.4.0 如果你是最新安裝pytube version 應該會是9.5.1 , 不過pytube 9.5.1 有些問題，可以參考此連結 解決問題
-接下來我們就可以開始寫下載youtube影片的程式啦！
-這裡我只是簡單呈現怎麼撰寫，詳細與延伸可以參考文件：https://Python-pytube.readthedocs.io/en/latest/# 小君曰：不知道為什麼文件的版本似乎落後了我目前寫的版本&amp;hellip;
-就是這麼簡單！！！！
-1from pytube import YouTube 2 3url =input(&amp;#39;請輸入你要下載的youtube網址： &amp;#39;) 4print(&amp;#39;下載 來自&amp;#39;+url+&amp;#39; 的youtube影片中...&amp;#39;) 5YouTube(url).streams.first().download() 像我自己想要更加炫技一下就會想知道我目前youtube影片的名字的話可以這樣寫&amp;hellip;.. 加入beautifulSoup 這個可以分析網頁的套件。
-1from pytube import YouTube 2import requests 3from bs4 import BeautifulSoup 4 5url =input(&amp;#39;請輸入你要下載的youtube網址： &amp;#39;) 6 7# 先去youtube 上看看這部影片的名字 8request=requests.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pytube on Jimmy's Code</title><link>http://localhost:1313/tags/pytube/</link><description>Recent content in pytube on Jimmy's Code</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 03 Mar 2019 09:24:30 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pytube/index.xml" rel="self" type="application/rss+xml"/><item><title>Pytube 簡單教學</title><link>http://localhost:1313/pytube-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</link><pubDate>Sun, 03 Mar 2019 09:24:30 +0000</pubDate><guid>http://localhost:1313/pytube-%E7%B0%A1%E5%96%AE%E6%95%99%E5%AD%B8/</guid><description>來寫個簡單的Python 教學好了，對了！ 去年我有挑戰it 幫鐵人賽，參加的是自我挑戰組，並且自己訂的主題就是Python 30天！ 歡迎大家去看看</description></item></channel></rss>

@@ -1,0 +1,229 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>綜合應用(4) 使用 Laravel 做一個簡單的部落格：複習-下 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="接下來到該篇章最後一個小節，讓我們把剩下的新增、修改、刪除都做好吧！ 這是接續前兩天的實作，如果不太清楚的話記得複習一下前兩天 綜合應用(2) 使"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/2019-09-27-%E7%B6%9C%E5%90%88%E6%87%89%E7%94%A84-%E4%BD%BF%E7%94%A8-laravel-%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E8%A4%87%E7%BF%92-%E4%B8%8B/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="綜合應用(4) 使用 Laravel 做一個簡單的部落格：複習-下"><meta property="og:description" content="接下來到該篇章最後一個小節，讓我們把剩下的新增、修改、刪除都做好吧！ 這是接續前兩天的實作，如果不太清楚的話記得複習一下前兩天 綜合應用(2) 使"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/2019-09-27-%E7%B6%9C%E5%90%88%E6%87%89%E7%94%A84-%E4%BD%BF%E7%94%A8-laravel-%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E8%A4%87%E7%BF%92-%E4%B8%8B/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-09-26T18:08:38+00:00"><meta property="article:modified_time" content="2019-09-26T18:08:38+00:00"><meta itemprop=name content="綜合應用(4) 使用 Laravel 做一個簡單的部落格：複習-下"><meta itemprop=description content="接下來到該篇章最後一個小節，讓我們把剩下的新增、修改、刪除都做好吧！ 這是接續前兩天的實作，如果不太清楚的話記得複習一下前兩天 綜合應用(2) 使"><meta itemprop=datePublished content="2019-09-26T18:08:38+00:00"><meta itemprop=dateModified content="2019-09-26T18:08:38+00:00"><meta itemprop=wordCount content="2704"><meta itemprop=keywords content="laravel,"><meta name=twitter:card content="summary"><meta name=twitter:title content="綜合應用(4) 使用 Laravel 做一個簡單的部落格：複習-下"><meta name=twitter:description content="接下來到該篇章最後一個小節，讓我們把剩下的新增、修改、刪除都做好吧！ 這是接續前兩天的實作，如果不太清楚的話記得複習一下前兩天 綜合應用(2) 使"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>綜合應用(4) 使用 Laravel 做一個簡單的部落格：複習-下</h1><div class=post-meta><span class=post-time>2019-09-26</span><div class=post-category><a href=/categories/ithome/>ithome</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#新增文章>新增文章</a><ul><li><a href=#articlecontrollercreate>ArticleController@create</a></li><li><a href=#說明>說明</a></li><li><a href=#articlecontrollerstore>ArticleController@store</a></li><li><a href=#說明-1>說明</a></li></ul></li><li><a href=#修改文章>修改文章</a><ul><li><a href=#articlecontrolleredit>ArticleController@edit</a></li><li><a href=#articlecontrollerupdate>ArticleController@update</a></li></ul></li><li><a href=#刪除文章>刪除文章</a><ul><li><a href=#articlecontrollerdestroy>ArticleController@destroy</a></li></ul></li><li><a href=#結語>結語</a></li></ul></nav></div></div><div class=post-content><p>接下來到該篇章最後一個小節，讓我們把剩下的新增、修改、刪除都做好吧！
+這是接續前兩天的實作，如果不太清楚的話記得複習一下前兩天</p><ul><li><a href=https://ithelp.ithome.com.tw/articles/10220383>綜合應用(2) 使用 Laravel 做一個簡單的部落格：複習-上</a></li><li><a href=https://ithelp.ithome.com.tw/articles/10221135>綜合應用(3) 使用 Laravel 做一個簡單的部落格：複習-中</a></li></ul><p>新增文章對於 RESTFul API 的概念來說，他是一種<code>POST</code>，對於網址來說以 Article 為例則是<code>http://127.0.0.1:8000/article</code>，然而，這個網址其實正也是<code>index</code>的網站(不過他是用<code>GET</code>的方法)&mldr;.但是，<strong>我們要怎麼傳要新增的資料呢？怎麼辦？</strong></p><p>因此對於 Laravel 來說，他在網址後面也增加了一個關鍵字：<code>create</code>作為識別，以告訴瀏覽器，這是一個創建文章的頁面，<strong>不是列表 index 的頁面喔</strong>，然後用 form POST 的方式，將新增文章建立好。<strong>同理其實與修改文章的模式一樣，C 和 U 有兩個頁面，C 對應到 create()和 store()，而 U 對應到 edit()和 update()</strong></p><h1 id=新增文章>新增文章</h1><p>之前我們說到 CRUD，而 C 就對應到 controller 的 create()和 store()</p><h2 id=articlecontrollercreate>ArticleController@create</h2><p>只是傳一個頁面，和 Show()很像，傳一個 view 給他就好</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function create()
+</span></span><span class=line><span class=cl>    {
+</span></span><span class=line><span class=cl>        return view(&#39;articles.create&#39;);
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>別忘了我們要做一個<code>articles/create.blade.php</code>喔，如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>@extends(&#39;layouts.layout&#39;)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>@section(&#39;content&#39;)
+</span></span><span class=line><span class=cl>&lt;h1 class=&#34;font-bold&#34;&gt;新增文章&lt;/h1&gt;
+</span></span><span class=line><span class=cl>&lt;form class=&#34;bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4&#34; action=&#34;{{ route(&#39;article.store&#39;)}}&#34; method=&#34;post&#34;&gt;
+</span></span><span class=line><span class=cl>    @csrf
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;mb-4&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;label class=&#34;block text-gray-700 text-sm font-bold mb-2&#34; for=&#34;title&#34;&#34;&gt;
+</span></span><span class=line><span class=cl>            標題
+</span></span><span class=line><span class=cl>        &lt;/label&gt;
+</span></span><span class=line><span class=cl>        &lt;input class=&#34; shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight
+</span></span><span class=line><span class=cl>            focus:outline-none focus:shadow-outline&#34; type=&#34; text&#34; name=&#34;title&#34; id=&#34;title&#34;&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;mb-4&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;label class=&#34;block text-gray-700 text-sm font-bold mb-2&#34; for=&#34;content&#34;&gt;
+</span></span><span class=line><span class=cl>            內容
+</span></span><span class=line><span class=cl>        &lt;/label&gt;
+</span></span><span class=line><span class=cl>        &lt;textarea
+</span></span><span class=line><span class=cl>            class=&#34;shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline&#34;
+</span></span><span class=line><span class=cl>            name=&#34;content&#34; id=&#34;content&#34; cols=&#34;30&#34; rows=&#34;10&#34;&gt;&lt;/textarea&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;button
+</span></span><span class=line><span class=cl>        class=&#34;bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline&#34;
+</span></span><span class=line><span class=cl>        type=&#34;submit&#34;&gt;新增&lt;/button&gt;
+</span></span><span class=line><span class=cl>&lt;/form&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>@endsection
+</span></span></code></pre></td></tr></table></div></div><p>PS.tailwindcss 的麻煩之處就是他的 class 名稱會變得好長好長 XD
+在<code>php artisan serve</code>
+接下來你進入<code>http://127.0.0.1:8000/article/create</code>就可以看到我們要的新增文章表單囉～
+<img src=https://ithelp.ithome.com.tw/upload/images/20190927/20106999SwQBKHVAIF.png alt=https://ithelp.ithome.com.tw/upload/images/20190927/20106999SwQBKHVAIF.png></p><h2 id=說明>說明</h2><ul><li>@csrf 是 Blade 的用法，如果你有用到 Laravel 的表單，那麼這個東西你是一定要加的，除非你把管 csrf 的 Middleware 先關掉，關於 Middleware 的部分我們以後會再說明，總之這是一種資安的防禦手段，需要加入這個部分，想更多了解可以到此：https://laravel.com/docs/5.8/csrf</li></ul><h2 id=articlecontrollerstore>ArticleController@store</h2><p>當表單送出去後，就會到這個<code>store</code>的 function，之前第二天 MVC 有談到，如果不知道的可以到這裡：<a href=https://ithelp.ithome.com.tw/articles/10216225>來談什麼是 MVC</a></p><p>結論就是如同我們現在所實作的這樣，View 不可能直接對Ｍ odel 作用，而需要透過表單傳送給 Controller 來對 Model 做調整。
+所以<code>Store()</code>這個部分承接了表單傳過來的資料、對 Model 作用且要導向頁面&mldr;所以我們的 store 可以這麼寫</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function store(Request $request)
+</span></span><span class=line><span class=cl>    {
+</span></span><span class=line><span class=cl>        $title = $request-&gt;title;
+</span></span><span class=line><span class=cl>        $content = $request-&gt;content;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        $article = new Article();
+</span></span><span class=line><span class=cl>        $article-&gt;title = $title;
+</span></span><span class=line><span class=cl>        $article-&gt;content = $content;
+</span></span><span class=line><span class=cl>        $article-&gt;save();
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        return redirect(route(&#39;article.index&#39;));
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>之後我們在新增頁面新增完資料就會回到列表頁囉，而在列表頁裡面也就有我們新增的一筆新文章。</p><h2 id=說明-1>說明</h2><ul><li>redirect 就是重新導向，此範例就是導向到文章列表</li><li>而我們可以藉由 new 一個新的 model，然後對他填入資料、之後使用<code>save()</code> 這個 function 就可以幫助我們對資料庫寫入資料</li></ul><h1 id=修改文章>修改文章</h1><p>修改文章的部分其實和新增文章很相似，
+U 就對應到 controller 的 edit()和 update()
+只是比較特別的是 HTTP 裡面只有 GET 和 POST 的方法，如何實現 PUT/PATCH 呢？
+我現在先把程式碼範例放上來，如果需要說明的會再做更多說明～</p><h2 id=articlecontrolleredit>ArticleController@edit</h2><p>和 Create 一樣簡單，就是回傳一個可以讓我們更新的頁面而已，不過我們也要把準備要被修改的資料一起傳到 blade 給他喔，所以在後面增加了<code>withArticle</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function edit(Article $article)
+</span></span><span class=line><span class=cl>    {
+</span></span><span class=line><span class=cl>        return view(&#39;articles.edit&#39;)-&gt;withArticle($article);
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>而<code>edit.blade.php</code>和<code>Create.blade.php</code>非常像，其實我們只要把$article 的值填入表單，另外<strong>使用@method(&lsquo;PUT&rsquo;)，將 form 的 action 改為<code>route('article.update',$article->id)</code>就好了啊</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>@extends(&#39;layouts.layout&#39;)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>@section(&#39;content&#39;)
+</span></span><span class=line><span class=cl>&lt;h1 class=&#34;font-bold&#34;&gt;編輯文章&lt;/h1&gt;
+</span></span><span class=line><span class=cl>&lt;form class=&#34;bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4&#34; action=&#34;{{ route(&#39;article.update&#39;,$article-&gt;id)}}&#34;
+</span></span><span class=line><span class=cl>    method=&#34;post&#34;&gt;
+</span></span><span class=line><span class=cl>    @csrf
+</span></span><span class=line><span class=cl>    @method(&#39;PUT&#39;)
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;mb-4&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;label class=&#34;block text-gray-700 text-sm font-bold mb-2&#34; for=&#34;title&#34;&#34;&gt;
+</span></span><span class=line><span class=cl>            標題
+</span></span><span class=line><span class=cl>        &lt;/label&gt;
+</span></span><span class=line><span class=cl>        &lt;input class=&#34; shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight
+</span></span><span class=line><span class=cl>            focus:outline-none focus:shadow-outline&#34; type=&#34; text&#34; name=&#34;title&#34; id=&#34;title&#34; value={{ $article-&gt;title }}&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;mb-4&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;label class=&#34;block text-gray-700 text-sm font-bold mb-2&#34; for=&#34;content&#34;&gt;
+</span></span><span class=line><span class=cl>            內容
+</span></span><span class=line><span class=cl>        &lt;/label&gt;
+</span></span><span class=line><span class=cl>        &lt;textarea
+</span></span><span class=line><span class=cl>            class=&#34;shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline&#34;
+</span></span><span class=line><span class=cl>            name=&#34;content&#34; id=&#34;content&#34; cols=&#34;30&#34; rows=&#34;10&#34;&gt;{{ $article-&gt;content }}&lt;/textarea&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;button
+</span></span><span class=line><span class=cl>        class=&#34;bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline&#34;
+</span></span><span class=line><span class=cl>        type=&#34;submit&#34;&gt;更新&lt;/button&gt;
+</span></span><span class=line><span class=cl>&lt;/form&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>@endsection
+</span></span></code></pre></td></tr></table></div></div><p>接下來就到<code>http://127.0.0.1:8000/article/1/edit</code>就看到可以修改的頁面囉～
+<img src=https://ithelp.ithome.com.tw/upload/images/20190927/20106999LfmhYgSZU0.png alt=https://ithelp.ithome.com.tw/upload/images/20190927/20106999LfmhYgSZU0.png></p><h2 id=articlecontrollerupdate>ArticleController@update</h2><p>接下來讓我們寫一下修改文章的邏輯吧！ 其實也是和<code>store()</code>類似，只是不需要 new 出一個新的 article 了，我們直接對他操作就好了喔</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function update(Request $request, Article $article)
+</span></span><span class=line><span class=cl>    {
+</span></span><span class=line><span class=cl>        $title = $request-&gt;title;
+</span></span><span class=line><span class=cl>        $content = $request-&gt;content;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        $article-&gt;title = $title;
+</span></span><span class=line><span class=cl>        $article-&gt;content = $content;
+</span></span><span class=line><span class=cl>        $article-&gt;save();
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        return redirect(route(&#39;article.index&#39;));
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>接下來送出更新的表單就很快看到列表上的文章被更新啦～ 撒花～～～</p><h1 id=刪除文章>刪除文章</h1><p>終於來到最後的刪除文章，對於 Controller 來說他就是<code>destroy()</code>這個方法，從 RESTFul API 讀到它就是使用<code>Delete</code>方法，剛剛我們從<code>edit.blade.php</code>得知我們可以使用<code>@method()</code>這個部分，但這個通常要<code>加入一個POST表單</code>一起才會生效，所以讓我們修改一下文章列表的部分～
+原本的在<code>index.blade.php</code>刪除按鈕的部分：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;a href=&#34;{{ route(&#39;article.destroy&#39;,$article-&gt;id ) }}&#34;&gt;刪除&lt;/a&gt;
+</span></span></code></pre></td></tr></table></div></div><p>我們可以加入表單，讓他變成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;form method=&#34;POST&#34; action=&#34;{{ route(&#39;article.destroy&#39;,$article-&gt;id ) }}&#34;&gt;
+</span></span><span class=line><span class=cl>    @csrf
+</span></span><span class=line><span class=cl>    @method(&#39;delete&#39;)
+</span></span><span class=line><span class=cl>    &lt;button type=&#34;submit&#34;&gt;刪除&lt;/button&gt;
+</span></span><span class=line><span class=cl>&lt;/form&gt;
+</span></span></code></pre></td></tr></table></div></div><p>然後開始寫我們的刪除流程囉～</p><h2 id=articlecontrollerdestroy>ArticleController@destroy</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function destroy(Article $article)
+</span></span><span class=line><span class=cl>    {
+</span></span><span class=line><span class=cl>        $article-&gt;delete();
+</span></span><span class=line><span class=cl>        return redirect(route(&#39;article.index&#39;));
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>之後你按刪除就會把你選得那一篇文章刪除了呢！</p><p>要看完成程式碼的可以參考這裡：https://github.com/r567tw/Make-PHP-Great-Again/commit/30f58366dbbcd4377bc9b0d92e231739ead5ffd5</p><h1 id=結語>結語</h1><p>以上就是利用 RESTFul API 所做的一個極簡單的文章管理或者部落格專案，當然，現實世界中根本不可能這麼簡單，還記得我們剛剛一直在用的<code>@csrf</code>嗎？那是 Laravel 其中一個 Middleware，另外我們新增與修改也不會這麼簡單，在網頁世界裡，我們要當<code>使用者是很危險的一種生物</code>，一定有時候會有亂寫、不符合格式之類的，所以<code>驗證</code>因應而生。因此，之後<code>讓PHP再次偉大，使用Laravel</code>將會進入一個新的章節，開始討論關於 Laravel 裡面有的深度工具與用法，記得要訂閱我喔！(<del>雖然我不一定把握會寫得很好就是了</del>)</p><p>另外，藉由這四篇的小專案教學也算是要綜合前幾天的所寫所學，畢竟我並不覺得自己前幾天寫得很好，希望藉由這樣的小實作可以讓你們更了解怎麼使用 Laravel，如果有疑問的歡迎在底下發問，這樣才可以成為我下一次寫技術文的養分，知道自己應該要怎麼寫會讓人更加明瞭～～</p></div><footer class=post-footer><div class=post-tags><a href=/tags/laravel/>laravel</a></div><nav class=post-nav><a class=prev href=/posts/2019-09-28-laravel-auth-%E7%82%BA%E7%B6%B2%E7%AB%99%E5%8A%A0%E5%85%A5%E6%9C%83%E5%93%A1%E5%9B%89/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Laravel Auth: 為網站加入會員囉～</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/2019-09-26-%E7%B6%9C%E5%90%88%E6%87%89%E7%94%A83-%E4%BD%BF%E7%94%A8-laravel-%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E8%A4%87%E7%BF%92-%E4%B8%AD/><span class="next-text nav-default">綜合應用(3) 使用 Laravel 做一個簡單的部落格：複習-中</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

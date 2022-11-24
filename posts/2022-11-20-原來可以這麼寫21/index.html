@@ -1,0 +1,116 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>原來可以這麼寫(21):和Travis說掰掰 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="從 travis 改成 github action github action 是一個 github 提供的 CICD 服務。但是我的專案(resume)已經是很久以前寫的，甚至那時還使用 gulp3 撰寫(之後我調整升級成 gulp4 的寫法) 而當時"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.106.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/2022-11-20-%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB21/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="原來可以這麼寫(21):和Travis說掰掰"><meta property="og:description" content="從 travis 改成 github action github action 是一個 github 提供的 CICD 服務。但是我的專案(resume)已經是很久以前寫的，甚至那時還使用 gulp3 撰寫(之後我調整升級成 gulp4 的寫法) 而當時"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/2022-11-20-%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB21/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-11-20T20:47:20+08:00"><meta property="article:modified_time" content="2022-11-20T20:47:20+08:00"><meta itemprop=name content="原來可以這麼寫(21):和Travis說掰掰"><meta itemprop=description content="從 travis 改成 github action github action 是一個 github 提供的 CICD 服務。但是我的專案(resume)已經是很久以前寫的，甚至那時還使用 gulp3 撰寫(之後我調整升級成 gulp4 的寫法) 而當時"><meta itemprop=datePublished content="2022-11-20T20:47:20+08:00"><meta itemprop=dateModified content="2022-11-20T20:47:20+08:00"><meta itemprop=wordCount content="516"><meta itemprop=keywords content="docker,ssh,devops,"><meta name=twitter:card content="summary"><meta name=twitter:title content="原來可以這麼寫(21):和Travis說掰掰"><meta name=twitter:description content="從 travis 改成 github action github action 是一個 github 提供的 CICD 服務。但是我的專案(resume)已經是很久以前寫的，甚至那時還使用 gulp3 撰寫(之後我調整升級成 gulp4 的寫法) 而當時"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/resume><li class=mobile-menu-item>Resume</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/resume>Resume</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>原來可以這麼寫(21):和Travis說掰掰</h1><div class=post-meta><span class=post-time>2022-11-20</span><div class=post-category><a href=/categories/job/>job</a></div></div></header><div class=post-content><h1 id=從-travis-改成-github-action>從 travis 改成 github action</h1><p>github action 是一個 github 提供的 CICD 服務。但是我的專案(resume)已經是很久以前寫的，甚至那時還使用 gulp3 撰寫(之後我調整升級成 gulp4 的寫法)</p><p>而當時我選用<code>travis ci</code>作為自動化部屬的服務之一。現在我想說既然在 Github 上不如就把他換成github action 的服務吧！沒想到意外的簡單！讓大家比較一下</p><ul><li>travis</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>language</span><span class=p>:</span><span class=w> </span><span class=l>node.js</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>node.js</span><span class=p>:</span><span class=w> </span><span class=m>14.5</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>install</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span>- <span class=l>npm install</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span>- <span class=l>npm install --global gulp-cli@2.2.0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span>- <span class=l>npm install -g bower@1.8.2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span>- <span class=l>bower install</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>script</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span>- <span class=l>gulp</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>deploy</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>skip_cleanup</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>email</span><span class=p>:</span><span class=w> </span><span class=l>r567tw@gmail.com</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>r567tw</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>provider</span><span class=p>:</span><span class=w> </span><span class=l>pages</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>github_token</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;$GITHUB_TOKEN&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>local_dir</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;public&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branch</span><span class=p>:</span><span class=w> </span><span class=l>master</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>github action</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Node.js CI</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>master </span><span class=w> </span><span class=c># Set a branch to deploy</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v3</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Use Node.js</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/setup-node@v3</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>node-version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;14.5&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>npm install</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>npm install --global gulp-cli@2.2.0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>npm install -g bower@1.8.2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>bower install</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>gulp</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Push</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>s0/git-publish-subdir-action@develop</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>REPO</span><span class=p>:</span><span class=w> </span><span class=l>self</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>BRANCH</span><span class=p>:</span><span class=w> </span><span class=l>gh-pages</span><span class=w> </span><span class=c># The branch name where you want to push the assets</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>FOLDER</span><span class=p>:</span><span class=w> </span><span class=l>public</span><span class=w> </span><span class=c># The directory where your assets are generated</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>GITHUB_TOKEN</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w> </span><span class=c># GitHub will automatically add this - you don&#39;t need to bother getting a token</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>MESSAGE</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;Build: ({sha}) {msg}&#34;</span><span class=w> </span><span class=c># The commit message</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>Footer</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>其實我就只是格式換一換，而比較特別的是使用<code>s0/git-publish-subdir-action@develop</code> 這個外部 action 這樣。</p><h1 id=想要再出去飛>想要再出去飛</h1><p>說實在也不知道這個決定是不是正確的，但或許。沒有正確不正確、只是適合不適合罷了！同時我也相信每一次的決定與行動、都會為我帶來一些收穫，<strong>更加知道自己要的是什麼</strong>。</p><blockquote><p>小君曰：下次與同事相處,要更加謹慎、拉出界線。</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/docker/>docker</a>
+<a href=/tags/ssh/>ssh</a>
+<a href=/tags/devops/>devops</a></div><nav class=post-nav><a class=next href=/posts/2022-11-07-%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB20/><span class="next-text nav-default">原來可以這麼寫(20):遇到一個奇怪的同事</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

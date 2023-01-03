@@ -1,0 +1,119 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Laravel File Storage - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="接下來我分享關於Laravel內建關於檔案管理的部分，先上個文件：https://laravel.com/docs/6.x/filesyst"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/laravel-file-storage/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Laravel File Storage"><meta property="og:description" content="接下來我分享關於Laravel內建關於檔案管理的部分，先上個文件：https://laravel.com/docs/6.x/filesyst"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/laravel-file-storage/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-10-07T10:29:27+00:00"><meta property="article:modified_time" content="2019-10-07T10:29:27+00:00"><meta itemprop=name content="Laravel File Storage"><meta itemprop=description content="接下來我分享關於Laravel內建關於檔案管理的部分，先上個文件：https://laravel.com/docs/6.x/filesyst"><meta itemprop=datePublished content="2019-10-07T10:29:27+00:00"><meta itemprop=dateModified content="2019-10-07T10:29:27+00:00"><meta itemprop=wordCount content="1201"><meta itemprop=keywords content="laravel,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Laravel File Storage"><meta name=twitter:description content="接下來我分享關於Laravel內建關於檔案管理的部分，先上個文件：https://laravel.com/docs/6.x/filesyst"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Laravel File Storage</h1><div class=post-meta><span class=post-time>2019-10-07</span><div class=post-category><a href=/categories/ithome/>ithome</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#建立routecontroller和blade>建立Route、Controller和blade</a></li></ul></nav></div></div><div class=post-content><p>接下來我分享關於Laravel內建關於檔案管理的部分，先上個文件：https://laravel.com/docs/6.x/filesystem</p><p>Laravel 的檔案除了傳統上的可以存在本機(Server)上，也可以存在AWS S3和ftp/sftp喔，也可以配合一些大大寫好的套件存在GCP或者其他儲存的載體中。</p><p>這裡就簡單說明一下：</p><ul><li>如果你要提取檔案</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$contents = Storage::get(&#39;file.jpg&#39;);
+</span></span></code></pre></td></tr></table></div></div><ul><li>如果你想要從AWS S3取得檔案的話，在中間加入一個<code>disk</code>即可</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$contents = Storage::disk(&#39;s3&#39;)-&gt;get(&#39;file.jpg&#39;);
+</span></span></code></pre></td></tr></table></div></div><p>註：ftp 和sftp以此類推&mldr;</p><p>而在文件當中也說到我們可以去<code>強迫他人下載</code>檔案，大家有印象的話通常我們在某些連結點擊時不是就會出現一個跳窗(問你要存在哪裡？)(沒有的話可能是你已經先做預設的調整了～)，在Laravel可以這樣用：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>return Storage::download(&#39;file.jpg&#39;);
+</span></span></code></pre></td></tr></table></div></div><p>接下來，我決定帶大家試做一遍，一個極簡單可以上傳檔案的表單。好讓大家試試看這個File Storage的API。</p><h1 id=建立routecontroller和blade>建立Route、Controller和blade</h1><p>首先，我們先準備兩個route，一個是上傳檔案的form，另外一個則是負責上傳流程的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// in routes/web.php
+</span></span><span class=line><span class=cl>Route::get(&#39;upload&#39;,&#39;UploadController@uploadPage&#39;);
+</span></span><span class=line><span class=cl>Route::post(&#39;upload&#39;,&#39;UploadController@upload&#39;);
+</span></span></code></pre></td></tr></table></div></div><p>然後建立一下<code>UploadController</code>，你可以用指令，也可以手動建立</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ php artisan make:controller uploadController
+</span></span></code></pre></td></tr></table></div></div><p>然後，我們先來處理form的部分，<code>uploadPage</code>裡面就只是簡單回傳一個view</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    public function uploadPage(){
+</span></span><span class=line><span class=cl>        return view(&#39;fileUpload&#39;);
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>別忘了要到<code>resources/view</code>資料夾建立<code>fileUpload.blade.php</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>@extends(&#39;layouts.app&#39;)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>@section(&#39;content&#39;)
+</span></span><span class=line><span class=cl>&lt;div class=&#34;container&#34;&gt;
+</span></span><span class=line><span class=cl>    &lt;div class=&#34;row justify-content-center&#34;&gt;
+</span></span><span class=line><span class=cl>        &lt;div class=&#34;col-md-8&#34;&gt;
+</span></span><span class=line><span class=cl>            &lt;div class=&#34;card&#34;&gt;
+</span></span><span class=line><span class=cl>                &lt;div class=&#34;row justify-content-center&#34;&gt;
+</span></span><span class=line><span class=cl>                    @if (isset($message))
+</span></span><span class=line><span class=cl>                        &lt;div class=&#34;success&#34;&gt;
+</span></span><span class=line><span class=cl>                            {{ $message }}
+</span></span><span class=line><span class=cl>                        &lt;/div&gt;
+</span></span><span class=line><span class=cl>                    @endif
+</span></span><span class=line><span class=cl>                    &lt;form class=&#34;form&#34; action=&#34;&#34; method=&#34;POST&#34; enctype=&#34;multipart/form-data&#34;&gt;
+</span></span><span class=line><span class=cl>                        @csrf
+</span></span><span class=line><span class=cl>                        &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span class=line><span class=cl>                            &lt;label for=&#34;&#34;&gt;檔案上傳&lt;/label&gt;
+</span></span><span class=line><span class=cl>                            &lt;input  class=&#34;form-control-file&#34; type=&#34;file&#34; name=&#34;ImageFile&#34; id=&#34;&#34; accept=&#34;image/*&#34;/&gt;
+</span></span><span class=line><span class=cl>                        &lt;/div&gt;
+</span></span><span class=line><span class=cl>                        &lt;button class=&#34;btn btn-primary&#34; type=&#34;submit&#34;&gt;送出&lt;/button&gt;
+</span></span><span class=line><span class=cl>                    &lt;/form&gt;
+</span></span><span class=line><span class=cl>                &lt;/div&gt;
+</span></span><span class=line><span class=cl>            &lt;/div&gt;
+</span></span><span class=line><span class=cl>        &lt;/div&gt;
+</span></span><span class=line><span class=cl>    &lt;/div&gt;
+</span></span><span class=line><span class=cl>&lt;/div&gt;
+</span></span><span class=line><span class=cl>@endsection
+</span></span></code></pre></td></tr></table></div></div><p>請記得，上傳檔案的form必須要加一個<code>enctype="multipart/form-data</code>，否則你無法上傳檔案。</p><p>接下來，讓我們開始處理檔案上傳的流程吧！
+在<code>UploadFileController</code>這個檔案新增<code>upload</code>這個function，別忘了要在之前<code>use Storage</code>喔</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>use Storage;
+</span></span><span class=line><span class=cl>...（略）
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    public function upload(Request $request){
+</span></span><span class=line><span class=cl>        Storage::put(&#39;test.jpg&#39;, $request-&gt;file(&#39;ImageFile&#39;)-&gt;get());
+</span></span><span class=line><span class=cl>        return view(&#39;fileUpload&#39;)-&gt;withMessage(&#39;Success Upload&#39;);
+</span></span><span class=line><span class=cl>    }
+</span></span></code></pre></td></tr></table></div></div><p>說明：這裡可以使用<code>put</code>這個方法，並且將檔案的內容傳入，其實就是這麼簡單，使用<code>request</code>類別的<code>file</code>方法，裡面則就放在表單裡宣告的名稱(name)，這裏以<code>ImageFile</code>為例。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;input  class=&#34;form-control-file&#34; type=&#34;file&#34; name=&#34;ImageFile&#34; id=&#34;&#34; accept=&#34;image/*&#34;/&gt;
+</span></span><span class=line><span class=cl>對上
+</span></span><span class=line><span class=cl>$request-&gt;file(&#39;ImageFile&#39;)-&gt;get()**
+</span></span></code></pre></td></tr></table></div></div><p>接下來嘗試上傳一個檔案，看到Success Upload就正確囉
+<img src=https://ithelp.ithome.com.tw/upload/images/20191007/20106999BsOfkKRHno.png alt=https://ithelp.ithome.com.tw/upload/images/20191007/20106999BsOfkKRHno.png></p><p>之後你也會看到storage/app 出現了一個<code>test.jpg</code>的檔案囉～
+<img src=https://ithelp.ithome.com.tw/upload/images/20191007/20106999GUp21f1mpL.png alt=https://ithelp.ithome.com.tw/upload/images/20191007/20106999GUp21f1mpL.png></p><p>要看完整程式碼的可以參考這裡:https://github.com/r567tw/Make-PHP-Great-Again/commit/85ba735bbf1144c9c4ea7d5aae142441d59f7871</p></div><footer class=post-footer><div class=post-tags><a href=/tags/laravel/>laravel</a></div><nav class=post-nav><a class=prev href=/posts/laravel-task-scheduling/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Laravel Task Scheduling</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/laravel-testing/><span class="next-text nav-default">Laravel Testing</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

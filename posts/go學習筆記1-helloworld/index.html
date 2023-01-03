@@ -1,0 +1,362 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Go學習筆記(1): HelloWorld - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="在之前寫到今年的計劃當中，我就說到我想要學Go 語言。同時我自己也買了一本有關於Go 的書：深入淺出Go , 希望藉此督促自己有個比較完整性的學習&"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/go%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%981-helloworld/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Go學習筆記(1): HelloWorld"><meta property="og:description" content="在之前寫到今年的計劃當中，我就說到我想要學Go 語言。同時我自己也買了一本有關於Go 的書：深入淺出Go , 希望藉此督促自己有個比較完整性的學習&"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/go%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%981-helloworld/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-04-10T10:53:00+00:00"><meta property="article:modified_time" content="2021-04-10T10:53:00+00:00"><meta itemprop=name content="Go學習筆記(1): HelloWorld"><meta itemprop=description content="在之前寫到今年的計劃當中，我就說到我想要學Go 語言。同時我自己也買了一本有關於Go 的書：深入淺出Go , 希望藉此督促自己有個比較完整性的學習&"><meta itemprop=datePublished content="2021-04-10T10:53:00+00:00"><meta itemprop=dateModified content="2021-04-10T10:53:00+00:00"><meta itemprop=wordCount content="1960"><meta itemprop=keywords content="golang,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Go學習筆記(1): HelloWorld"><meta name=twitter:description content="在之前寫到今年的計劃當中，我就說到我想要學Go 語言。同時我自己也買了一本有關於Go 的書：深入淺出Go , 希望藉此督促自己有個比較完整性的學習&"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Go學習筆記(1): HelloWorld</h1><div class=post-meta><span class=post-time>2021-04-10</span><div class=post-category><a href=/categories/golang/>golang</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#程式組成>程式組成</a></li><li><a href=#hello-world-程式>Hello World 程式！</a></li><li><a href=#go-的資料型態類別>Go 的資料型態類別</a></li><li><a href=#宣告變數>宣告變數</a></li><li><a href=#命名規則>命名規則</a></li><li><a href=#陣列>陣列</a></li><li><a href=#切片>切片</a></li><li><a href=#錯誤處理>錯誤處理</a></li><li><a href=#maps>Maps</a></li><li><a href=#結構-struct>結構 struct</a></li><li><a href=#介面-interface>介面 interface</a></li><li><a href=#測試>測試</a></li><li><a href=#function-programming>function programming</a></li><li><a href=#相關指令>相關指令</a></li></ul></nav></div></div><div class=post-content><p>在之前寫到<a href=https://tech.r567tw.tw/%e4%bb%8a%e5%b9%b4%e7%9a%84%e5%9b%9e%e9%a1%a7%e8%88%87%e6%9c%aa%e4%be%86%e8%a6%8f%e5%8a%83-2020/>今年的計劃</a>當中，我就說到我想要學Go 語言。同時我自己也買了一本有關於Go 的書：深入淺出Go , 希望藉此督促自己有個比較完整性的學習&mldr;&mldr;</p><p>以下是我讀這本書以及學習的心得與筆記，可能有點無聊，高手請跳過、不過如果有看到錯的也請不吝指正！</p><p>首先，你要先去安裝好Go&mldr;&mldr;.</p><h1 id=程式組成>程式組成</h1><p>Go 語言的組成通常有三個部分：</p><ol><li>套件子句(<code>package main</code>)</li><li>import 相關陳述句 (<code>import "fmt"</code>)</li><li>主要的程式碼 (<code>func main(){......}</code>)</li></ol><h1 id=hello-world-程式>Hello World 程式！</h1><p>讓我們先建立一個名為hello.go 的檔案&mldr; 然後在裡面寫這些東西&mldr;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello World&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// 這裡請務必使用 &#34; 否則很容易跳出 invalid character literal (more than one character) 的問題
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>接下來讓我們對這個檔案做go run hello.go 就可以看到 Hello World 的字眼啦！</p><h1 id=go-的資料型態類別>Go 的資料型態類別</h1><ol><li>字串：用雙引號所框起來的任意數量字元</li><li>符文(runes) : 用單引號所匡著的單一字元, ex. &lsquo;A&rsquo; , &lsquo;B&rsquo;</li><li>boolean (bool)</li><li>numbers<ol><li>float32 , float64</li><li>int8 ,int16 ,int32 ,int64</li><li>uint</li><li>uint8 , uint16 ,uint32 ,uint64</li></ol></li><li>byte (檔案專用)</li></ol><p><strong>tips: 可以透過 reflect 這個套件裡面的TypeOf 方法得知資料的型別</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;reflect&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>reflect</span><span class=p>.</span><span class=nf>TypeOf</span><span class=p>(</span><span class=s>&#34;Hello World&#34;</span><span class=p>))</span> <span class=c1>//string
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>reflect</span><span class=p>.</span><span class=nf>TypeOf</span><span class=p>(</span><span class=kc>true</span><span class=p>))</span> <span class=c1>// bool
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=宣告變數>宣告變數</h1><ul><li><code>var q int</code></li><li><code>var q int = 4</code></li><li><code>p,q = 4,5</code> (居然有像Python 一樣的多重賦值！)</li><li><code>p :=4</code> (快速寫法, 連型別都不用！)</li></ul><h1 id=命名規則>命名規則</h1><ol><li>開頭必須是字母</li><li><strong>如果開頭字母是大寫，表示他是可以被匯出的</strong></li></ol><h1 id=陣列>陣列</h1><p>在Go 裡面要宣告陣列，請用以下的code 得形式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=c1>// 第一種
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>todos</span> <span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=kt>string</span>
+</span></span><span class=line><span class=cl><span class=nx>todos</span><span class=p>[</span><span class=mi>0</span><span class=p>]=</span> <span class=s>&#34;learning go !&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>todos</span><span class=p>[</span><span class=mi>1</span><span class=p>]=</span> <span class=s>&#34;use go to write an app&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1>// 第二種
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>grades</span> <span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=kt>int</span> <span class=p>=</span> <span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span><span class=mi>90</span><span class=p>,</span><span class=mi>98</span><span class=p>,</span><span class=mi>93</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 第三種
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>heights</span> <span class=o>:=</span> <span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span><span class=mi>90</span><span class=p>,</span><span class=mi>98</span><span class=p>,</span><span class=mi>93</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// go 裡面的foreach , 陣列/map資料型態都適用！
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>for</span> <span class=nx>index</span><span class=p>,</span><span class=nx>note</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>notes</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>index</span><span class=p>,</span><span class=nx>note</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=切片>切片</h1><p>這是我在深入淺出Go 這本書裡面的某一個章節，他裡面寫道Go 宣告切片就像是宣告陣列變數, 只是不需要指定大小！for example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>var</span> <span class=nx>mySlice</span> <span class=p>[]</span><span class=kt>int</span>
+</span></span><span class=line><span class=cl><span class=nx>mySlice</span> <span class=p>=</span> <span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=mi>7</span><span class=p>)</span> <span class=c1>// 設定七個數字的切片
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%v&#34;</span><span class=p>,</span><span class=nx>mySlice</span><span class=p>)</span> <span class=c1>//[0 0 0 0 0 0 0]
+</span></span></span><span class=line><span class=cl><span class=c1>// 增加
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>newSlice</span> <span class=o>:=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>mySlice</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span><span class=mi>9</span><span class=p>)</span> <span class=c1>// 回傳新的, 增加完的切片
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%v&#34;</span><span class=p>,</span><span class=nx>newSlice</span><span class=p>)</span> <span class=c1>//[0 0 0 0 0 0 0 5 9]
+</span></span></span></code></pre></td></tr></table></div></div><h1 id=錯誤處理>錯誤處理</h1><p>說真的，最近在學著Go 都覺得他的語言調性和其他語言差很多，<strong>像是if/for 的區域範圍變數無法用在if/for 後面(但之前的宣告可以使用)、陣列的宣告是很獨樹一幟的</strong>，<strong>他也不像傳統程式語言那種try&mldr;catch 的敘述，而是你要分成你自己去處理或者直接error 中斷給你看這樣</strong>！</p><p>像是這樣, 你必須用參數去接下可能會error 的地方，然後用if 去判斷, 控制壞掉之後的流程這樣。詳細你可以參考此連結：</p><p><a href=https://michaelchen.tech/golang-programming/error-handling/>https://michaelchen.tech/golang-programming/error-handling/</a></p><p>或者你也可以使用 <code>panic</code> 這個關鍵字 或 用 <code>recover</code> 這個關鍵字讓他從panic 的狀態中恢復, 另外也筆記一下 <code>defer</code> 可以添加到任何地方，用來暫緩該調用直到目前程式結束</p><p>詳細可以參考此網址：</p><p><a href=https://openhome.cc/Gossip/Go/DeferPanicRecover.html>https://openhome.cc/Gossip/Go/DeferPanicRecover.html</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=nx>file</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Open</span><span class=p>(</span><span class=s>&#34;file.txt&#34;</span><span class=p>)</span>         
+</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>                         
+</span></span><span class=line><span class=cl>     <span class=o>...</span><span class=p>.</span>         
+</span></span><span class=line><span class=cl> <span class=p>}</span>  
+</span></span><span class=line><span class=cl><span class=k>defer</span> <span class=nx>file</span><span class=p>.</span><span class=nf>Close</span><span class=p>()</span>                                    
+</span></span></code></pre></td></tr></table></div></div><h1 id=maps>Maps</h1><p>有點像是Python 裡的 dictionary , 或者 php 的 association array&mldr;&mldr;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>var</span> <span class=nx>myMap</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>float64</span> <span class=c1>// 宣告出以字串型態為index, float64型態的值
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myMap</span> <span class=p>=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>float64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 又或者可以做更簡單的宣告
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myMap</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>float64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 如何把東西放進去...
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myMap</span><span class=p>[</span><span class=s>&#34;Jimmy&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=mf>12.4</span>
+</span></span><span class=line><span class=cl><span class=nx>myMap</span><span class=p>[</span><span class=s>&#34;Bob&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=mf>15.3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 如果已經知道要建立怎麼樣的map
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myMap</span> <span class=o>:=</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>float64</span><span class=p>{</span><span class=s>&#34;Jimmy&#34;</span><span class=p>:</span><span class=mf>12.4</span> <span class=p>,</span> <span class=s>&#34;Bob&#34;</span><span class=p>:</span><span class=mf>15.3</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 另外如果取得一個沒有被指派的index 會根據型態而回傳不同的值
+</span></span></span><span class=line><span class=cl><span class=c1>// 數字：0
+</span></span></span><span class=line><span class=cl><span class=c1>// 字串：&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=c1>// * 如果沒有make 它則會是一個nil 的 map, 而nil 的 map 無法被指派值
+</span></span></span><span class=line><span class=cl><span class=c1>// 可以視情況給予第二個參數，好讓map 可以判斷是否有這個index
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>value</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>exist</span> <span class=kt>bool</span>
+</span></span><span class=line><span class=cl><span class=nx>value</span> <span class=p>,</span> <span class=nx>exist</span> <span class=p>=</span> <span class=nx>myMap</span><span class=p>[</span><span class=s>&#34;Andy&#34;</span><span class=p>]</span> <span class=c1>// return 0, false
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// 移除
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myMap</span><span class=p>[</span><span class=s>&#34;Jim&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=mi>999</span>
+</span></span><span class=line><span class=cl><span class=nb>delete</span><span class=p>(</span><span class=nx>myMap</span><span class=p>,</span><span class=s>&#34;Jim&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=結構-struct>結構 struct</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>var</span> <span class=nx>myStruct</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl>    <span class=nx>grade</span> <span class=kt>int</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nx>myStruct</span><span class=p>.</span><span class=nx>name</span> <span class=p>=</span> <span class=s>&#34;Jimmy&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>myStruct</span><span class=p>.</span><span class=nx>grade</span> <span class=p>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 自訂型別, 前面使用type 這個關鍵字
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>type</span> <span class=nx>myStruct</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl>    <span class=nx>grade</span> <span class=kt>int</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 自訂型別也能加入method
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>m</span> <span class=nx>myStruct</span><span class=p>)</span> <span class=nf>hello</span><span class=p>()</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s>&#34;hello&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>// 自訂型別也可以加入getter /setter 封裝裡面的資料結構
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span><span class=nx>myStruct</span><span class=p>)</span> <span class=nf>SetName</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>   <span class=nx>m</span><span class=p>.</span><span class=nx>name</span> <span class=p>=</span> <span class=nx>name</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span><span class=nx>myStruct</span><span class=p>)</span> <span class=nf>Name</span><span class=p>()</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>   <span class=k>return</span> <span class=nx>m</span><span class=p>.</span><span class=nx>name</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 透過指標存取結構
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>func</span> <span class=nf>applyDiscount</span><span class=p>(</span><span class=nx>s</span> <span class=o>*</span><span class=nx>subscriber</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=nx>s</span><span class=p>.</span><span class=nx>rate</span> <span class=p>=</span> <span class=mf>4.99</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>s</span> <span class=nx>subscriber</span>
+</span></span><span class=line><span class=cl>    <span class=nf>applyDiscount</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>s</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>結構裡面可以有另外一個結構，而Go另外還支援了匿名結構欄位，不用特別設定名稱也可以直接帶進去結構裡</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>type</span> <span class=nx>Employee</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Name</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Salary</span> <span class=kt>float64</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Address</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=nx>Address</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>     <span class=o>......</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=介面-interface>介面 interface</h1><p>在 Go 裡面也有介面的概念，定義某些特定得值與某些特定的行為。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>type</span> <span class=nx>myInterface</span> <span class=kd>interface</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>   <span class=nf>methodOne</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>   <span class=nf>methodTwo</span><span class=p>(</span><span class=kt>float64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>   <span class=nf>method</span><span class=p>()</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=測試>測試</h1><p>在Go 裡面，我們可以使用testing 這個套件，首先是要讓我們在同樣的套件底下建立一個_test 結尾的Go 檔案，話不多說，show you some code !</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>func</span> <span class=nf>TestFunction</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=o>......</span><span class=p>(</span><span class=err>略</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>...</span><span class=p>(</span><span class=err>略</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>t</span><span class=p>.</span><span class=nf>Errorf</span><span class=p>(</span><span class=s>&#34;......&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=function-programming>function programming</h1><p>在Go 裡面， function 本身也能夠被視為變數, 型別處理，像是</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=c1>// 此範例來自深入淺出Go p.439
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>func</span> <span class=nf>callFunction</span><span class=p>(</span><span class=nx>passedFunction</span> <span class=kd>func</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>  <span class=nf>passedFunction</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>callTwice</span><span class=p>(</span><span class=nx>passedFunction</span> <span class=kd>func</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>  <span class=nf>passedFunction</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=nf>passedFunction</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>callWithArguments</span><span class=p>(</span><span class=nx>passedFunction</span> <span class=kd>func</span><span class=p>(</span><span class=kt>string</span><span class=p>,</span> <span class=kt>bool</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>  <span class=nf>passedFunction</span><span class=p>(</span><span class=s>&#34;this sentence is&#34;</span><span class=p>,</span><span class=kc>false</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>printReturnValue</span><span class=p>(</span><span class=nx>passedFunction</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>string</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>passedfunction</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>functionA</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;function called&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>functionB</span><span class=p>()</span> <span class=kt>string</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;function called&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s>&#34;Returning from function&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>functionC</span><span class=p>(</span><span class=nx>a</span> <span class=kt>string</span> <span class=p>,</span> <span class=nx>b</span> <span class=kt>bool</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;function called&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span><span class=nx>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>sayHi</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hi&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>myFunction</span> <span class=p>=</span> <span class=kd>func</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nx>myFunction</span> <span class=p>=</span> <span class=nx>sayHi</span>
+</span></span><span class=line><span class=cl>    <span class=nf>myFunction</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nf>callFunction</span><span class=p>(</span><span class=nx>functionA</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nf>callTwice</span><span class=p>(</span><span class=nx>functionA</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nf>callWithArguments</span><span class=p>(</span><span class=nx>functionC</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printReturnValue</span><span class=p>(</span><span class=nx>functionB</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=相關指令>相關指令</h1><ul><li><code>go build</code> ：編譯成二進位</li><li><code>go run</code> ：編譯及執行</li><li><code>go fmt</code> ：格式化原始碼</li><li><code>go version</code> ：go 的版本</li><li><code>go test</code> : 測試go</li><li><code>go doc</code> : 說明文件</li></ul><blockquote><p>小君曰：來學Go 啦， go !</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/golang/>golang</a></div><nav class=post-nav><a class=prev href=/posts/go%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%982-make-a-game/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Go學習筆記(2): make a game</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/%E8%AB%87python-lambda-map-filter-%E5%8F%8A-reduce/><span class="next-text nav-default">談Python: Lambda, Map , Filter 及 Reduce</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

@@ -1,0 +1,226 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Ruby 筆記 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="Ruby基礎 [Ruby 的註解方式][1] #單行註解 Hello.rb 變數與輸入輸出 1 2 3 4 5 6 7 8 9 10 puts &amp;#39;Hello World&amp;#39; #output Hello World puts 20+2 #output 22 puts 20-2 #output 18 puts 20*2 #output 40 puts 20/2 #output 10 name=&amp;#39;John&amp;#39; #no output puts name #john name=gets.chomp #get user"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/ruby-%E7%AD%86%E8%A8%98/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Ruby 筆記"><meta property="og:description" content="Ruby基礎 [Ruby 的註解方式][1] #單行註解 Hello.rb 變數與輸入輸出 1 2 3 4 5 6 7 8 9 10 puts 'Hello World' #output Hello World puts 20+2 #output 22 puts 20-2 #output 18 puts 20*2 #output 40 puts 20/2 #output 10 name='John' #no output puts name #john name=gets.chomp #get user"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/ruby-%E7%AD%86%E8%A8%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-11-04T13:35:43+00:00"><meta property="article:modified_time" content="2020-11-04T13:35:43+00:00"><meta itemprop=name content="Ruby 筆記"><meta itemprop=description content="Ruby基礎 [Ruby 的註解方式][1] #單行註解 Hello.rb 變數與輸入輸出 1 2 3 4 5 6 7 8 9 10 puts 'Hello World' #output Hello World puts 20+2 #output 22 puts 20-2 #output 18 puts 20*2 #output 40 puts 20/2 #output 10 name='John' #no output puts name #john name=gets.chomp #get user"><meta itemprop=datePublished content="2020-11-04T13:35:43+00:00"><meta itemprop=dateModified content="2020-11-04T13:35:43+00:00"><meta itemprop=wordCount content="835"><meta itemprop=keywords content="ruby,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ruby 筆記"><meta name=twitter:description content="Ruby基礎 [Ruby 的註解方式][1] #單行註解 Hello.rb 變數與輸入輸出 1 2 3 4 5 6 7 8 9 10 puts 'Hello World' #output Hello World puts 20+2 #output 22 puts 20-2 #output 18 puts 20*2 #output 40 puts 20/2 #output 10 name='John' #no output puts name #john name=gets.chomp #get user"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Ruby 筆記</h1><div class=post-meta><span class=post-time>2020-11-04</span><div class=post-category><a href=/categories/ruby/>ruby</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#ruby基礎>Ruby基礎</a></li><li><a href=#變數與輸入輸出>變數與輸入輸出</a></li><li><a href=#irb>irb</a></li><li><a href=#if-elseend>if &mldr;else&mldr;end</a><ul><li><a href=#whileend>while&mldr;end</a></li></ul></li><li><a href=#array>Array</a></li><li><a href=#成績管理程式-綜合應用>成績管理程式-綜合應用</a></li><li><a href=#hash>Hash</a></li><li><a href=#method>Method</a></li></ul></nav></div></div><div class=post-content><h1 id=ruby基礎>Ruby基礎</h1><ul><li>[Ruby 的註解方式][1]</li><li><code>#</code>單行註解</li><li>Hello.rb</li></ul><h1 id=變數與輸入輸出>變數與輸入輸出</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=nb>puts</span> <span class=s1>&#39;Hello World&#39;</span> <span class=c1>#output Hello World</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=mi>20</span><span class=o>+</span><span class=mi>2</span> <span class=c1>#output 22</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=mi>20</span><span class=o>-</span><span class=mi>2</span> <span class=c1>#output 18</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=mi>20</span><span class=o>*</span><span class=mi>2</span> <span class=c1>#output 40</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=mi>20</span><span class=o>/</span><span class=mi>2</span> <span class=c1>#output 10</span>
+</span></span><span class=line><span class=cl><span class=nb>name</span><span class=o>=</span><span class=s1>&#39;John&#39;</span> <span class=c1>#no output</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=nb>name</span> <span class=c1>#john</span>
+</span></span><span class=line><span class=cl><span class=nb>name</span><span class=o>=</span><span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span> <span class=c1>#get user input</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=s1>&#39;Hello&#39;</span><span class=o>+</span><span class=nb>name</span> <span class=c1>#output Hello John</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span> <span class=s1>&#39;Hello world&#39;</span> <span class=c1>#不會換行 output Hello World</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>puts 印出資料 (換行)</li><li>print 印出資料(不換行)</li><li>gets.chomp 取得輸入</li><li><code>+</code>將兩個文字串接</li><li>boolean: true 和 false</li></ul><blockquote><p>Tips:<br><code>\=</code> 指派相等<br><code>\==</code> 比較是否相等<br><code>!=</code> 比較是否不相等</p></blockquote><h1 id=irb>irb</h1><ul><li>irb 是一個ruby 的命令介面，可以即時執行ruby 結果</li><li>control+l 清空</li><li>exit 離開</li></ul><h1 id=if-elseend>if &mldr;else&mldr;end</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=c1>#number =8</span>
+</span></span><span class=line><span class=cl><span class=n>number</span> <span class=o>=</span> <span class=no>Random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>9</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>#隨機產生0-9 的數字</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;請猜一個1~15之間的數字&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>guess</span><span class=o>=</span><span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span><span class=o>.</span><span class=n>to_i</span>
+</span></span><span class=line><span class=cl><span class=c1>#to_i 轉換為數字</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>guess</span> <span class=o>==</span> <span class=n>number</span> <span class=c1># &#39;8&#39; != 8</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=s1>&#39;猜對了，答案是&#39;</span><span class=o>+</span><span class=n>number</span><span class=o>.</span><span class=n>to_s</span>
+</span></span><span class=line><span class=cl>  <span class=c1>#to_s 轉換為字串</span>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=s1>&#39;猜錯了!&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=whileend>while&mldr;end</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=c1>#上一個的進階版</span>
+</span></span><span class=line><span class=cl><span class=n>number</span> <span class=o>=</span> <span class=no>Random</span><span class=o>.</span><span class=n>rand</span><span class=p>(</span><span class=mi>14</span><span class=p>)</span><span class=o>+</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=c1>#while guess==number #迴圈</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=kp>true</span>
+</span></span><span class=line><span class=cl>  <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;請猜一個1~15之間的數字&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=n>guess</span><span class=o>=</span><span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span><span class=o>.</span><span class=n>to_i</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>guess</span> <span class=o>==</span> <span class=n>number</span> <span class=c1># &#39;8&#39; != 8</span>
+</span></span><span class=line><span class=cl>    <span class=nb>puts</span> <span class=s1>&#39;猜對了，答案是&#39;</span><span class=o>+</span><span class=n>number</span><span class=o>.</span><span class=n>to_s</span>
+</span></span><span class=line><span class=cl>    <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>guess</span> <span class=o>&gt;</span> <span class=n>number</span>
+</span></span><span class=line><span class=cl>      <span class=nb>puts</span> <span class=s1>&#39;猜錯了! 太大了&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>      <span class=nb>puts</span> <span class=s1>&#39;猜錯了! 太小了&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>end</span>
+</span></span><span class=line><span class=cl>  <span class=k>end</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=array>Array</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=n>scores</span><span class=o>=</span> <span class=o>[</span><span class=mi>80</span><span class=p>,</span><span class=mi>100</span><span class=p>,</span><span class=mi>90</span><span class=p>,</span><span class=mi>99</span><span class=o>]</span> <span class=c1>#定義一個名為scores 的array</span>
+</span></span><span class=line><span class=cl><span class=n>scores</span><span class=o>.</span><span class=n>each</span> <span class=k>do</span> <span class=o>|</span><span class=n>score</span><span class=o>|</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=n>score</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl><span class=c1>#另外一種寫法</span>
+</span></span><span class=line><span class=cl><span class=n>scores</span><span class=o>.</span><span class=n>each</span> <span class=p>{</span><span class=o>|</span><span class=n>score</span><span class=o>|</span><span class=nb>puts</span> <span class=n>score</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>scores</span><span class=o>[</span><span class=mi>0</span><span class=o>]</span><span class=p>)</span> <span class=c1># 印出第一個ruby array 值</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>scores</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=mi>2</span><span class=p>))</span> <span class=c1># 教最後兩個叫出來 [90,99]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>scores</span><span class=o>.</span><span class=n>pop</span><span class=p>)</span> <span class=c1># 將最後一個叫出來 [99]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>scores</span><span class=o>.</span><span class=n>sort</span><span class=p>)</span> <span class=c1># 排序 [80,90,99,100]</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=成績管理程式-綜合應用>成績管理程式-綜合應用</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=c1># 1=&gt;檢視成績 2 新增成績 3 刪除成績 4 結束成績</span>
+</span></span><span class=line><span class=cl><span class=n>scores</span><span class=o>=[</span><span class=mi>90</span><span class=p>,</span><span class=mi>88</span><span class=p>,</span><span class=mi>85</span><span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=s1>&#39;輸入 1 檢視成績、2 新增成績、3 刪除成績、4 結束程式&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=kp>true</span>
+</span></span><span class=line><span class=cl>  <span class=nb>print</span> <span class=s1>&#39;&gt;&#39;</span>
+</span></span><span class=line><span class=cl>  <span class=n>command</span> <span class=o>=</span> <span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span><span class=o>.</span><span class=n>to_i</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>command</span> <span class=o>==</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    <span class=n>scores</span><span class=o>.</span><span class=n>each</span> <span class=k>do</span> <span class=o>|</span><span class=n>score</span><span class=o>|</span>
+</span></span><span class=line><span class=cl>      <span class=nb>puts</span> <span class=n>score</span>
+</span></span><span class=line><span class=cl>    <span class=k>end</span>
+</span></span><span class=line><span class=cl>  <span class=k>end</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>command</span> <span class=o>==</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span> <span class=s1>&#39;請輸入要新增的成績:&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>scores</span><span class=o>.</span><span class=n>push</span> <span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span><span class=o>.</span><span class=n>to_i</span>
+</span></span><span class=line><span class=cl>  <span class=k>end</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>command</span> <span class=o>==</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span> <span class=s1>&#39;請輸入要刪除的成績位置:&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>scores</span><span class=o>.</span><span class=n>delete_at</span> <span class=p>(</span><span class=nb>gets</span><span class=o>.</span><span class=n>chomp</span><span class=o>.</span><span class=n>to_i</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>end</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>command</span> <span class=o>==</span> <span class=mi>4</span>
+</span></span><span class=line><span class=cl>    <span class=nb>puts</span> <span class=s1>&#39;程式結束!&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>break</span>
+</span></span><span class=line><span class=cl>  <span class=k>end</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=hash>Hash</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=n>record</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;name&#39;</span><span class=o>=&gt;</span><span class=s1>&#39;john&#39;</span><span class=p>,</span><span class=s1>&#39;score&#39;</span><span class=o>=&gt;</span><span class=mi>90</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=n>records</span><span class=o>=</span><span class=p>{</span><span class=ss>:name</span><span class=o>=&gt;</span><span class=s1>&#39;john&#39;</span><span class=p>,</span><span class=ss>:score</span> <span class=o>=&gt;</span><span class=mi>90</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=n>record</span><span class=o>[</span><span class=nb>name</span><span class=o>]</span> <span class=c1>#john</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=n>record</span><span class=o>[</span><span class=n>score</span><span class=o>]</span> <span class=c1>#90</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=n>records</span><span class=o>[</span><span class=ss>:name</span><span class=o>]</span> <span class=c1>#john</span>
+</span></span><span class=line><span class=cl><span class=nb>puts</span> <span class=n>records</span><span class=o>[</span><span class=ss>:score</span><span class=o>]</span> <span class=c1>#90</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>record</span><span class=o>.</span><span class=n>each</span> <span class=k>do</span> <span class=o>|</span><span class=n>key</span><span class=p>,</span><span class=n>value</span><span class=o>|</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=n>key</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=n>value</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=method>Method</h1><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ruby data-lang=ruby><span class=line><span class=cl><span class=k>def</span> <span class=nf>greet</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=s1>&#39;hello&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>greet</span> <span class=c1>#=&gt; hello</span>
+</span></span><span class=line><span class=cl><span class=c1>#def method_name....end</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>greet</span><span class=p>(</span><span class=nb>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=nb>puts</span> <span class=s1>&#39;hello,&#39;</span><span class=o>+</span><span class=nb>name</span>
+</span></span><span class=line><span class=cl><span class=k>end</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>greet</span> <span class=s1>&#39;John&#39;</span> <span class=c1>#=&gt; hello,John</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>require_relative</span> <span class=s1>&#39;method&#39;</span> <span class=c1>#引入該資料夾底下的method.rb</span>
+</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><div class=post-tags><a href=/tags/ruby/>ruby</a></div><nav class=post-nav><a class=prev href=/posts/2020awsdevday-%E4%B8%80%E6%97%A5%E9%81%8A/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">2020AWSDevDay 一日遊</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB8-sam-%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%A5%BD%E7%8E%A9/><span class="next-text nav-default">原來可以這麼寫(8): SAM 真的好好玩～</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

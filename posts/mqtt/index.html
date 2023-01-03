@@ -1,0 +1,95 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>MQTT筆記 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="什麼是 MQTT ？ 一種在應用層的比HTTP還輕量之通訊協議，常常被物聯網所使用。至於他的核心在於有一個名詞名為Broker，負責讓大家subscri"><meta name=keywords content="mqtt,python"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/mqtt/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="MQTT筆記"><meta property="og:description" content="什麼是 MQTT ？ 一種在應用層的比HTTP還輕量之通訊協議，常常被物聯網所使用。至於他的核心在於有一個名詞名為Broker，負責讓大家subscri"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/mqtt/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-01-01T20:47:20+08:00"><meta property="article:modified_time" content="2023-01-01T20:47:20+08:00"><meta itemprop=name content="MQTT筆記"><meta itemprop=description content="什麼是 MQTT ？ 一種在應用層的比HTTP還輕量之通訊協議，常常被物聯網所使用。至於他的核心在於有一個名詞名為Broker，負責讓大家subscri"><meta itemprop=datePublished content="2023-01-01T20:47:20+08:00"><meta itemprop=dateModified content="2023-01-01T20:47:20+08:00"><meta itemprop=wordCount content="731"><meta itemprop=keywords content="mqtt,python,"><meta name=twitter:card content="summary"><meta name=twitter:title content="MQTT筆記"><meta name=twitter:description content="什麼是 MQTT ？ 一種在應用層的比HTTP還輕量之通訊協議，常常被物聯網所使用。至於他的核心在於有一個名詞名為Broker，負責讓大家subscri"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>MQTT筆記</h1><div class=post-meta><span class=post-time>2023-01-01</span><div class=post-category><a href=/categories/mqtt/>mqtt</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#什麼是-mqtt->什麼是 MQTT ？</a></li><li><a href=#使用-dockerfile-起-mqtt-broker>使用 Dockerfile 起 MQTT Broker</a></li><li><a href=#lets-try-mqtt-以-python-為例>Let&rsquo;s Try MQTT, 以 Python 為例</a></li><li><a href=#關於-mqtt--security>關於 MQTT & Security</a></li></ul></nav></div></div><div class=post-content><h1 id=什麼是-mqtt->什麼是 MQTT ？</h1><p>一種在應用層的比HTTP還輕量之通訊協議，常常被物聯網所使用。至於他的核心在於有一個名詞名為<code>Broker</code>，負責讓大家<code>subscribe</code>和<code>publish</code>。</p><p>作為 Client 端一旦與這個<code>Broker</code>連結之後，他可以<code>sub</code>也可以<code>pub</code>。</p><h1 id=使用-dockerfile-起-mqtt-broker>使用 Dockerfile 起 MQTT Broker</h1><p>其實網路上有很多教學再告訴你怎麼架設一個 MQTT Broker, 目前市面上分佈最廣的的是開源專案：<code>Mosquitto</code>, 不過我這裡為了方便示例與教學，就使用<code>Dockerfile</code>來快速啟動，而他也是<code>Mosquitto</code> 提供的image。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ docker run -it -p 1883:1883 -p 9001:9001 -v mosquitto.conf:/mosquitto/config/mosquitto.conf -v /mosquitto/data -v /mosquitto/log eclipse-mosquitto
+</span></span></code></pre></td></tr></table></div></div><h1 id=lets-try-mqtt-以-python-為例>Let&rsquo;s Try MQTT, 以 Python 為例</h1><p>我們這邊就需要有人去訂閱以及發布它，建立兩個<code>python</code>檔案分別做<code>subscribe</code>和<code>publish</code>
+建立<code>subscribe.py</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># encoding: utf-8</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>paho.mqtt.client</span> <span class=k>as</span> <span class=nn>mqtt</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 當地端程式連線伺服器得到回應時，要做的動作</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>on_connect</span><span class=p>(</span><span class=n>client</span><span class=p>,</span> <span class=n>userdata</span><span class=p>,</span> <span class=n>flags</span><span class=p>,</span> <span class=n>rc</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Connected with result code &#34;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>rc</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>on_message</span><span class=p>(</span><span class=n>client</span><span class=p>,</span> <span class=n>userdata</span><span class=p>,</span> <span class=n>msg</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>msg</span><span class=o>.</span><span class=n>topic</span><span class=o>+</span><span class=s2>&#34; &#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>msg</span><span class=o>.</span><span class=n>payload</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span> <span class=o>=</span> <span class=n>mqtt</span><span class=o>.</span><span class=n>Client</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>on_connect</span> <span class=o>=</span> <span class=n>on_connect</span>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>on_message</span> <span class=o>=</span> <span class=n>on_message</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s2>&#34;localhost&#34;</span><span class=p>,</span> <span class=mi>1883</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>subscribe</span><span class=p>(</span><span class=s1>&#39;ack&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>loop_forever</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>建立<code>publish.py</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>paho.mqtt.client</span> <span class=k>as</span> <span class=nn>mqtt</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 建立 MQTT Client 物件</span>
+</span></span><span class=line><span class=cl><span class=n>client</span> <span class=o>=</span> <span class=n>mqtt</span><span class=o>.</span><span class=n>Client</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 設定登入帳號密碼（若無則可省略）</span>
+</span></span><span class=line><span class=cl><span class=c1># client.username_pw_set(&#34;myuser&#34;,&#34;mypassword&#34;)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 連線至 MQTT 伺服器（伺服器位址,連接埠）</span>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s2>&#34;localhost&#34;</span><span class=p>,</span> <span class=mi>1883</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>publish</span><span class=p>(</span><span class=s2>&#34;ack&#34;</span><span class=p>,</span><span class=s2>&#34;Hello World&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>然後讓我們先在終端機上面執行<code>subscribe.py</code> : <code>python subscribe.py</code>
+之後再開一個新終端機或者另一個tab執行<code>publish.py</code>: <code>python publish.py</code>
+之後你會在<code>subscribe.py</code>那個畫面看到<code>publish</code>的訊息喔</p><p>啊<code>publish</code>不只是可以傳送文字、也可以傳送<code>bytearray</code>，當<code>sub</code>端接收到這些<code>bytearray</code>時就可以實現建立檔案，這樣 MQTT 也可以傳送檔案了。</p><h1 id=關於-mqtt--security>關於 MQTT & Security</h1><p>至於 MQTT 肯定是要考慮一些安全的部分。老實講我在<code>MQTT</code>是個初心者。。。</p><p>但有上網找到這一篇文章，值得大家參考
+<a href=https://medium.com/h1dra-security-team/%E7%89%A9%E8%81%AF%E7%B6%B2%E5%8D%94%E5%AE%9A%E8%88%87%E8%B3%87%E5%AE%89%E7%9A%84%E8%B7%9D%E9%9B%A2-mqtt-%E9%80%9A%E8%A8%8A%E5%8D%94%E5%AE%9A%E6%B7%BA%E8%AB%87-52d76ddc6ce6>[物聯網協定與資安的距離] MQTT 通訊協定淺談</a></p><div><blockquote id=jimmy-say>小君曰: 第一次碰 MQTT 耶</blockquote></div></div><footer class=post-footer><div class=post-tags><a href=/tags/mqtt/>mqtt</a>
+<a href=/tags/python/>python</a></div><nav class=post-nav><a class=prev href=/posts/change-to-gihubaction/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">和Travis說掰掰</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/auth/><span class="next-text nav-default">Auth 筆記</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

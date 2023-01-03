@@ -1,0 +1,104 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>建立一個Pypl package - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的pypl package紀錄。 建立一個自己的 pypl package 其實還蠻簡單的，需要先事先準備的是: 一"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/create-pypl-package/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="建立一個Pypl package"><meta property="og:description" content="這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的pypl package紀錄。 建立一個自己的 pypl package 其實還蠻簡單的，需要先事先準備的是: 一"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/create-pypl-package/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-11-06T10:47:20+08:00"><meta property="article:modified_time" content="2022-11-06T10:47:20+08:00"><meta itemprop=name content="建立一個Pypl package"><meta itemprop=description content="這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的pypl package紀錄。 建立一個自己的 pypl package 其實還蠻簡單的，需要先事先準備的是: 一"><meta itemprop=datePublished content="2022-11-06T10:47:20+08:00"><meta itemprop=dateModified content="2022-11-06T10:47:20+08:00"><meta itemprop=wordCount content="1415"><meta itemprop=keywords content="package,pypl,"><meta name=twitter:card content="summary"><meta name=twitter:title content="建立一個Pypl package"><meta name=twitter:description content="這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的pypl package紀錄。 建立一個自己的 pypl package 其實還蠻簡單的，需要先事先準備的是: 一"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>建立一個Pypl package</h1><div class=post-meta><span class=post-time>2022-11-06</span><div class=post-category><a href=/categories/python/>python</a></div></div></header><div class=post-content><p>這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的pypl package紀錄。
+建立一個自己的 pypl package 其實還蠻簡單的，需要先事先準備的是:</p><ul><li>一個pypl帳號或一個 testpypl 帳號：在這裡我使用testpypl, 這個網站就是pypl官方來測試pypl package的網站用的，所以測試的話你可以盡量使用。如果你要正式使用可以使用pypl帳號喔。</li><li>twine pypl package</li><li>build pypl package</li></ul><h1 id=第一步準備>第一步：準備</h1><p>當然是建立自己的 package 拉，在這裡我簡單建立一個名為<code>r567tw_pypl</code>的pypl package 為例。</p><blockquote><p>注意：這裡的名稱建議最好不要使用“-"，我在這裡吃了蠻多苦&mldr;(參考:https://stackoverflow.com/questions/761519/is-it-ok-to-use-dashes-in-python-files-when-trying-to-import-them)</p></blockquote><p>資料夾結構會像這樣：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>├── pyproject.toml
+</span></span><span class=line><span class=cl>├── src
+</span></span><span class=line><span class=cl>│   └── r567tw_pypl
+</span></span><span class=line><span class=cl>│       ├── __init__.py
+</span></span><span class=line><span class=cl>│       └── greet.py
+</span></span></code></pre></td></tr></table></div></div><ul><li><code>__init__.py</code> 裡面保持空白就好，如果你有曾經處理local package的相關議題，應該可以知道這個檔案在做什麼</li><li><code>pyproject.toml</code>:最重要的檔案，等等會說明</li><li><code>greet.py</code> 裡面就是你要寫的程式碼拉，或者你要另外寫py也可以，我這裡以greet為例</li></ul><blockquote><p>有些教學會教你建立<code>LINCENSE</code> 和<code>README.md</code>，但因為我們這裡只是測試用我也沒有要很認真將這個當成package經營，我這裡就直接忽略掉了，但不影響我們後面建立package</p></blockquote><p><code>greet.py</code>裡面就這樣寫</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>hello</span><span class=p>(</span><span class=n>name</span> <span class=o>=</span> <span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Hello </span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>至於最重要的檔案：<code>pyproject.toml</code> 以我此次要建立的package為例，就這樣寫</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>project</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>name</span> <span class=p>=</span> <span class=s2>&#34;r567tw_pypl&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>version</span> <span class=p>=</span> <span class=s2>&#34;0.0.1&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>authors</span> <span class=p>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>name</span><span class=p>=</span><span class=s2>&#34;r567tw&#34;</span><span class=p>,</span> <span class=nx>email</span><span class=p>=</span><span class=s2>&#34;r567tw@gmail.com&#34;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>description</span> <span class=p>=</span> <span class=s2>&#34;example package for practice&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>readme</span> <span class=p>=</span> <span class=s2>&#34;README.md&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>requires-python</span> <span class=p>=</span> <span class=s2>&#34;&gt;=3.7&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>project</span><span class=p>.</span><span class=nx>urls</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;Homepage&#34;</span> <span class=p>=</span> <span class=s2>&#34;https://github.com/r567tw/r567tw-pypl-package&#34;</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;Bug Tracker&#34;</span> <span class=p>=</span> <span class=s2>&#34;https://github.com/r567tw/r567tw-pypl-package/issues&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>裡面其實也有很多規範與格式可以參考，可以自行上網看看其他人或官方怎麼寫。</p><h1 id=第二步建立上傳的package>第二步：建立上傳的package</h1><p>接下來我們就來使用<code>build</code>這個package來建立我們要準備上傳給pypl的部分&mldr;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>python -m build 
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>接下來你就會看到很多檔案被建立：{package_name}.egg-info、dist資料夾。其中最重要的正是這個dist資料夾</p></blockquote><p>最後使用<code>twine</code>這個package來上傳吧，如果你要上傳正式pypl,把中間repository拿掉即可</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>twine upload --repository testpypi dist/*
+</span></span></code></pre></td></tr></table></div></div><p>接下來他會問你帳號＆密碼，把你剛剛註冊的資料輸入進去就好囉。</p><h1 id=最後來測試一下吧>最後，來測試一下吧</h1><p>先建立很純淨的環境</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>virtualenv other
+</span></span></code></pre></td></tr></table></div></div><p>然後<code>pip list</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Package    Version
+</span></span><span class=line><span class=cl>---------- -------
+</span></span><span class=line><span class=cl>pip        22.2.2
+</span></span><span class=line><span class=cl>setuptools 65.4.1
+</span></span><span class=line><span class=cl>wheel      0.37.1
+</span></span></code></pre></td></tr></table></div></div><p>很確定很乾淨、沒有我們裝的套件。
+然後到<code>twine</code>最後丟給你的網址，以這裡為例是：https://test.pypi.org/project/r567tw-pypl/
+就按照他中間的指令安裝：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pip install -i https://test.pypi.org/simple/ r567tw-pypl
+</span></span></code></pre></td></tr></table></div></div><p>這時候<code>pip list</code>就會很清楚看到套件已經安裝。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Package     Version
+</span></span><span class=line><span class=cl>----------- -------
+</span></span><span class=line><span class=cl>pip         22.2.2
+</span></span><span class=line><span class=cl>r567tw-pypl 0.0.1
+</span></span><span class=line><span class=cl>setuptools  65.4.1
+</span></span><span class=line><span class=cl>wheel       0.37.1
+</span></span></code></pre></td></tr></table></div></div><p>最後，讓我們實際來玩玩看吧：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>r567tw_pypl</span> <span class=kn>import</span> <span class=n>greet</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>greet</span><span class=o>.</span><span class=n>hello</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>執行後, Good, 看到我們要的結果拉！</p><h1 id=回顧>回顧</h1><p>此教學極為簡易，只是把目標純粹focus在建立個簡單的pypl package. 像是test啊、還有<code>pyproject.toml</code>裡面的設定都可以再說個一篇兩篇之類的，像是我對於<code>build-system</code>那裡就還不太懂&mldr;或許之後找時間可以再更多專研研究。</p><h1 id=參考來源>參考來源</h1><p><a href=https://packaging.python.org/en/latest/tutorials/packaging-projects/>https://packaging.python.org/en/latest/tutorials/packaging-projects/</a></p><p>整個實作程式碼可以參考這裡：https://github.com/r567tw/r567tw-pypl-package</p><blockquote><p>小君曰：Hello Pypl</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/package/>package</a>
+<a href=/tags/pypl/>pypl</a></div><nav class=post-nav><a class=prev href=/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB20/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">原來可以這麼寫(20):關於docker的小技巧及python好坑</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/%E5%A6%82%E4%BD%95%E8%A1%A1%E9%87%8F%E4%BD%A0%E7%9A%84%E4%B8%80%E7%94%9F/><span class="next-text nav-default">讀你要如何衡量你的人生</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

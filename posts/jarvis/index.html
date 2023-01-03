@@ -1,0 +1,87 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>開發個人助理Jarvis - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！ 之前有個想法希望可以買黃金，剛好看到github action 有"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/jarvis/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="開發個人助理Jarvis"><meta property="og:description" content="前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！ 之前有個想法希望可以買黃金，剛好看到github action 有"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/jarvis/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-07-02T13:33:11+00:00"><meta property="article:modified_time" content="2022-07-02T13:33:11+00:00"><meta itemprop=name content="開發個人助理Jarvis"><meta itemprop=description content="前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！ 之前有個想法希望可以買黃金，剛好看到github action 有"><meta itemprop=datePublished content="2022-07-02T13:33:11+00:00"><meta itemprop=dateModified content="2022-07-02T13:33:11+00:00"><meta itemprop=wordCount content="780"><meta itemprop=keywords content="line notify,github,"><meta name=twitter:card content="summary"><meta name=twitter:title content="開發個人助理Jarvis"><meta name=twitter:description content="前言 我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！ 之前有個想法希望可以買黃金，剛好看到github action 有"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>開發個人助理Jarvis</h1><div class=post-meta><span class=post-time>2022-07-02</span><div class=post-category><a href=/categories/side-projects/>Side Projects</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#專案開發>專案開發</a></li><li><a href=#如果以後line-notify-壞掉了怎麼辦>如果以後line notify 壞掉了怎麼辦？</a></li><li><a href=#結果與影響>結果與影響</a></li></ul></nav></div></div><div class=post-content><h1 id=前言>前言</h1><p>我其實是一個不太喜歡苦工的工程師，我很喜歡用程式解決我個人的生活問題。自動化最棒了！</p><p>之前有個想法希望可以買黃金，剛好看到github action 有所謂的<code>schedule</code> 的選項，於是我就有個大膽的想法：不如就讓line 來通知到要準備買黃金拉</p><h1 id=專案開發>專案開發</h1><p>原本他只是個簡單的黃金買賣通知，結果到最後我把他寫成通知天氣預報、股票等買賣的決策系統通知了XD</p><p>或許之後還可以有更多細緻化的設定，反正他就是個超簡單的side project, 技術基於 line notify, github action 及 python。黃金、天氣與股票各由負責的python script 處理，算是有點為服務的feel 吧？</p><h1 id=如果以後line-notify-壞掉了怎麼辦>如果以後line notify 壞掉了怎麼辦？</h1><p>其實就把<code>helpers/notify.py</code>裡面的程式調整修改就好了，這個side project 最最最核心的程式應該就是他了，其他服務都是有各自的實作之後呼叫這裡的function 去 line notify 通知我。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>send</span><span class=p>(</span><span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>token</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>getenv</span><span class=p>(</span><span class=s2>&#34;TOKEN&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>requests</span><span class=o>.</span><span class=n>post</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>headers</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;Authorization&#39;</span><span class=p>:</span> <span class=s2>&#34;Bearer </span><span class=si>{}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>token</span><span class=p>)},</span>
+</span></span><span class=line><span class=cl>        <span class=n>data</span><span class=o>=</span><span class=p>{</span><span class=s2>&#34;message&#34;</span><span class=p>:</span> <span class=n>message</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>line notify 這個服務有夠簡單，其實就是簡單發出個POST request 就好，然後你可以去 line notify 的<a href=https://notify-bot.line.me/zh_TW/>頁面</a>申請token就好。</p><p>github action 就是簡單寫一下 yaml ，我以我最自豪的黃金為例</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>gold-notify</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>schedule</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span>- <span class=nt>cron</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;30 3 * * 0-4&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>checkout repo content</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w> </span><span class=c># checkout the repository content to github runner.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>setup python</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/setup-python@v2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>python-version</span><span class=p>:</span><span class=w> </span><span class=m>3.8</span><span class=w> </span><span class=c>#install the python needed</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>install py package</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>pip install -r requirements.txt</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>execute py script</span><span class=w> </span><span class=c># run the run.py to get the latest data</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>python gold.py</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>TOKEN</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.TOKEN }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>GOLD_BUY</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GOLD_BUY }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>GOLD_SELL</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GOLD_SELL }}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>其實上網查就有發現到有人寫好執行python的github action, 你只要照抄其實就可以給他執行起來。而在on 裡面規劃一下<code>schedule</code>，其實就有點像是個人助理的感覺，line notify 在一定的時間可以通知訊息給你。</p><h1 id=結果與影響>結果與影響</h1><p>我順利在低點購買到黃金，然後最近俄烏戰爭開打黃金上漲。我賺到一波真棒</p><p>PS. 原本這個專案只是叫什麼gold-notify 之類的，但為了<code>中二</code>，我把他取名成<code>jarvis</code> 哈哈哈</p><blockquote><p>小君曰：來喔，歡迎大家拿這個idea & project 去做成你們自己的 jarvis 吧</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/line-notify/>line notify</a>
+<a href=/tags/github/>github</a></div><nav class=post-nav><a class=prev href=/posts/larvel-pint/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Laravel Pint 簡易教學</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB18/><span class="next-text nav-default">原來可以這麼寫(18): Wordpress API</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

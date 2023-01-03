@@ -1,0 +1,130 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Python 起手式：繼承 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="其實物件導向的世界很大，有空可以去翻翻設計模式（design pattern)(大誤？！或許我只是新手，只是寫給for 新手或者我自己寫來看，所"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/python-%E8%B5%B7%E6%89%8B%E5%BC%8F%E7%B9%BC%E6%89%BF/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Python 起手式：繼承"><meta property="og:description" content="其實物件導向的世界很大，有空可以去翻翻設計模式（design pattern)(大誤？！或許我只是新手，只是寫給for 新手或者我自己寫來看，所"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/python-%E8%B5%B7%E6%89%8B%E5%BC%8F%E7%B9%BC%E6%89%BF/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-10-12T14:47:42+00:00"><meta property="article:modified_time" content="2018-10-12T14:47:42+00:00"><meta itemprop=name content="Python 起手式：繼承"><meta itemprop=description content="其實物件導向的世界很大，有空可以去翻翻設計模式（design pattern)(大誤？！或許我只是新手，只是寫給for 新手或者我自己寫來看，所"><meta itemprop=datePublished content="2018-10-12T14:47:42+00:00"><meta itemprop=dateModified content="2018-10-12T14:47:42+00:00"><meta itemprop=wordCount content="756"><meta itemprop=keywords content="python,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Python 起手式：繼承"><meta name=twitter:description content="其實物件導向的世界很大，有空可以去翻翻設計模式（design pattern)(大誤？！或許我只是新手，只是寫給for 新手或者我自己寫來看，所"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Python 起手式：繼承</h1><div class=post-meta><span class=post-time>2018-10-12</span><div class=post-category><a href=/categories/ithome/>ithome</a></div></div></header><div class=post-content><p>其實物件導向的世界很大，有空可以去翻翻設計模式（design pattern)(大誤？！或許我只是新手，只是寫給for 新手或者我自己寫來看，所以就沒太多的專研，但物件導向確實是個值得探討很久的議題，預計可以多寫幾天的鐵人賽（誒～ 好啦，我還是配合自己的步調好了，我還是希望後面我可以寫到爬蟲啊、Django或者flask等等的。</p><p>經過研究發現，我們其實不知不覺就已經使用到繼承，我以昨天寫的person 類別為例。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>height</span><span class=p>,</span> <span class=n>weight</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>height</span> <span class=o>=</span> <span class=n>height</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>weight</span> <span class=o>=</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>sayToPersonHello</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>name</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Hello &#39;</span><span class=o>+</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>Person</span><span class=p>))</span> <span class=c1>#&lt;class &#39;type&#39;&gt;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>John</span><span class=p>))</span> <span class=c1>#&lt;class &#39;__main__.Person&#39;&gt;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>Person</span><span class=o>.</span><span class=vm>__bases__</span><span class=p>)</span> <span class=c1>#(&lt;class &#39;object&#39;&gt;,)</span>
+</span></span></code></pre></td></tr></table></div></div><p>其實我們在寫person這個類別的時候，其實就繼承了object這個類別&mldr;</p><p>所以接下來，我們可以宣告women這個類別繼承Person, 在Python好簡單，只要類別名稱旁邊加入（）即可，然後括弧內加入類別的名稱。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>height</span><span class=p>,</span> <span class=n>weight</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>height</span> <span class=o>=</span> <span class=n>height</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>weight</span> <span class=o>=</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>sayToPersonHello</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>name</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Hello &#39;</span><span class=o>+</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Women</span><span class=p>(</span><span class=n>Person</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>height</span><span class=p>,</span><span class=n>weight</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>height</span><span class=p>,</span><span class=n>weight</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>period</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;women has period!&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Jennifer</span> <span class=o>=</span> <span class=n>Women</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>40</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>Women</span><span class=p>))</span> <span class=c1>#&lt;class &#39;type&#39;&gt;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>Jennifer</span><span class=p>))</span> <span class=c1>#&lt;class &#39;__main__.Women&#39;&gt;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>Women</span><span class=o>.</span><span class=vm>__bases__</span><span class=p>)</span> <span class=c1>#(&lt;class &#39;__main__.Person&#39;&gt;,)</span>
+</span></span><span class=line><span class=cl><span class=n>Jennifer</span><span class=o>.</span><span class=n>sayToPersonHello</span><span class=p>(</span><span class=s1>&#39;Jim&#39;</span><span class=p>)</span> <span class=c1>#Hello Jim  #子類別也可以呼叫父類別的方法</span>
+</span></span><span class=line><span class=cl><span class=n>Jennifer</span><span class=o>.</span><span class=n>period</span><span class=p>()</span> <span class=c1>#women has period !</span>
+</span></span></code></pre></td></tr></table></div></div><p>後記：(更)發現物件導向一研究起來真的不得了，Python可以允許多重繼承，以及他沒有interface等等&mldr;好多好多，看來還是日後有更多研究後在繼續寫下去吧&mldr;</p><p>例如多重繼承的程式碼範例，將Women 同時繼承Person和Animal等類別&mldr;居然可以通過！</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>height</span><span class=p>,</span> <span class=n>weight</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>height</span> <span class=o>=</span> <span class=n>height</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>weight</span> <span class=o>=</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>sayToPersonHello</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>name</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Hello &#39;</span><span class=o>+</span> <span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Animal</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>name</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>name</span> <span class=o>=</span> <span class=n>name</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>spark</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;spark!&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Women</span><span class=p>(</span><span class=n>Person</span><span class=p>,</span><span class=n>Animal</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span><span class=n>height</span><span class=p>,</span><span class=n>weight</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>height</span><span class=p>,</span><span class=n>weight</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>period</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;women has period !&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>Women</span><span class=p>))</span><span class=c1>#(&lt;class &#39;__main__.Person&#39;&gt;, &lt;class &#39;__main__.Animal&#39;&gt;)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=nb>type</span><span class=p>(</span><span class=n>Jennifer</span><span class=p>))</span> <span class=c1>#&lt;class &#39;__main__.Women&#39;&gt;</span>
+</span></span><span class=line><span class=cl><span class=n>Jennifer</span> <span class=o>=</span> <span class=n>Women</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>40</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl><span class=n>Jennifer</span><span class=o>.</span><span class=n>spark</span><span class=p>()</span> <span class=c1>#spark!</span>
+</span></span></code></pre></td></tr></table></div></div><p>然後關於物件導向的部分先在這裡告一個小小段落，發現真的好多東西，為了我自己的良心，我還是慢慢研究慢慢的將成果與大家分享，如果有高手的話歡迎來指教一下！&mldr;.</p><p>附上我的參考資料：</p><ul><li><a href=https://openhome.cc/Gossip/Python/index.html>https://openhome.cc/Gossip/Python/index.html</a></li><li><a href=https://stackoverflow.com/questions/15526858/how-to-extend-a-class-in-Python>https://stackoverflow.com/questions/15526858/how-to-extend-a-class-in-Python</a></li><li><a href=https://stackoverflow.com/questions/372042/difference-between-abstract-class-and-interface-in-Python>https://stackoverflow.com/questions/372042/difference-between-abstract-class-and-interface-in-Python</a></li><li><a href=https://stackoverflow.com/questions/2124190/how-do-i-implement-interfaces-in-Python>https://stackoverflow.com/questions/2124190/how-do-i-implement-interfaces-in-Python</a></li><li><a href=https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner>https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner</a></li></ul></div><footer class=post-footer><div class=post-tags><a href=/tags/python/>python</a></div><nav class=post-nav><a class=prev href=/posts/python-%E8%B5%B7%E6%89%8B%E5%BC%8Fmodule/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Python 起手式：module</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/python-%E8%B5%B7%E6%89%8B%E5%BC%8F%E8%AB%87%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/><span class="next-text nav-default">Python 起手式：談物件導向</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

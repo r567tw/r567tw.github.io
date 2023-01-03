@@ -1,0 +1,178 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>現代PHP 閱讀 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="1.現代的php php 是一個直譯式的伺服器端腳本語言 php 引擎是一個可以解析、直譯和執行php 程式碼的程式 Zend Engine HipHop Virtual Machine Hack 程式語言：建立在PHP 之上的新"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/%E7%8F%BE%E4%BB%A3php-%E8%AE%80%E6%9B%B8%E7%AD%86%E8%A8%98/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="現代PHP 閱讀"><meta property="og:description" content="1.現代的php php 是一個直譯式的伺服器端腳本語言 php 引擎是一個可以解析、直譯和執行php 程式碼的程式 Zend Engine HipHop Virtual Machine Hack 程式語言：建立在PHP 之上的新"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/%E7%8F%BE%E4%BB%A3php-%E8%AE%80%E6%9B%B8%E7%AD%86%E8%A8%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-08-25T07:28:00+00:00"><meta property="article:modified_time" content="2019-08-25T07:28:00+00:00"><meta itemprop=name content="現代PHP 閱讀"><meta itemprop=description content="1.現代的php php 是一個直譯式的伺服器端腳本語言 php 引擎是一個可以解析、直譯和執行php 程式碼的程式 Zend Engine HipHop Virtual Machine Hack 程式語言：建立在PHP 之上的新"><meta itemprop=datePublished content="2019-08-25T07:28:00+00:00"><meta itemprop=dateModified content="2019-08-25T07:28:00+00:00"><meta itemprop=wordCount content="2080"><meta itemprop=keywords content="php,"><meta name=twitter:card content="summary"><meta name=twitter:title content="現代PHP 閱讀"><meta name=twitter:description content="1.現代的php php 是一個直譯式的伺服器端腳本語言 php 引擎是一個可以解析、直譯和執行php 程式碼的程式 Zend Engine HipHop Virtual Machine Hack 程式語言：建立在PHP 之上的新"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>現代PHP 閱讀</h1><div class=post-meta><span class=post-time>2019-08-25</span><div class=post-category><a href=/categories/php/>php</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#1現代的php>1.現代的php</a></li><li><a href=#2特點>2.特點</a></li><li><a href=#3標準>3.標準</a></li><li><a href=#4元件>4.元件</a></li><li><a href=#5良好習慣>5.良好習慣</a></li><li><a href=#6寄存>6.寄存</a></li><li><a href=#7服務開通>7.服務開通</a></li><li><a href=#8調校>8.調校</a></li><li><a href=#9部屬>9.部屬</a></li><li><a href=#10測試>10.測試</a></li><li><a href=#11剖析>11.剖析</a></li><li><a href=#12hhvm-和-hack>12.HHVM 和 HACK</a></li><li><a href=#13社群>13.社群</a></li><li><a href=#補充>補充</a><ul><li><a href=#psr-php標準建議>PSR PHP標準建議</a></li></ul></li></ul></nav></div></div><div class=post-content><h1 id=1現代的php>1.現代的php</h1><ul><li>php 是一個直譯式的伺服器端腳本語言</li><li>php 引擎是一個可以解析、直譯和執行php 程式碼的程式<ul><li>Zend Engine</li><li>HipHop Virtual Machine</li></ul></li><li>Hack 程式語言：建立在PHP 之上的新程式語言<ul><li>靜態型別</li></ul></li><li>動態型別在程式執行時期檢查；靜態型別再編譯時期被檢查(第十二章)</li></ul><h1 id=2特點>2.特點</h1><ul><li>名稱空間 namespace<ul><li>php5.3.0</li><li>解決class 名稱的衝突</li><li>緊接<code>&lt;?php</code>標籤之後</li><li>讓我們創造出程式碼並獨立運作於其他開發者的程式</li></ul></li><li>Import and Alias<ul><li>不用輸入完整的namespace 落落長的名稱</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=c1>#不利用import and alias
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nv>$response</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>\Symfony\Component\HttpFoundation\Response</span><span class=p>(</span><span class=s1>&#39;oops&#39;</span><span class=p>,</span><span class=mi>400</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>#利用import and alias
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>use</span> <span class=nx>\Symfony\Component\HttpFoundation\Response</span> <span class=k>as</span> <span class=nx>Res</span>
+</span></span><span class=line><span class=cl><span class=nv>$r</span><span class=o>=</span><span class=nx>Res</span><span class=p>(</span><span class=s1>&#39;oops&#39;</span><span class=p>,</span><span class=mi>400</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>多重匯入(可以好幾個use)</li><li>單一檔案多重名稱空間</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=nx>foo</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=nx>bar</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>全域名稱空間<ul><li>有些程式碼沒有名稱空間，將存在於全域名稱空間，例如<code>exception</code></li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=cl><span class=k>namespace</span> <span class=nx>My\App</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>foo</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=k>function</span> <span class=nf>do</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=nv>$exception</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>\Exception</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>程式碼作為介面<ul><li>一個介於兩個php 物件之中的合約，它讓一個物件瞭解另一個物件可以做甚麼，而不是另一個物件是甚麼</li><li>interface 的撰寫</li></ul></li><li>特徵機制<ul><li>trait</li><li>from php5.4</li><li>模組化實作方式可以被插入到不相關的類別中</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=cl><span class=k>trait</span> <span class=nx>mytrait</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>#use trait
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>class</span> <span class=nc>myclass</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>use</span> <span class=nx>mytrait</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>產生器<ul><li>from php 5.5</li><li>簡單的迭代器</li><li><a href=https://ithelp.ithome.com.tw/articles/10133614>文章參考</a></li><li>如果一次把檔案讀入記憶體，會使用掉很大的資源，比較好的處理方式是用streaming的方式讀取，逐步處理讀取的內容。</li><li>不會要求你的類別實作Iterator 介面，產生器只在需要的時候計算並產生迭代的數值</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=cl><span class=k>function</span> <span class=nf>makeRange</span><span class=p>(</span><span class=nv>$length</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=nv>$i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=nv>$i</span><span class=o>&lt;</span><span class=nv>$length</span><span class=p>;</span> <span class=nv>$i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>yield</span> <span class=nv>$i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>foreach</span> <span class=p>(</span><span class=nx>makeRange</span><span class=p>(</span><span class=mi>10000000</span><span class=p>)</span> <span class=k>as</span> <span class=nv>$i</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>echo</span> <span class=nv>$i</span><span class=p>,</span><span class=nx>PHP_EOL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>#ｃｓｖ　產生器
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>function</span> <span class=nf>getRows</span><span class=p>(</span><span class=nv>$file</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$handle</span> <span class=o>=</span> <span class=nx>fopen</span><span class=p>(</span><span class=nv>$file</span><span class=p>,</span><span class=s1>&#39;rb&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nv>$handle</span> <span class=o>====</span> <span class=k>false</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>throw</span> <span class=k>new</span> <span class=nx>Exception</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=p>(</span><span class=nx>feof</span><span class=p>(</span><span class=nv>$handle</span><span class=p>)</span> <span class=o>===</span> <span class=k>false</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>yield</span> <span class=nx>fgetcsv</span><span class=p>(</span><span class=nv>$handle</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fclose</span><span class=p>(</span><span class=nv>$handle</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>foreach</span> <span class=p>(</span><span class=nx>getRows</span><span class=p>(</span><span class=s1>&#39;data.csv&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=nv>$row</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=nx>print_r</span><span class=p>(</span><span class=nv>$row</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>閉包<ul><li>from php 5.3.0</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=nv>$closure</span> <span class=o>=</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$name</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>sprintf</span><span class=p>(</span><span class=s1>&#39;hello %s&#39;</span><span class=p>,</span><span class=nv>$name</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>echo</span> <span class=nv>$closure</span><span class=p>(</span><span class=s1>&#39;josh&#39;</span><span class=p>)</span> <span class=c1># output=&gt; &#39;hello josh&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nv>$numberplusone</span><span class=o>=</span><span class=nx>array_map</span><span class=p>(</span><span class=k>function</span> <span class=p>(</span><span class=nv>$number</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nv>$number</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>},[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>print_r</span><span class=p>(</span><span class=nv>$numberplusone</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1># output=&gt;[2,3,4]
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>繫結狀態<ul><li>閉包裡的閉包 closure in closure</li><li><a href=https://ithelp.ithome.com.tw/articles/10132747>參考文章</a></li><li>bindTo and invoke<ul><li><a href=http://oomusou.io/php/php-bindTo/>參考文章</a></li></ul></li><li>利用use 關鍵字傳入多個參數到closure 可以利用逗號區分變數，如同其他任何php函式或方法的參數</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=cl><span class=k>function</span> <span class=nf>enclosePerson</span><span class=p>(</span><span class=nv>$name</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=k>function</span><span class=p>(</span><span class=nv>$doCommand</span><span class=p>)</span> <span class=k>use</span> <span class=p>(</span><span class=nv>$name</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>sprintf</span><span class=p>(</span><span class=s1>&#39;%s $s&#39;</span><span class=p>,</span><span class=nv>$name</span><span class=p>,</span><span class=nv>$doCommand</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>$clay</span><span class=o>=</span><span class=nx>enclosePerson</span><span class=p>(</span><span class=s1>&#39;Clay&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=k>echo</span> <span class=nv>$clay</span><span class=p>(</span><span class=s1>&#39;get me sweet tea!&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1># output=&gt; &#39;Clay get me sweet tea!&#39;
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>Zend OPcache<ul><li><a href=https://blog.longwin.com.tw/2016/02/php-zend-opcache-accelerate-2016/>文章</a></li></ul></li><li>內建http 伺服器</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>php -S localhost:4000
+</span></span></code></pre></td></tr></table></div></div><h1 id=3標準>3.標準</h1><ul><li>PHP-FIG 到 Rescue</li><li>框架互通性<ul><li>介面</li><li>自動載入</li><li>風格</li></ul></li><li>PSR<ul><li>PHP 標準協議 PHP standards recommendation</li></ul></li><li>PSR-0 已棄用，由PSR-4 取代</li><li>PSR-1:基本程式碼風格<ul><li>PHP 標籤 你要用PHP 標籤 或 包覆PHP 程式碼</li><li>編碼：必須以沒有位元順序標記的utf-8字元編碼</li><li>目的：每個php檔案可以用來定義符號或執行一個有作用的動作</li><li>自動載入: 你的名稱空間和類別必須支援psr-4 自動載入器標準</li><li>類別:使用CamelCase 格式 ex. CoffeeGrinder</li><li>常數名稱:必須使用大寫，並且必要時使用底線</li><li>方法名稱:使用camelCase 格式，弟一個字要小寫，每個單字的第一個字元是大寫</li></ul></li><li>PSR-2:嚴厲程式碼風格<ul><li>實做PSR-1</li><li>縮排：建議表示四個空白字元縮排</li><li>檔案和行距：使用ＬＦ　做為每一行結尾，檔案最後應該保有最後一行並且不能包含?> 每一行不應超越80個字元，如果不得以，不能超越120個字元，每行結尾不能有空白字元</li><li>關鍵字:以小寫表示所有的關鍵字</li><li>名稱空間:每一個名稱空間的宣告都必須接上一行空白行，同樣的在USE 區塊之後要接上一行空白行</li><li>類別:建議表示起始括號在類別內容結束的下一行，extends 和implements 關鍵字必須和類別名稱同一行</li><li>方法:方法定義的起始括號必須要在方法名稱下一行的開頭，結尾在方法內容結束後的下一行開頭，第一個參數不用以空白結尾，而最後一個括號不用預留前置的空白，方法的每一個參數(除了最後一個)都緊接著一個逗號和一個空白</li><li>能見度:必須宣告能見度，public protected private，abstract 或finial 在能見度之前，static 在能見度之後</li><li>控制流程:所有控制流成關鍵字必須接上一個空白字元，起始括號和控制流成關鍵字同一行，結尾則在新的一行</li></ul></li><li>PSR-3:記錄器介面<ul><li>實做php 記錄器</li></ul></li><li>PSR-4:自動載入器</li></ul><h1 id=4元件>4.元件</h1><ul><li>框架</li><li>Packagist 可以尋找合適的元件</li><li>composer<ul><li>安裝</li><li>元件安裝</li></ul></li><li>建立php 元件<ul><li>src</li><li>tests</li><li>composer.json</li><li>README.md</li><li>CoONTRIBUTING.md</li><li>LICENSE</li><li>CHANGELOG.md</li></ul></li></ul><h1 id=5良好習慣>5.良好習慣</h1><ul><li>消毒、驗證和跳脫</li><li>日期時間與時區</li></ul><h1 id=6寄存>6.寄存</h1><ul><li>共享伺服器</li><li>虛擬私有伺服器 VPS</li><li>獨佔伺服器</li><li>PaaS</li></ul><h1 id=7服務開通>7.服務開通</h1><p>vps 的開通</p><ul><li><code>php-fpm</code></li></ul><h1 id=8調校>8.調校</h1><ul><li>php.ini</li><li>記憶體</li><li>zend opcache</li><li>檔案上傳</li><li>最大運行時間</li><li>session 處理</li><li>輸出緩衝區</li><li>真實路徑快取</li></ul><h1 id=9部屬>9.部屬</h1><ul><li>版本控制</li><li>自動化部屬<ul><li>保持簡單</li><li>保持可預測</li><li>保持可反悔</li></ul></li><li>工具<ul><li>capistrano</li><li>deployer</li><li>magallanes</li><li>rocketeer</li></ul></li></ul><h1 id=10測試>10.測試</h1><ul><li>何時開始<ul><li>開發前</li><li>開發當中</li><li>開發結束</li></ul></li><li>如何測試<ul><li>單元測試<ul><li>PHPUnit</li></ul></li><li>測試驅動開發TDD</li><li>行為驅動開發BDD</li></ul></li><li>以Travis CI 持續測試<ul><li>測試應當自動化進行</li></ul></li></ul><h1 id=11剖析>11.剖析</h1><ul><li>分析應用程式效能的一種方式<ul><li>用於開發階段</li><li>用於產品階段</li></ul></li><li>Xdebug</li><li>XHProf</li><li>New Relic 剖析器</li><li>Blackfire 剖析器</li></ul><h1 id=12hhvm-和-hack>12.HHVM 和 HACK</h1><ul><li>HHVM<ul><li>PHP 引擎</li><li>已經最佳化應用程式但是需要更高效能的開法者</li></ul></li><li>HACK 語言</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>hh</span>
+</span></span><span class=line><span class=cl><span class=k>echo</span> <span class=s2>&#34;I&#39;m Hack&#34;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>靜態型別<ul><li>編譯</li></ul></li><li>動態型別<ul><li>一直到執行階段才被檢查</li></ul></li><li>HACK 同時實做了靜態與動態~</li></ul><h1 id=13社群>13.社群</h1><ul><li>當地PUG<ul><li><a href=http://php.ug>http://php.ug</a></li></ul></li><li>研討會</li><li>導師<ul><li><a href=http://phpmentoring.org>http://phpmentoring.org</a></li></ul></li><li>持續吸收新知</li></ul><h1 id=補充>補充</h1><h2 id=psr-php標準建議>PSR PHP標準建議</h2><ul><li><a href=https://www.ccc.tc/article/php-standards-recommendations#>文章連結</a></li><li>PHP標準建議編號1(PSR-1)，基本編碼標準. 像是類別(Class)名稱必需宣告為StudlyCaps，方法(Method)的名稱需宣告為camelCase..等</li><li>PHP標準建議編號2(PSR-2)，則是PSR-1的擴充，規範了PHP編碼風格，像是extends或是implements必需與class名稱同一行…等。</li><li>PHP標準建議編號4(PSR-4)，則定義了自動載入(Autoloader標準)</li></ul></div><footer class=post-footer><div class=post-tags><a href=/tags/php/>php</a></div><nav class=post-nav><a class=prev href=/posts/laravel-%E5%BB%BA%E7%BD%AE%E8%88%87%E5%9F%B7%E8%A1%8C%E5%8F%8A%E7%9B%B8%E9%97%9C%E7%AD%86%E8%A8%98/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Laravel 建置與執行及相關筆記</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/%E8%AE%80%E8%BB%9F%E6%8A%80%E8%83%BD-%E5%B7%A5%E7%A8%8B%E5%B8%AB%E8%A9%B2%E5%A6%82%E4%BD%95%E7%94%9F%E6%B4%BB/><span class="next-text nav-default">讀軟技能-工程師該如何生活</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

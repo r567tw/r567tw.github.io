@@ -1,0 +1,294 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Redis筆記 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="最近在玩Redis, 記錄起來才不會忘！ 關於 Redis 的簡介 一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。 因為是用記憶體作為處理，所以處理速度"><meta name=keywords content="r567tw,Coding,Programming,Life,Blog"><meta name=generator content="Hugo 0.109.0 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/redis%E7%AD%86%E8%A8%98/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Redis筆記"><meta property="og:description" content="最近在玩Redis, 記錄起來才不會忘！ 關於 Redis 的簡介 一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。 因為是用記憶體作為處理，所以處理速度"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/redis%E7%AD%86%E8%A8%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-13T04:00:00+00:00"><meta property="article:modified_time" content="2021-03-13T04:00:00+00:00"><meta itemprop=name content="Redis筆記"><meta itemprop=description content="最近在玩Redis, 記錄起來才不會忘！ 關於 Redis 的簡介 一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。 因為是用記憶體作為處理，所以處理速度"><meta itemprop=datePublished content="2021-03-13T04:00:00+00:00"><meta itemprop=dateModified content="2021-03-13T04:00:00+00:00"><meta itemprop=wordCount content="1562"><meta itemprop=keywords content="redis,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Redis筆記"><meta name=twitter:description content="最近在玩Redis, 記錄起來才不會忘！ 關於 Redis 的簡介 一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。 因為是用記憶體作為處理，所以處理速度"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Redis筆記</h1><div class=post-meta><span class=post-time>2021-03-13</span><div class=post-category><a href=/categories/redis/>redis</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#關於-redis-的簡介>關於 Redis 的簡介</a></li><li><a href=#利用docker-迅速起一個redis-container>利用Docker 迅速起一個redis container</a></li><li><a href=#指令與相關說明>指令與相關說明</a><ul><li><a href=#getset>GET/SET</a></li><li><a href=#mgetmset>MGET/MSET</a></li><li><a href=#expire>EXPIRE</a></li><li><a href=#exist--del>EXIST / DEL</a></li><li><a href=#incr--decr>INCR / DECR</a></li><li><a href=#incrby--decrby>INCRBY / DECRBY</a></li><li><a href=#keys->keys *</a></li></ul></li><li><a href=#redis-的資料型態>Redis 的資料型態</a></li><li><a href=#hash>Hash</a></li><li><a href=#list>List</a></li><li><a href=#set--sorted-set>Set & Sorted Set</a></li><li><a href=#同場加映pubsub>同場加映：pub/sub</a></li></ul></nav></div></div><div class=post-content><p>最近在玩Redis, 記錄起來才不會忘！</p><h1 id=關於-redis-的簡介>關於 Redis 的簡介</h1><p>一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。
+因為是用記憶體作為處理，所以處理速度當然會比較快。</p><blockquote><p>複習一下電腦概論&mldr;記憶體讀取速度：暫存器 > 快取記憶體 > 隨機存取記憶體（RAM） > 硬碟 > 光碟</p></blockquote><ul><li>參考來源： <a href=https://sites.google.com/site/gaoerzixunke/ke-cheng/ch4-cpu-yuram/4-2-ji-yi-ti>https://sites.google.com/site/gaoerzixunke/ke-cheng/ch4-cpu-yuram/4-2-ji-yi-ti</a></li><li>參考來源： <a href=https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-isa-zh_tw-4/s1-memory-spectrum.html>https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-isa-zh_tw-4/s1-memory-spectrum.html</a></li><li>參考來源： <a href="https://hackmd.io/@Xpz2MX78SomsO4mV3ejdqg/Hk-KZ_lVQ?type=view">https://hackmd.io/@Xpz2MX78SomsO4mV3ejdqg/Hk-KZ_lVQ?type=view</a></li></ul><h1 id=利用docker-迅速起一個redis-container>利用Docker 迅速起一個redis container</h1><p>你可以去官網按照他的說明下載redis, 但我這裡選擇用docker 來起一個簡單的redis 服務首先我的dokcer-compose.yml 是這樣寫：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># ...(略)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c>## Redis Container ##############</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>redis</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>redis:alpine</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=s2>&#34;6379:6379&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># ...(略)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>然後使用 <code>docker-compose up -d</code> 就可以起一個簡單的redis server, 你可以使用<a href=https://github.com/qishibo/AnotherRedisDesktopManager>Another Redis Desktop Manager</a> 去連線它看看狀況</p><h1 id=指令與相關說明>指令與相關說明</h1><p>簡單來說，redis 就是一個key-value 的 in-memory 資料庫。<br>首先，我們需要進去一下redis cli&mldr;只要<code>docker exec -it {你docker-composer.yml 所在的資料夾名稱}\_redis\_1 sh\</code>就可以進入redis container 裡面，之後在container 裡面執行`redis-cli`即可</p><h2 id=getset>GET/SET</h2><p>最簡單你一定要學到的redis 指令就是：<code>SET</code>和 <code>GET</code>!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SET name Jimmy
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET name
+</span></span><span class=line><span class=cl><span class=s2>&#34;Jimmy&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=mgetmset>MGET/MSET</h2><p>每次只能設定一個那怎麼行？你可以一次設定多個</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; MSET first <span class=s2>&#34;Hello&#34;</span> second <span class=s2>&#34;World&#34;</span>
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; MGET second first
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;World&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;Hello&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=expire>EXPIRE</h2><p>既然是一個key-value 的 in-memory 資料庫，他就不像一般Relational database 一樣，只能永久保存資料，你可以設定這個key 的保留期間</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SET session <span class=s2>&#34;HelloWorld&#34;</span>
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; EXPIRE session <span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET session
+</span></span><span class=line><span class=cl><span class=s2>&#34;HelloWorld&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET session
+</span></span><span class=line><span class=cl><span class=o>(</span>nil<span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=exist--del>EXIST / DEL</h2><p>你也可以判斷這個key 存在不存在, 以及刪除那個key</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; EXISTS name
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; DEL name
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; EXISTS name
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>0</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=incr--decr>INCR / DECR</h2><p>redis 還自帶遞增和遞減的指令。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SET counter <span class=m>100</span>
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; INCR counter
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>101</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET counter
+</span></span><span class=line><span class=cl><span class=s2>&#34;101&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; DECR counter
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET counter
+</span></span><span class=line><span class=cl><span class=s2>&#34;100&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=incrby--decrby>INCRBY / DECRBY</h2><p>每次只能遞增和遞減一個那怎麼可行？</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SET counter <span class=m>100</span>
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; INCRBY counter <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>200</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET counter
+</span></span><span class=line><span class=cl><span class=s2>&#34;200&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; DECRBY counter <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; GET counter
+</span></span><span class=line><span class=cl><span class=s2>&#34;100&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=keys->keys *</h2><p>這個指令可以讓你看到目前設定在redis 裡面所有的key</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; keys *
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;first&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;counter&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;second&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=redis-的資料型態>Redis 的資料型態</h1><p>redis 支援以下型態，上面已經充分示範出string 這個簡單的型態。接下來展示其他沒有在上面示範過的型態！</p><ol><li>string(字串)</li><li>hash(雜湊)</li><li>list(串列)</li><li>set(群集)</li><li>sorted set(有序群集)</li></ol><h1 id=hash>Hash</h1><p>就像HMSET 的說明一樣：<code>HMSET key field value [field value ...]</code>以底下的說明來說，就像產生了這樣的資料型態：<code>{id: 45, name: Jimmy}</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; HMSET user id <span class=m>45</span> name <span class=s2>&#34;Jimmy&#34;</span>
+</span></span><span class=line><span class=cl>OK
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; HGET user id
+</span></span><span class=line><span class=cl><span class=s2>&#34;45&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; HGET user name
+</span></span><span class=line><span class=cl><span class=s2>&#34;Jimmy&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; HGETALL user
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;id&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;45&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;name&#34;</span>
+</span></span><span class=line><span class=cl>4<span class=o>)</span> <span class=s2>&#34;Jimmy&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=list>List</h1><p>和javascript 的想法很像，有push 和pop , L代表左邊, R代表右邊啊那個如果要列出清單可以用<code>LRANGE</code>指令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; LPUSH mylist <span class=m>10</span> <span class=s2>&#34;Hello&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; LRANGE mylist <span class=m>0</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;Hello&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;10&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; RPUSH mylist <span class=s2>&#34;World&#34;</span> <span class=m>20</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>4</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; LRANGE mylist <span class=m>0</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;Hello&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;10&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;World&#34;</span>
+</span></span><span class=line><span class=cl>4<span class=o>)</span> <span class=s2>&#34;20&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; LPOP mylist
+</span></span><span class=line><span class=cl><span class=s2>&#34;Hello&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; LRANGE mylist <span class=m>0</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;10&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;World&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;20&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; RPOP mylist
+</span></span><span class=line><span class=cl><span class=s2>&#34;20&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; LRANGE mylist <span class=m>0</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;10&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;World&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=set--sorted-set>Set & Sorted Set</h1><ol><li>set 沒有排序得權重，而且不可以增加重複的值</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SADD myset <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span> 
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>5</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SMEMBERS myset
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;1&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;2&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;3&#34;</span>
+</span></span><span class=line><span class=cl>4<span class=o>)</span> <span class=s2>&#34;4&#34;</span>
+</span></span><span class=line><span class=cl>5<span class=o>)</span> <span class=s2>&#34;5&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SISMEMBER myset <span class=m>5</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SISMEMBER myset <span class=m>50</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SADD myset <span class=m>1</span> 
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SADD myset <span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; SMEMBERS myset
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;1&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;2&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;3&#34;</span>
+</span></span><span class=line><span class=cl>4<span class=o>)</span> <span class=s2>&#34;4&#34;</span>
+</span></span><span class=line><span class=cl>5<span class=o>)</span> <span class=s2>&#34;5&#34;</span>
+</span></span><span class=line><span class=cl>6<span class=o>)</span> <span class=s2>&#34;10&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>sorted set 有排序得權重</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; ZADD mysortedset <span class=m>1</span> Jimmy
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; ZADD mysortedset <span class=m>0</span> Jim
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; ZRANGE mysortedset <span class=m>0</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;Jim&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;Jimmy&#34;</span>
+</span></span><span class=line><span class=cl>127.0.0.1:6379&gt; ZRANK mysortedset Jimmy
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span></code></pre></td></tr></table></div></div><h1 id=同場加映pubsub>同場加映：pub/sub</h1><p>laravel broadcast 如果你的driver 設定的是 redis , 你會看到文件會寫道使用redis 的pub/sub 來實現，但這個其實很難透過GUT 去看，首先，你需要開兩個redis-cli</p><p>A. Redis cli</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SUBSCRIBE mychannel
+</span></span><span class=line><span class=cl>Reading messages... <span class=o>(</span>press Ctrl-C to quit<span class=o>)</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;subscribe&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;mychannel&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span></code></pre></td></tr></table></div></div><p>B. Redis Cli
+在這裡你可以用<code>PUBLISH</code> 指令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; PUBLISH mychannel <span class=s2>&#34;HelloWorld&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span></code></pre></td></tr></table></div></div><p>這時你回到Ａ 來看，奇蹟發生了！底下多了<code>message</code>, <code>mychannel</code>, <code>HelloWorld</code> !</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>127.0.0.1:6379&gt; SUBSCRIBE mychannel
+</span></span><span class=line><span class=cl>Reading messages... <span class=o>(</span>press Ctrl-C to quit<span class=o>)</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;subscribe&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;mychannel&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=o>(</span>integer<span class=o>)</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>1<span class=o>)</span> <span class=s2>&#34;message&#34;</span>
+</span></span><span class=line><span class=cl>2<span class=o>)</span> <span class=s2>&#34;mychannel&#34;</span>
+</span></span><span class=line><span class=cl>3<span class=o>)</span> <span class=s2>&#34;HelloWorld&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>有趣吧？</p><blockquote><p>小君曰：redis 一日遊</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/redis/>redis</a></div><nav class=post-nav><a class=prev href=/posts/%E8%AB%87python-lambda-map-filter-%E5%8F%8A-reduce/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">談Python: Lambda, Map , Filter 及 Reduce</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/posts/python-paramiko-%E7%AD%86%E8%A8%98/><span class="next-text nav-default">Python Paramiko 筆記</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://www.linkedin.com/in/wei-jun-fang/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a>
+<a href=https://jimmycode.tw/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-Q6QSQHD62T","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

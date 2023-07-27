@@ -1,0 +1,159 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>原來可以這麼寫(23): 到頭來還是回頭寫PHP 😢 - Jimmy's Code</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="r567tw"><meta name=description content="最近在學習開發Wordpress 的外掛，突然新增了一些特別的WP知識點，故此紀錄。 開發環境初探 使用 Docker Wordpress 外掛開發切記的幾個核心就是： 不要改到 Wordpress"><meta name=keywords content="wordpress,docker"><meta name=generator content="Hugo 0.115.4 with theme even"><link rel=canonical href=https://jimmycode.tw/posts/2023/07/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.348c57a8083a81f87eff74cf0430cc767905c402ceebc7e88ec26714b800d5d5.css rel=stylesheet><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="原來可以這麼寫(23): 到頭來還是回頭寫PHP 😢"><meta property="og:description" content="最近在學習開發Wordpress 的外掛，突然新增了一些特別的WP知識點，故此紀錄。 開發環境初探 使用 Docker Wordpress 外掛開發切記的幾個核心就是： 不要改到 Wordpress"><meta property="og:type" content="article"><meta property="og:url" content="https://jimmycode.tw/posts/2023/07/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-07-24T00:00:00+08:00"><meta property="article:modified_time" content="2023-07-24T00:00:00+08:00"><meta itemprop=name content="原來可以這麼寫(23): 到頭來還是回頭寫PHP 😢"><meta itemprop=description content="最近在學習開發Wordpress 的外掛，突然新增了一些特別的WP知識點，故此紀錄。 開發環境初探 使用 Docker Wordpress 外掛開發切記的幾個核心就是： 不要改到 Wordpress"><meta itemprop=datePublished content="2023-07-24T00:00:00+08:00"><meta itemprop=dateModified content="2023-07-24T00:00:00+08:00"><meta itemprop=wordCount content="1572"><meta itemprop=keywords content="wordpress,docker,"><meta name=twitter:card content="summary"><meta name=twitter:title content="原來可以這麼寫(23): 到頭來還是回頭寫PHP 😢"><meta name=twitter:description content="最近在學習開發Wordpress 的外掛，突然新增了一些特別的WP知識點，故此紀錄。 開發環境初探 使用 Docker Wordpress 外掛開發切記的幾個核心就是： 不要改到 Wordpress"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Jimmy's Code</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/posts/><li class=mobile-menu-item>Archives</li></a><a href=/search><li class=mobile-menu-item>Search</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Jimmy's Code</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/posts/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/search>Search</a></li></ul></nav><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3916790298498531" crossorigin=anonymous></script></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>原來可以這麼寫(23): 到頭來還是回頭寫PHP 😢</h1><div class=post-meta><span class=post-time>2023-07-24</span><div class=post-category><a href=/categories/job/>job</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#開發環境初探>開發環境初探</a><ul><li><a href=#使用-docker>使用 Docker</a></li><li><a href=#使用-localwp>使用 LocalWP</a></li></ul></li><li><a href=#mu-plugin>MU-plugin</a></li><li><a href=#覺得wordpress的架構才是神架構>覺得<code>Wordpress</code>的架構才是神架構</a></li></ul></li></ul></nav></div></div><div class=post-content><p>最近在學習開發<code>Wordpress</code> 的外掛，突然新增了一些特別的<code>WP知識點</code>，故此紀錄。</p><h2 id=開發環境初探>開發環境初探</h2><h3 id=使用-docker>使用 Docker</h3><p>Wordpress 外掛開發切記的幾個核心就是：</p><ul><li>不要改到 Wordpress 的核心(例如 <code>wp-includes</code>)</li><li>盡量可以使用<code>hook</code>，也就是很多套件提供的<code>do-action</code>和<code>apply_filter</code>等方式，對於我們開發者而言，對應上就是<code>add-action</code>和<code>add-filter</code>等等</li></ul><blockquote><p>詳情可以參考此網站：<a href=https://ithelp.ithome.com.tw/articles/10242112>https://ithelp.ithome.com.tw/articles/10242112</a></p></blockquote><p>不過啦，我也還在這學習的過程中，或許以後還有更多不同的體悟XD</p><p>而我自己擅長<code>Docker</code>，用他開發的最大好處就是我認為<code>絕對不會改到 Wordpress 和套件的核心</code>。除非你自己進去 cli 給他胡搞瞎搞這樣。</p><p>以下就提供我工作中常用的docker-compose.yml 配置。搭配<code>phpmyadmin</code>幫助我進入資料庫做 check</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3.3&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=nt>db</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>mysql:5.7</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>db_data:/var/lib/mysql</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>environment</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>MYSQL_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>somewordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>MYSQL_DATABASE</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>MYSQL_USER</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>MYSQL_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>linux/x86_64</span><span class=w> </span><span class=c># 因為最近工作機換成 M1 系列，發現需要額外加上這個參數才不會出錯</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=nt>wordpress</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>db</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>wordpress:latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=c># 方便debug 與開發上使用，如果還想要額外的 volumes 可以另外在加 </span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>./wp-config.php:/var/www/html/wp-config.php</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>./debug.log:/var/www/html/wp-content/debug.log</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=c>#  develop plugins</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>./src/r567tw-tappay:/var/www/html/wp-content/plugins/r567tw-tappay</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=s2>&#34;80:80&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>environment</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>WORDPRESS_DB_HOST</span><span class=p>:</span><span class=w> </span><span class=l>db:3306</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>WORDPRESS_DB_USER</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>WORDPRESS_DB_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=nt>WORDPRESS_DB_NAME</span><span class=p>:</span><span class=w> </span><span class=l>wordpress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=nt>phpmyadmin</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>links</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=l>db:db</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>phpmyadmin/phpmyadmin</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>       </span>- <span class=s2>&#34;8000:80&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>environment</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>PMA_HOST</span><span class=p>:</span><span class=w> </span><span class=l>db</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MYSQL_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>root</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>     </span><span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>linux/x86_64</span><span class=w> </span><span class=c># 因為最近工作機換成 M1 系列，發現需要額外加上這個參數才不會出錯</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>db_data</span><span class=p>:</span><span class=w> </span>{}<span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>打完收工。接下來使用<code>docker-compose up -d</code> 就可以快快樂樂的開發<code>plugin</code>和<code>theme</code>囉 😆</p><h3 id=使用-localwp>使用 LocalWP</h3><p>不過啊，最近我還是趁著<code>Udemy</code>打折買了<code>Wordpress</code> 開發的相關課程，覺得也是蠻有收穫跟學習的，他在課程裡面介紹一個開發的工具也很方便，我覺得可以放在這裡給大家看看，是知名<code>Wordpress</code>界 WP-開發的<a href=https://localwp.com/><code>localWp</code></a>，感覺真的也很不錯用啊啊啊</p><p><a href=https://localwp.com/>https://localwp.com/</a></p><p>對了，我在上的課程是：<a href=https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/>Become a WordPress Developer: Unlocking Power With Code</a></p><p>推薦給大家＾＾</p><h2 id=mu-plugin>MU-plugin</h2><p>Wordpress 基本上他其實已經可以作為一個<code>產品</code>了，如果你是個有能力的開發者，用它架站基本上只是半天甚至是幾秒鐘可以完成的事情。而它提供了蠻多<code>pattern</code>可以讓開發者去遵循，但我認爲沒有像<code>laravel</code>這麼方便啦，畢竟兩者完全不太一樣不太能比較&mldr;</p><p>而我發現到在<code>Wordpress</code>有一個<code>mu-plugin</code>的概念，它位於<code>wp-content/mu-plugins</code>這裡，<code>mu</code>的意思就是<code>Must Use</code>，也就是你不會在後台看到他，而且他<strong>一定會被啟動的</strong>。</p><p>所以說，上面的<code>yaml</code>檔我甚至改成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-diff data-lang=diff><span class=line><span class=cl># (略)...
+</span></span><span class=line><span class=cl>   wordpress:
+</span></span><span class=line><span class=cl>     depends_on:
+</span></span><span class=line><span class=cl>       - db
+</span></span><span class=line><span class=cl>     image: wordpress:latest
+</span></span><span class=line><span class=cl>     volumes:
+</span></span><span class=line><span class=cl>       # 方便debug 與開發上使用，如果還想要額外的 volumes 可以另外在加 
+</span></span><span class=line><span class=cl>       - ./wp-config.php:/var/www/html/wp-config.php
+</span></span><span class=line><span class=cl>       - ./debug.log:/var/www/html/wp-content/debug.log
+</span></span><span class=line><span class=cl>       #  develop plugins
+</span></span><span class=line><span class=cl>       - ./src/r567tw-tappay:/var/www/html/wp-content/plugins/r567tw-tappay
+</span></span><span class=line><span class=cl><span class=gi>+      # Mu plugins
+</span></span></span><span class=line><span class=cl><span class=gi>+      - ./src/mu-plugins:/var/www/html/wp-content/mu-plugins
+</span></span></span><span class=line><span class=cl><span class=gi></span>     ports:
+</span></span><span class=line><span class=cl>       - &#34;80:80&#34;
+</span></span><span class=line><span class=cl>     restart: always
+</span></span><span class=line><span class=cl>     environment:
+</span></span><span class=line><span class=cl>       WORDPRESS_DB_HOST: db:3306
+</span></span><span class=line><span class=cl>       WORDPRESS_DB_USER: wordpress
+</span></span><span class=line><span class=cl>       WORDPRESS_DB_PASSWORD: wordpress
+</span></span><span class=line><span class=cl>       WORDPRESS_DB_NAME: wordpress
+</span></span><span class=line><span class=cl># (略)...
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>供文件作參考：<a href=https://wordpress.org/documentation/article/must-use-plugins/>https://wordpress.org/documentation/article/must-use-plugins/</a></p></blockquote><h2 id=覺得wordpress的架構才是神架構>覺得<code>Wordpress</code>的架構才是神架構</h2><p>之前在讀<a href=https://www.books.com.tw/products/0010842548>程式設計師從零開始邁向架構師之路</a>這本書，學到蠻多的架構設計相關的知識。</p><p>其中，我最喜歡的就是：</p><blockquote><p>架構設計的目的是為了解決複雜度帶來的問題</p></blockquote><p>想到以前有個很爛很爛的經驗，公司找了個「架構師」過來，發現他根本&mldr;<strong>再增加複雜度</strong> XD</p><p>約莫去年底才看完那本書，然後老實講技術書很難寫心得文，於是使用筆記給他筆記起來，提供大家參考參考：<a href=https://jimmynotes.netlify.app/docs/coding/architecture>架構設計筆記</a></p><p>在講到<code>可擴展性</code>的章節這裡，作者整理出幾種常見的模式</p><ul><li>分層架構</li><li>SOA 架構</li><li>微服務</li><li>微內核架構(<code>plug-in</code>)</li></ul><p>原來，<code>Wordpress</code>使用所謂的<code>theme</code>和<code>plugin</code>管理，正就是書中所提到的<code>微內核架構</code>，<code>Wordpress</code>專注他的核心、其他功能就可以用<code>hook</code>的方式勾進去，難怪會有這麼高的市佔率！</p><p>可說是<code>Wordpress</code>不滅，<code>PHP</code>也不滅啊&mldr;</p><div><blockquote id=jimmy-say>小君曰: 還是又回到 PHP 的懷抱裡</blockquote></div></div><footer class=post-footer><div class=post-tags><a href=/tags/wordpress/>wordpress</a>
+<a href=/tags/docker/>docker</a></div><nav class=post-nav><a class=next href=/posts/%E5%8E%9F%E4%BE%86%E5%8F%AF%E4%BB%A5%E9%80%99%E9%BA%BC%E5%AF%AB22/><span class="next-text nav-default">原來可以這麼寫(22): 使用`git-hook`&`air`</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=r567tw/r567tw.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:r567tw@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/r567tw class="iconfont icon-github" title=github></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2017 -
+2023<span class=heart><i class="iconfont icon-heart"></i></span>
+<span>r567tw</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7PPECL3Q0"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-7PPECL3Q0")</script></body></html>

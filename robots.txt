@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://r567tw.github.io/blog-site/sitemap.xml
+Sitemap: https://r567tw.github.io/sitemap.xml
